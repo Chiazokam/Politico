@@ -3,6 +3,7 @@
     font: 18px/1.5 'Sarabun', sans-serif;  /*font-size/line-height font-family*/
     margin: 0;
     padding: 0;
+    background-color: #DCE9BE;
 }
 
  /*Global*/
@@ -131,16 +132,49 @@ header a{
     color: #DCE9BE;
   }
 
+/*---------------------------ABOUT PAGE---------------------------------*/
+
+.page-strip{
+    background-color: #99173C;
+    height: 10%;
+    box-shadow: 1px 1px 5px #2c3e50;
+}
+
+.page-strip p{
+    margin: 0;
+    color: #2E2633;
+    text-align: center;
+    padding: 0.7% 0 0.7% 0;
+    font-size: 24px; 
+    font-weight: bold;
+}
+
+#main-about{
+    height: auto;
+    text-align: center;
+    margin: 25px 80px 25px 80px;
+    border: 1px solid #2E2633;
+    box-shadow: 0px 0px 5px #2c3e50;
+   }
+
+#main-about p{
+    margin: 5% 10% 5% 10%;
+    line-height: 2.0;
+    letter-spacing: 2px;
+}
+
 footer{
-   background-color: #2c3e50;
-   padding: 20px;
-   color: #dfe6e9;
+   background-color: #2E2633;
+   padding: 8px;
+   color: #DCE9BE;
    text-align: center;
 }
 
 footer p{
    letter-spacing: 1.5px;
 }
+
+/*---------------------------MEDIA QUERIES---------------------------------*/
 
 @media(max-width:768px){
     .sticky {
@@ -205,4 +239,18 @@ footer p{
         font-weight: bold;
         margin-bottom: 20%;
      }
+
+     /*---------ABOUT PAGE-----------*/
+     #main-about{
+        text-align: center;
+        margin: 10px 10px 10px 10px;
+        border: 1px solid #2E2633;
+        box-shadow: 0px 0px 5px #2c3e50;
+       }
+    
+    #main-about p{
+        margin: 5% 5% 5% 5%;
+        line-height: 1.0;
+        letter-spacing: 2px;
+    }
 }
