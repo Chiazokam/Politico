@@ -197,7 +197,8 @@ form{
     border-radius: 5px;
     font-size: 16px;
     padding-left: 10px;
-    font-family: Arial
+    font-family: Arial;
+    margin-bottom: 15px;
   }
  
    /*Global*/
@@ -233,7 +234,14 @@ form{
     margin: 10px 0 40px 0;
 }
 
+/*---------------------------SIGNIN PAGE---------------------------------*/
+
+.btn-signin{
+    margin: 5px 0 40px 0;
+}
+
 .modal{
+    display: none;
     left: 0;
     top: 0;
     width: 100%;
@@ -259,6 +267,20 @@ form{
 
 .forgotPassword input{
     min-width: 50%;
+}
+
+.btn-cancel-modal{
+    background-color: #2E2633;  
+    color: #DCE9BE; 
+}
+
+.btn-submit-modal{
+    background-color: #DCE9BE;
+}
+
+.btn-submit-modal a{
+    color: #2E2633;
+    text-decoration: none;
 }
 
 /*---------------------------MEDIA QUERIES---------------------------------*/
@@ -353,4 +375,15 @@ form{
     .form-field textarea{
         min-width: 100%;
       }
+
+    /*---------SIGNIN PAGE-----------*/
+
+    .forgotPassword-modal{
+        margin-top: 30%;
+        width: 80%;
+    }
+
+    .forgotPassword input{
+        min-width: 50%;
+    }
 }
