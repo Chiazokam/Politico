@@ -191,7 +191,7 @@ form{
   }
  
    /*Global*/
- .form-field input{
+ .form-field input, .form-field select{
     min-width: 70%;
     height: 40px;
     border-radius: 5px;
@@ -211,7 +211,7 @@ form{
   }
  
    /*Global*/
- form input{
+ form input, form select{
     outline: none;
     border: 1px solid #2E2633;
  }
@@ -344,6 +344,7 @@ form{
     background-color: #DCE9BE;
     color: #2E2633;
     display: flex;
+    font-weight: bold;
 }
 
 .party-main{
@@ -369,6 +370,112 @@ form{
     margin-top: 10px;
 }
 
+/*---------------------------VOTE---------------------------------*/
+#vote-office{
+    text-align: center;
+    height: 100vh;
+    overflow: scroll;
+    margin: auto;
+}
+
+.office-main{
+    flex: 2;
+    border-right: 2px solid #DCE9BE;
+    box-shadow: 5px 0px 5px #2E2633;
+}
+
+.office-main p{
+    margin: 20px;
+}
+
+.office-vote{
+    flex: 3;
+    box-shadow: 5px 0px 5px #2E2633;
+}
+
+.office-vote button{
+    margin-top: 30px;
+}
+
+.office-vote button:hover{
+    cursor: pointer;
+}
+
+.modal-main-vote{
+    display: none;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.9);
+    position: fixed;
+    padding-top: 4%;
+  }
+
+.modal-main-vote p{
+    text-transform: uppercase;
+    font-size: 24px;
+}
+
+.vote-modal{
+    width: 60%;
+    overflow: auto;
+    background-color: #99173C;
+    padding: 3% 0 5% 0;
+    border-radius: 4px;
+}
+
+.vote-modal form{
+    margin-top: 0;
+}
+
+.vote-modal input{
+    min-width: 50%;
+}
+
+.vote-modal{
+    margin: auto;
+}
+
+.office-vote-flex{
+    display: flex;
+}
+
+.candidate-party{
+    flex: 2;
+    text-align: left;
+    padding-left: 30px;
+}
+
+.candidate{
+    flex: 3;
+    border-right: 2px solid #DCE9BE;
+    box-shadow: 5px 0px 5px #2E2633;
+    text-align: left;
+    padding-left: 30px;
+}
+
+
+.radio-input{
+    display: block;
+}
+
+.radio-input, .candidate-party-select{
+    margin: 10px 0;
+}
+
+.submit-vote{
+    height: 10%;
+}
+
+.submit-vote button{
+    margin-top: 10px;
+}
+
+.submit-vote{
+    margin-top: 20px;
+}
 /*---------------------------MEDIA QUERIES---------------------------------*/
 
 @media(max-width:768px){
@@ -527,5 +634,18 @@ form{
 
     .party-logo img{
         height: 200px;
+    }
+    /*-------------------VOTE---------------------*/
+    .office-vote button{
+        padding: 0 10px;
+        margin-top: 35px;
+    }
+
+    .candidate-party{
+        padding-left: 10px;
+    }
+    
+    .candidate{
+        padding-left: 10px;
     }
 }
