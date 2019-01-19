@@ -240,7 +240,7 @@ form{
     margin: 5px 0 40px 0;
 }
 
-.modal, .modal-reset{
+.modal, .modal-reset, .modal-petition{
     display: none;
     left: 0;
     top: 0;
@@ -252,12 +252,12 @@ form{
     padding-top: 4%;
   }
 
-.modal p, .modal-reset p{
+.modal p, .modal-reset p, .modal-petition p{
     text-transform: uppercase;
     font-size: 24px;
 }
 
-.forgotPassword-modal, .resetPassword-modal{
+.forgotPassword-modal, .resetPassword-modal, .createPetition-modal{
     margin: 0 auto;
     width: 60%;
     background-color: #99173C;
@@ -265,7 +265,7 @@ form{
     border-radius: 4px;
 }
 
-.forgotPassword input, .resetPassword input{
+.forgotPassword input, .resetPassword input, .createPetition input{
     min-width: 50%;
 }
 
@@ -489,6 +489,9 @@ form{
 
 /*---------------------------CANDIDATE---------------------------------*/
 /*Sign in styles*/
+.create-petition:hover{
+    cursor: pointer;
+}
 
 /*---------------------------MEDIA QUERIES---------------------------------*/
 
