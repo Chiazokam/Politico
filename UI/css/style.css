@@ -315,7 +315,6 @@ form{
     width: 30%;
     margin: 20px 20px 20px 20px;
     border-radius: 3px;
-    transform: scale(1);
     transition: transform 0.2s, opacity 0.2s;
 }
 
@@ -493,6 +492,23 @@ form{
     cursor: pointer;
 }
 
+/*---------------------------ADMIN PROFILE---------------------------------*/
+
+#main-admin-profile{
+    height: 58vh;
+    text-align: center;
+    margin: 25px 80px 25px 80px;
+    color: #DCE9BE;
+   }
+
+#main-admin-profile .card .btn{
+    margin-top: 51%;
+}
+
+/*---------------------------ADMIN CREATE PARTY---------------------------------*/
+.nav-menu .admin-dropdown-ul{
+    display: block;
+}
 /*---------------------------MEDIA QUERIES---------------------------------*/
 
 @media(max-width:768px){
@@ -670,5 +686,17 @@ form{
 .view-candidate, .view-candidate-party{
     text-align: center;
     padding-top: 85px;
-}
+    }
+
+    /*-------------------ADMIN PROFILE---------------------*/
+
+    #main-admin-profile{
+        height: auto;
+        margin: 25px;
+       }
+
+    #main-admin-profile .card .btn{
+        margin-top: 20%;
+    }
+    
 }
