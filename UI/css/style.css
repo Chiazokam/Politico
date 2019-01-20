@@ -704,8 +704,8 @@ form{
 
     /*-------------------ADMIN CREATE OFFICE---------------------*/
     
-    .create-office{
-        height: 120vh;
+    #create-office{
+        height: 58vh;
         margin: 25px;
     }
 }
