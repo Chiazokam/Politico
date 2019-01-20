@@ -20,9 +20,9 @@
                     </div>
                     <nav class="nav-menu">
                         <ul>
-                            <li><a href="adminProfile.html">Back</a></li>
-                            <li><a href="createParty.html">Create Party</a></li>
+                            <li><a href="adminViewParties.html">Back</a></li>
                             <li><a href="adminViewParties.html">View Parties</a></li>
+                            <li><a href="createOffice.html">Create Office</a></li>
                             <li><a href="viewOffices.html">View Offices</a></li>
                             <li class="reset-password"><a>Reset Password</a></li>
                             <li><a href="../index.html">Logout</a></li>
@@ -33,12 +33,12 @@
 
             <section>
                     <div class="page-strip">
-                            <p>Create Office</p>
+                            <p>Edit Party</p>
                     </div>
 
-                    <div id="create-office">
+                    <div id="main-signin">
                             <div class="container">
-                                   <div class="modal-reset">
+                                    <div class="modal-reset">
                                             <div class="resetPassword-modal">
                                                 <p>Reset Password</p>
                                                 <div class="form-field resetPassword">
@@ -54,19 +54,16 @@
                                                 <button type="button" class="btn btn-submit-modal"><a href="userProfile.html">Send</a></button>
                                             </div>
                                         </div>
-                                    <form action="/register" method="post">
+                                    <form action="" method="post">
                     
                                             <div class="form-field">
-                                                <input type="text" name="officeName" placeholder="Office Name" required>
+                                                <input type="text" name="partyName" value="People's Independent Party" required>
                                             </div>
                                             <div class="form-field">
-                                                <select name="office">
-                                                    <option>Select Office Type</option>
-                                                    <option value="">Federal</option>
-                                                    <option value="">Legislative</option>
-                                                    <option value="">State</option>
-                                                    <option value="">Local Government</option>
-                                                </select>
+                                                <input type="url" value="https://buzznigeria.com/wp-content/uploads/2016/10/PDP-logo.jpg" required>
+                                            </div>
+                                            <div class="form-field">
+                                                <textarea rows="4" required>12 Ibrahim Babalola Avenue, Wuse 2, Abuja</textarea>
                                             </div>
                                             <button type="button" class="btn btn-colored btn-signin btn-dark"><a href="./User/userProfile.html">Submit</a></button>
                                     </form>
