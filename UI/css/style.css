@@ -132,6 +132,15 @@ header a{
     color: #DCE9BE;
   }
 
+.btn-dark:hover{
+    background-color: #DCE9BE;
+    border: 1px solid #99173C;
+}
+
+.btn-dark a:hover{
+    color: #2E2633;
+}
+
 /*---------------------------ABOUT PAGE---------------------------------*/
 
 .page-strip{
@@ -509,6 +518,29 @@ form{
 .nav-menu .admin-dropdown-ul{
     display: block;
 }
+
+/*---------------------------ADMIN VIEW PARTY---------------------------------*/
+
+.party-main a{
+    border: 1px solid #99173C;
+    border-radius: 3px; 
+    padding: 8px 20px;
+    background-color: #99173C;
+    color: #f5f6fa;
+    font-weight: 100;
+    text-decoration: none;
+}
+
+.party-main a:hover{
+    background-color: #DCE9BE;
+    color: #2E2633;
+    border: 1px solid #99173C;
+}
+
+.admin-card{
+    padding-bottom: 20px;
+}
+
 /*---------------------------MEDIA QUERIES---------------------------------*/
 
 @media(max-width:768px){
