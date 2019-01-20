@@ -21,8 +21,8 @@
                     <nav class="nav-menu">
                         <ul>
                             <li><a href="adminProfile.html">Back</a></li>
+                            <li><a href="createParty.html">Create Party</a></li>
                             <li><a href="">View Parties</a></li>
-                            <li><a href="createOffice.html">Create Office</a></li>
                             <li><a href="">View Offices</a></li>
                             <li class="reset-password"><a>Reset Password</a></li>
                             <li><a href="../index.html">Logout</a></li>
@@ -33,12 +33,12 @@
 
             <section>
                     <div class="page-strip">
-                            <p>Create Party</p>
+                            <p>Create Office</p>
                     </div>
 
-                    <div id="main-signin">
+                    <div id="create-office">
                             <div class="container">
-                                    <div class="modal-reset">
+                                   <div class="modal-reset">
                                             <div class="resetPassword-modal">
                                                 <p>Reset Password</p>
                                                 <div class="form-field resetPassword">
@@ -54,16 +54,19 @@
                                                 <button type="button" class="btn btn-submit-modal"><a href="userProfile.html">Send</a></button>
                                             </div>
                                         </div>
-                                    <form action="" method="post">
+                                    <form action="/register" method="post">
                     
                                             <div class="form-field">
-                                                <input type="text" name="partyName" placeholder="Party Name" required>
+                                                <input type="text" name="officeName" placeholder="Office Name" required>
                                             </div>
                                             <div class="form-field">
-                                                <input type="url" placeholder="Logo Url" required>
-                                            </div>
-                                            <div class="form-field">
-                                                <textarea rows="4" placeholder="Party Head Quarters" required></textarea>
+                                                <select name="office">
+                                                    <option>Select Office Type</option>
+                                                    <option value="">Federal</option>
+                                                    <option value="">Legislative</option>
+                                                    <option value="">State</option>
+                                                    <option value="">Local Government</option>
+                                                </select>
                                             </div>
                                             <button type="button" class="btn btn-colored btn-signin btn-dark"><a href="./User/userProfile.html">Submit</a></button>
                                     </form>
