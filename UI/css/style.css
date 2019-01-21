@@ -151,16 +151,34 @@ header a{
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 
+.form-strip{
+    height: 3vh;
+}
+
 .page-strip p{
     margin: 0;
     color: #ffffff;
     text-align: center;
     padding: 0.7% 0 0.7% 0;
     font-size: 24px;
-    /* font-weight: bold; */
 }
 
-#main-about, #main-signup, #main-signin, #create-office{
+#main-signup, #main-signin, #create-office{
+    border-radius: 4px;
+    width: 45%;
+    height: auto;
+    text-align: center;
+    /* margin: 25px 80px 25px 80px; */
+    border: 1px solid #2E2633;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    background-color: #2E2633;
+    color: #DCE9BE;
+    margin: 25px auto;
+   }
+
+   #main-about{
+    border-radius: 4px;
+    width: 70%;
     height: auto;
     text-align: center;
     margin: 25px 80px 25px 80px;
@@ -168,6 +186,7 @@ header a{
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
     background-color: #2E2633;
     color: #DCE9BE;
+    margin: 25px auto;
    }
 
 #main-about p, #main-signin p, #main-profile p{
@@ -192,7 +211,7 @@ footer p{
 
 /*Global*/
 form{
-    padding: 80px 0 20px 0;
+    padding: 10px 0 20px 0;
   }
  
    /*Global*/
@@ -203,7 +222,7 @@ form{
  
    /*Global*/
  .form-field input, .form-field select{
-    min-width: 70%;
+    min-width: 90%;
     height: 40px;
     border-radius: 5px;
     font-size: 16px;
@@ -214,11 +233,11 @@ form{
  
    /*Global*/
  .form-field textarea{
-    min-width: 70%;
+    min-width: 90%;
     border-radius: 5px;
     font-size: 16px;
     padding-left: 10px;
-    font-family: Arial
+    font-family: Arial;
   }
  
    /*Global*/
@@ -226,9 +245,11 @@ form{
     outline: none;
     border: 1px solid #2E2633;
  }
- 
- form p{
-    color: #DCE9BE;
+
+ #main-signup .form-text, #main-signin .form-text, #create-office .form-text{
+     color: #DCE9BE;
+     font-size: 34px;
+     margin-bottom: 0;
  }
  
  form p{
@@ -631,8 +652,9 @@ form{
 
      /*---------ABOUT PAGE-----------*/
      #main-about, #main-signup{
+        width: 90%;
+        margin: 25px auto;
         text-align: center;
-        margin: 10px 10px 10px 10px;
         border: 1px solid #2E2633;
         box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
        }
@@ -659,8 +681,9 @@ form{
     /*---------SIGNIN PAGE-----------*/
 
     #main-signin{
-        margin: 25px;
-        height: 58vh;
+        width: 90%;
+        margin: 25px auto;
+        height: auto;
        }
 
     .forgotPassword-modal{
