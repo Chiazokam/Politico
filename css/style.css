@@ -202,6 +202,63 @@ footer{
    text-align: center;
 }
 
+.footer-text{
+    display: flex;
+    margin-top: 25px;
+    color: #DCE9BE;
+    font-size: 16px;
+}
+
+.footer-text li a, .footer-contact li{
+    color: #f5f6fa;
+    text-decoration: none;
+}
+
+.footer-text li a:hover{
+    color: #DCE9BE;
+}
+
+.footer-contact ul{
+    list-style: none;
+}
+
+.footer-text .footer-header{
+    font-size: 20px;
+    color: #DCE9BE;
+    margin-bottom: 10px;
+}
+
+.footer-subscribe input{
+    height: 20px;
+    border: 1px solid #DCE9BE;
+    border-radius: 4px;
+}
+
+.footer-subscribe button{
+    padding: 3px;
+    border-radius: 4px;
+    border: 1px solid #99173C;
+    background-color: #99173C;
+}
+
+.footer-subscribe button:hover{
+    color: #DCE9BE;
+    background-color: transparent;
+    border: 1px solid #99173C;
+}
+
+.footer-quicklinks{
+    flex:1;
+}
+
+.footer-contact{
+    flex:1;
+}
+
+.footer-subscribe{
+    flex:1;
+}
+
 footer p{
    letter-spacing: 1.5px;
 }
@@ -1552,6 +1609,65 @@ form{
         font-weight: bold;
         margin-bottom: 20%;
      }
+
+     .footer-text{
+        display: flex;
+        margin-top: 25px;
+        color: #DCE9BE;
+        font-size: 16px;
+        flex-direction: column;
+    }
+    
+    .footer-text li a, .footer-contact li{
+        color: #f5f6fa;
+        text-decoration: none;
+    }
+    
+    .footer-contact ul{
+        list-style: none;
+    }
+    
+    .footer-text .footer-header{
+        font-size: 20px;
+        color: #DCE9BE;
+        margin-bottom: 10px;
+    }
+    
+    .footer-subscribe input{
+        height: 20px;
+        border: 1px solid #DCE9BE;
+        border-radius: 4px;
+    }
+    
+    .footer-subscribe button{
+        padding: 3px;
+        border-radius: 4px;
+        border: 1px solid #99173C;
+        background-color: #99173C;
+    }
+    
+    .footer-subscribe button:hover{
+        color: #DCE9BE;
+        background-color: transparent;
+        border: 1px solid #99173C;
+    }
+    
+    .footer-quicklinks{
+        flex:1;
+        order: 3;
+    }
+    
+    .footer-contact{
+        flex:1;
+        order: 2;
+        margin-bottom: 20px;
+    }
+    
+    .footer-subscribe{
+        flex:1;
+        order: 1;
+        margin-bottom: 20px;
+    }
 
      /*---------ABOUT PAGE-----------*/
      #main-about, #main-signup{
