@@ -76,7 +76,7 @@ header a{
     background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80);
     background-repeat: no-repeat;
     background-size: cover;
-    height: 90vh;
+    height: 80vh;
     text-align: center;
     color: #DCE9BE;
     padding-top: 4%;
@@ -110,7 +110,8 @@ header a{
   /*Global*/
 .btn-colored:hover{
     color: #DCE9BE;
-    background-color: #2E2633;
+    background-color: transparent;
+    border: 1px solid #99173C;
   }
   
   /*Global*/
@@ -122,7 +123,8 @@ header a{
    /*Global*/
 .btn-trans:hover{
     color: #DCE9BE;
-    background-color: #2E2633;
+    background-color: transparent;
+    border: 1px solid #99173C;
     background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0));
   }
 
@@ -559,6 +561,11 @@ form{
 /*---------------------------MEDIA QUERIES---------------------------------*/
 
 @media(max-width:768px){
+    /*INDEX PAGE*/
+    .btn-index{
+        margin: 10px;
+    }
+
     .sticky {
         position: relative;
       }
@@ -606,7 +613,7 @@ form{
     }
 
     #showcase{
-        height: 90vh;
+        height: 75vh;
         padding-top: 20%;
        }
 
@@ -653,6 +660,7 @@ form{
 
     #main-signin{
         margin: 25px;
+        height: 58vh;
        }
 
     .forgotPassword-modal{
@@ -733,10 +741,26 @@ form{
         padding-left: 10px;
     }
 
-/*-------------------VIEW VOTE---------------------*/
-.view-candidate, .view-candidate-party{
-    text-align: center;
-    padding-top: 85px;
+    /*-------------------VIEW VOTE---------------------*/
+    .view-candidate, .view-candidate-party{
+        text-align: center;
+        padding-top: 85px;
+    }
+
+    .form-field select{
+        width: 100%;
+    }
+
+    /*CREATE PETITION*/
+    .createPetition-modal{
+        width: 80%;
+        margin-top: 15%;
+    }
+
+    .createPetition{
+        width: 80%;
+        margin: 0 auto;
+        margin-bottom: 15px;
     }
 
     /*-------------------ADMIN PROFILE---------------------*/
