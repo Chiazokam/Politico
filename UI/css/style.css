@@ -199,7 +199,7 @@ header a{
 .footer-contact{
     flex:1;
     order: 2;
-    text-align: left;
+    text-align: center;
 }
 
 .footer-subscribe{
