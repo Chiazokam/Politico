@@ -380,7 +380,7 @@ form{
     border: 1px solid #2E2633;
  }
 
- #main-signup .form-text, #main-signin .form-text, #create-office .form-text{
+ #main-signup .form-text, #main-signin .form-text, #create-office .form-text, #candidate .form-text{
      color: #DCE9BE;
      font-size: 34px;
      margin-top: 15px;
@@ -561,6 +561,10 @@ form{
     /* box-shadow: 5px 0px 5px #2E2633; */
 }
 
+.card-party #party-title{
+    font-weight: bold;
+}
+
 .party-main p{
     margin: 20px;
 }
@@ -598,6 +602,7 @@ form{
 
 .office-vote{
     flex: 3;
+    text-align: left;
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 
@@ -683,6 +688,10 @@ form{
 
 .submit-vote{
     margin-top: 20px;
+}
+
+.btn-vote a:hover{
+    color: #99173C;
 }
 
 /*---------------------------VIEW VOTES---------------------------------*/
@@ -848,6 +857,7 @@ header a{
 /*---------------------------ABOUT PAGE---------------------------------*/
 
 .page-strip{
+    padding-bottom: 10px;
     background-color: #99173C;
     height: 10%;
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
@@ -862,7 +872,7 @@ header a{
     color: #ffffff;
     text-align: center;
     padding: 0.7% 0 0.7% 0;
-    font-size: 24px;
+    font-size: 30px;
 }
 
 #main-signup, #create-office{
@@ -1123,8 +1133,21 @@ form{
     font-weight: bold;
 }
 
+.title-header{
+    background-color: #2E2633;
+    color: #DCE9BE;
+    padding: 15px 20px;
+    border-radius: 4px;
+    font-size: 24px;
+}
+
+.leading-p {
+    margin-top: 35px;
+}
+
 .party-main{
     flex: 3;
+    text-align: left;
     border-right: 2px solid #bfbfbf;
     /* box-shadow: 5px 0px 5px #2E2633; */
 }
@@ -1156,6 +1179,7 @@ form{
 
 .office-main{
     flex: 2;
+    text-align: left;
     border-right: 2px solid #DCE9BE;
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
@@ -1255,12 +1279,17 @@ form{
 
 /*---------------------------VIEW VOTES---------------------------------*/
 .view-candidate, .view-candidate-party{
-    text-align: center;
+    text-align: left;
     padding-top: 30px;
 }
 
 .candidate-name{
     margin: 10px auto; 
+}
+
+.title-span {
+    font-weight: 900 !important;
+    font-size: 24px;
 }
 
 /*---------------------------CANDIDATE---------------------------------*/
@@ -1274,6 +1303,9 @@ form{
 }
 
 /*---------------------------ADMIN PROFILE---------------------------------*/
+#admin-profile{
+    height: 74vh;
+}
 
 #main-admin-profile{
     height: auto;
@@ -1327,6 +1359,10 @@ form{
     background-color: #DCE9BE;
     color: #2E2633;
     border: 1px solid #99173C;
+}
+
+.admin-view-main{
+    text-align: center;
 }
 /*---------------------------MEDIA QUERIES---------------------------------*/
 
@@ -1501,7 +1537,9 @@ form{
     }
 
     .party-logo img{
-        height: 235px;
+        width: 90%;
+        height: 60px;
+        margin: 20px 0;
     }
     /*-------------------VOTE---------------------*/
     .office-vote button{
@@ -1539,6 +1577,7 @@ form{
         margin-bottom: 15px;
     }
 
+
     /*-------------------ADMIN PROFILE---------------------*/
 
     #main-admin-profile{
@@ -1566,7 +1605,7 @@ form{
 #main-admin-profile{
     height: auto;
     text-align: center;
-    margin: 25px 80px 25px 80px;
+    margin: 40px 80px 25px 80px;
     color: #DCE9BE;
    }
 
@@ -1861,7 +1900,7 @@ form{
     }
     
     .candidate{
-        padding-left: 10px;
+        padding: 0 10px;
     }
 
     /*-------------------VIEW VOTE---------------------*/
@@ -1887,6 +1926,9 @@ form{
     }
 
     /*-------------------ADMIN PROFILE---------------------*/
+    #admin-profile{
+        height: auto;
+    }
 
     #main-admin-profile{
         margin: 25px;
@@ -1902,4 +1944,9 @@ form{
         height: 58vh;
         margin: 25px;
     }
+
+    /**------------CANDIDATE-----------------------*/
+    #candidate{
+        width: 90%;
+       }
 }
