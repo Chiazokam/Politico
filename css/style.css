@@ -208,62 +208,24 @@ footer{
     color: #DCE9BE;
     font-size: 16px;
 }
-
-.footer-text li a, .footer-contact li{
-    color: #f5f6fa;
-    text-decoration: none;
-}
-
-.footer-text li a:hover{
-    color: #DCE9BE;
-}
-
-.footer-contact ul{
-    list-style: none;
-}
-
 .footer-text .footer-header{
     font-size: 20px;
     color: #DCE9BE;
     margin-bottom: 10px;
 }
 
-.footer-subscribe input{
-    height: 20px;
-    border: 1px solid #DCE9BE;
-    border-radius: 4px;
-}
-
-.footer-subscribe button{
-    padding: 3px;
-    border-radius: 4px;
-    border: 1px solid #99173C;
-    background-color: #99173C;
-    color: #DCE9BE;
-}
-
-.footer-subscribe button:hover{
-    color: #DCE9BE;
-    background-color: transparent;
-    border: 1px solid #99173C;
-}
-
-.footer-quicklinks{
-    flex:1;
-    order: 1;
-    text-align: left;
-}
-
 .footer-contact{
     flex:1;
     order: 2;
-    text-align: left;
+    /* text-align: left; */
 }
 
-.footer-subscribe{
-    flex:1;
-    order: 3;
-    text-align: left;
+.footer-contact .footer-contact-text, .footer-contact .footer-header{
+    padding-right: 20px;
+}
+
+.footer-contact .footer-contact-text i{
+    padding-right: 10px;
 }
 
 
@@ -750,14 +712,14 @@ header a{
     background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80);
     background-repeat: no-repeat;
     background-size: cover;
-    height: 80vh;
+    height: 70vh;
     text-align: center;
     color: #DCE9BE;
     padding-top: 4%;
    }
 
 #showcase h1{
-   margin-top: 10%;
+   margin-top: 5%;
    font-size: 70px;
    margin-bottom: 10px;
    letter-spacing: 2px;
