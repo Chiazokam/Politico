@@ -383,14 +383,40 @@ form{
     height: 100%;
 }
 .card{
+    height: 90%;
+    width: 30%;
+    margin: 20px;
+    border-radius: 3px;
+    transition: transform 0.2s, opacity 0.2s;
+}
+
+.card-view-party{
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(https://images.pexels.com/photos/1282270/pexels-photo-1282270.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500);
+    background-position: center;
+    background-color: #2E2633;
+    background-size: cover;
+}
+
+.card-create-party{
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(https://images.pexels.com/photos/943630/pexels-photo-943630.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+    background-position: center;
+    background-color: #2E2633;
+    background-size: cover;
+}
+
+
+.card-office{
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(https://images.pexels.com/photos/1249158/pexels-photo-1249158.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+    background-position: center;
+    background-color: #2E2633;
+    background-size: cover;
+}
+
+.card-view-votes{
     background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80);
     background-position: center;
     background-color: #2E2633;
-    height: 90%;
-    width: 30%;
-    margin: 20px 20px 20px 20px;
-    border-radius: 3px;
-    transition: transform 0.2s, opacity 0.2s;
+    background-size: cover;
 }
 
 .card:hover{
@@ -960,8 +986,7 @@ form{
     display: flex;
     height: 100%;
 }
-.card{
-    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80);
+.card{background-repeat: no-repeat;
     background-position: center;
     background-color: #2E2633;
     height: 90%;
@@ -1459,6 +1484,7 @@ form{
     #create-office{
         height: 58vh;
         margin: 25px;
+        width: 90%;
     }
 }
 
@@ -1608,7 +1634,7 @@ form{
     }
 
     form{
-        padding: 40px 0 20px 0;
+        padding: 0 0 20px 0;
       }
 
     .form-field input{
