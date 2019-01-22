@@ -30,8 +30,7 @@
             </header>
 
             <section>
-                    <div class="page-strip">
-                            <p>Sign In</p>
+                    <div class="page-strip form-strip">
                     </div>
 
                     <div id="main-signin">
@@ -46,13 +45,14 @@
                                                 <button type="button" class="btn btn-submit-modal"><a href="signin.html">Send</a></button>
                                             </div>
                                         </div>
-                                    <form action="/register" method="post">
+                                    <p class="form-text">Sign In</p>
+                                    <form action="" method="post">
                     
                                             <div class="form-field">
                                                 <input type="email" name="email" placeholder="Email Address" required>
                                             </div>
-                                            <div class="form-field">
-                                                <input type="password" placeholder="Password" required>
+                                            <div class="form-field password-field">
+                                                <input type="password" id="input-password" placeholder="Password" required>
                                             </div>
                                             <p id="forgotPass">Forgot Password?</p>
                                             <button type="button" class="btn btn-colored btn-signin btn-dark"><a href="./User/userProfile.html">Submit</a></button>
@@ -63,7 +63,7 @@
             </section>
             <footer>
                 <div class="container">
-                    <p>P<span class="brandname-span">olitico</span> Designs, copyright &copy; 2019</p>
+                    <p>P<span class="brandname-span">olitico</span>, copyright &copy; 2019</p>
                 </div>
             </footer>
         <script src="scripts/main.js"></script>
