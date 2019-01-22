@@ -1153,6 +1153,11 @@ form{
     margin: 10px auto; 
 }
 
+.title-span {
+    font-weight: 900 !important;
+    font-size: 24px;
+}
+
 /*---------------------------CANDIDATE---------------------------------*/
 /*Sign in styles*/
 .create-petition:hover{
@@ -1437,6 +1442,7 @@ form{
         margin: 0 auto;
         margin-bottom: 15px;
     }
+
 
     /*-------------------ADMIN PROFILE---------------------*/
 
