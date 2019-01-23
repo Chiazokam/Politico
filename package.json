@@ -1,0 +1,36 @@
+{
+  "name": "politico",
+  "version": "1.0.0",
+  "description": "A voting app",
+  "main": "app.js",
+  "scripts": {
+    "test": "nyc mocha test/ --compilers js:babel-core/register --exit",
+    "build": "babel server --out-dir build/server",
+    "start:dev": "npm run build && babel-watch server/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Chiazokam/Politico.git"
+  },
+  "author": "zokky",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Chiazokam/Politico/issues"
+  },
+  "homepage": "https://github.com/Chiazokam/Politico#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "babel-watch": "^2.0.8"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "chai": "^4.2.0",
+    "expect": "^23.6.0",
+    "mocha": "^5.2.0",
+    "nyc": "^13.1.0",
+    "supertest": "^3.4.2"
+  }
+}
