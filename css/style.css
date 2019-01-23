@@ -704,7 +704,7 @@ form{
 .admin-view-main{
     text-align: center;
 }
-/*---------------------------MEDIA QUERIES---------------------------------*/
+/************************************************MEDIA QUERIES************************************************/
 
 @media(max-width:768px){
     /*INDEX PAGE*/
@@ -774,332 +774,6 @@ form{
         font-weight: bold;
         margin-bottom: 20%;
      }
-
-     /*---------ABOUT PAGE-----------*/
-     #main-about, #main-signup{
-        width: 90%;
-        margin: 25px auto;
-        text-align: center;
-        border: 1px solid #2E2633;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-       }
-    
-    #main-about p{
-        margin: 5% 5% 5% 5%;
-        line-height: 1.0;
-        letter-spacing: 2px;
-    }
-
-    form{
-        padding: 40px 0 20px 0;
-      }
-
-    .form-field input{
-        min-width: 100%;
-      }
-     
-       /*Global*/
-    .form-field textarea{
-        min-width: 100%;
-      }
-
-    /*---------SIGNIN PAGE-----------*/
-
-    #main-signin{
-        width: 90%;
-        margin: 25px auto;
-        height: auto;
-       }
-
-    .forgotPassword-modal{
-        margin-top: 30%;
-        width: 80%;
-    }
-
-    .forgotPassword input{
-        min-width: 50%;
-    }
-
-    p#forgotPass {
-        text-align: left !important;
-    }
-
-     /*---------PROFILE PAGE-----------*/
-
-     .resetPassword-modal{
-        margin-top: 30%;
-        width: 80%;
-    }
-
-    .resetPassword input{
-        min-width: 50%;
-    }
-
-    #main-profile{
-        height: 110vh;
-        text-align: center;
-        margin: 25px;
-        color: #DCE9BE;
-    }
-
-    .flex-container{
-        height: 80%;
-        display: block;
-        margin-top: 20px;
-    }
-    .card{
-        background-color: #2E2633;
-        height: 38%;
-        width: 100%;
-        margin: auto;
-        margin-bottom: 20px;
-        border-radius: 3px;
-    }
-
-    .card .btn{
-        margin: 20% auto;
-    }
-
-    .card-party{
-        margin: 25px;
-    }
-
-    .party-main{
-        flex: 3;
-    }
-    
-    .party-main p{
-        margin: 20px 0 20px 20px;
-    }
-    
-    .party-logo{
-        flex: 2;
-    }
-
-    .party-logo img{
-        width: 90%;
-        height: 60px;
-        margin: 20px 0;
-    }
-    /*-------------------VOTE---------------------*/
-    .office-vote button{
-        padding: 0 10px;
-        margin-top: 35px;
-    }
-
-    .candidate-party{
-        padding-left: 10px;
-    }
-    
-    .candidate{
-        padding-left: 10px;
-    }
-
-    /*-------------------VIEW VOTE---------------------*/
-    .view-candidate, .view-candidate-party{
-        text-align: center;
-        padding-top: 85px;
-    }
-
-    .form-field select{
-        width: 100%;
-    }
-
-    /*CREATE PETITION*/
-    .createPetition-modal{
-        width: 80%;
-        margin-top: 15%;
-    }
-
-    .createPetition{
-        width: 80%;
-        margin: 0 auto;
-        margin-bottom: 15px;
-    }
-
-
-    /*-------------------ADMIN PROFILE---------------------*/
-
-    #main-admin-profile{
-        margin: 25px;
-       }
-
-    #main-admin-profile .card .btn{
-        margin-top: 20%;
-    }
-
-    /*-------------------ADMIN CREATE OFFICE---------------------*/
-    
-    #create-office{
-        height: 58vh;
-        margin: 25px;
-    }
-}
-
-.createPetition select, .createPetition textarea{
-    width: 60% !important;
-}
-
-/*---------------------------ADMIN PROFILE---------------------------------*/
-
-#main-admin-profile{
-    height: auto;
-    text-align: center;
-    margin: 40px 80px 25px 80px;
-    color: #DCE9BE;
-   }
-
-#main-admin-profile .card .btn{
-    margin-top: 51%;
-}
-
-/*---------------------------ADMIN CREATE PARTY---------------------------------*/
-.nav-menu .admin-dropdown-ul{
-    display: block;
-}
-
-/*---------------------------ADMIN VIEW PARTY---------------------------------*/
-
-.party-main .edit{
-    border: 1px solid #78e08f;
-    border-radius: 3px; 
-    padding: 8px 20px;
-    background-color: #78e08f;
-    color: #f5f6fa;
-    font-weight: 100;
-    text-decoration: none;
-}
-
-.party-main .edit:hover{
-    background-color: #DCE9BE;
-    color: #2E2633;
-    border: 1px solid #7bed9f;
-}
-
-.admin-card{
-    padding-bottom: 20px;
-}
-
-.party-main .delete{
-    border: 1px solid #99173C;
-    border-radius: 3px; 
-    padding: 8px 20px;
-    background-color: #99173C;
-    color: #f5f6fa;
-    font-weight: 100;
-    text-decoration: none;
-}
-
-.party-main .delete:hover{
-    background-color: #DCE9BE;
-    color: #2E2633;
-    border: 1px solid #99173C;
-}
-/*---------------------------MEDIA QUERIES---------------------------------*/
-
-@media(max-width:768px){
-    /*INDEX PAGE*/
-    .btn-index{
-        margin: 10px;
-    }
-
-    .sticky {
-        position: relative;
-      }
-
-    header{
-        padding: 20px 0 20px 0;
-        min-height: 30px;
-    }
-
-    .hamburger{
-        width: 35px;
-        height: 5px;
-        background-color: #f5f6fa;
-        margin: 6px 0;
-        background-color: #DCE9BE;
-      }
-
-    .brandname{
-          float: left
-      }
-
-    .menu-ham{
-        margin-top: 10px;
-        float: right;
-        cursor: pointer;
-      }
-
-    header li{
-        float: none;
-        list-style: none;
-        padding: 10px 5px 10px 10px;
-        border-bottom: 1px solid #99173C;
-        display: block;
-    }
-
-    .nav-menu{
-        display: none;
-        width: 100%;
-        text-align: left;
-        margin: 0;
-    }
-
-    .nav-menu.open{
-        display: block;
-    }
-
-    #showcase{
-        height: 75vh;
-        padding-top: 20%;
-       }
-
-    #showcase h1{
-        font-size: 45px;
-        margin-bottom: 10px;
-        letter-spacing: 2px;
-     }
-     
-     #showcase p{
-        font-size: 30px;
-        font-weight: bold;
-        margin-bottom: 20%;
-     }
-
-     .footer-text{
-        display: flex;
-        margin-top: 25px;
-        color: #DCE9BE;
-        font-size: 16px;
-        flex-direction: column;
-    }
-    
-    .footer-text li a, .footer-contact li{
-        color: #f5f6fa;
-        text-decoration: none;
-    }
-    
-    .footer-contact ul{
-        list-style: none;
-    }
-    
-    .footer-text .footer-header{
-        font-size: 20px;
-        color: #DCE9BE;
-        margin-bottom: 10px;
-    }
-    
-    .footer-subscribe input{
-        height: 20px;
-        border: 1px solid #DCE9BE;
-        border-radius: 4px;
-    }
-    
-    .footer-contact{
-        flex:1;
-        order: 2;
-        margin-bottom: 20px;
-    }
 
      /*---------ABOUT PAGE-----------*/
      #main-about, #main-signup{
@@ -1191,7 +865,6 @@ form{
     }
 
     .vote-card-party{
-        display: flex;
         flex-direction: column;
     }
 
@@ -1208,21 +881,11 @@ form{
     }
 
     .party-logo img{
-        height: 235px;
+        width: 90%;
+        height: 100px;
+        margin: 80px 0;
     }
     /*-------------------VOTE---------------------*/
-    .title-header{
-        display: none;
-    }
-    
-    .title-mobile{
-        display: block;
-    }
-
-    .party-main{
-        border-right: none;
-    }
-
     .office-vote button{
         padding: 0 10px;
         margin-top: 35px;
@@ -1236,6 +899,17 @@ form{
         padding: 0 10px;
     }
 
+    .title-header{
+        display: none;
+    }
+    
+    .title-mobile{
+        display: block;
+    }
+
+    .party-main{
+        border-right: none;
+    }
     /*-------------------VIEW VOTE---------------------*/
     .view-candidate, .view-candidate-party{
         text-align: center;
@@ -1258,10 +932,12 @@ form{
         margin-bottom: 15px;
     }
 
-    /*-------------------ADMIN PROFILE---------------------*/
-    #admin-profile{
-        height: auto;
+    /*-------------------CANDIDATE---------------------*/
+    #candidate{
+        width: 80%;
     }
+
+    /*-------------------ADMIN PROFILE---------------------*/
 
     #main-admin-profile{
         margin: 25px;
@@ -1275,11 +951,67 @@ form{
     
     #create-office{
         height: 58vh;
-        margin: 25px;
+        margin: 25px auto;
+        width: 80%;
     }
+}
 
-    /**------------CANDIDATE-----------------------*/
-    #candidate{
-        width: 90%;
-       }
+.createPetition select, .createPetition textarea{
+    width: 60% !important;
+}
+
+/*---------------------------ADMIN PROFILE---------------------------------*/
+
+#main-admin-profile{
+    height: auto;
+    text-align: center;
+    margin: 40px 80px 25px 80px;
+    color: #DCE9BE;
+   }
+
+#main-admin-profile .card .btn{
+    margin-top: 51%;
+}
+
+/*---------------------------ADMIN CREATE PARTY---------------------------------*/
+.nav-menu .admin-dropdown-ul{
+    display: block;
+}
+
+/*---------------------------ADMIN VIEW PARTY---------------------------------*/
+
+.party-main .edit{
+    border: 1px solid #78e08f;
+    border-radius: 3px; 
+    padding: 8px 20px;
+    background-color: #78e08f;
+    color: #f5f6fa;
+    font-weight: 100;
+    text-decoration: none;
+}
+
+.party-main .edit:hover{
+    background-color: #DCE9BE;
+    color: #2E2633;
+    border: 1px solid #7bed9f;
+}
+
+.admin-card{
+    padding-bottom: 20px;
+}
+
+.party-main .delete{
+    border: 1px solid #99173C;
+    border-radius: 3px; 
+    padding: 8px 20px;
+    background-color: #99173C;
+    color: #f5f6fa;
+    font-weight: 100;
+    text-decoration: none;
+}
+
+.party-main .delete:hover{
+    background-color: #DCE9BE;
+    color: #2E2633;
+    border: 1px solid #99173C;
 }
