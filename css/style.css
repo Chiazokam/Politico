@@ -332,7 +332,7 @@ form{
     width: 90%;
 }
 
-.modal, .modal-reset, .modal-petition{
+.modal, .modal-reset, .modal-petition, .modal-delete{
     display: none;
     left: 0;
     top: 0;
@@ -344,9 +344,12 @@ form{
     padding-top: 4%;
   }
 
-.modal p, .modal-reset p, .modal-petition p{
+.delete{
+    cursor: pointer;
+}
+.modal p, .modal-reset p, .modal-petition p, .delete-modal p{
     text-transform: uppercase;
-    font-size: 30px;
+    font-size: 24px;
     margin-top: 10px;
     color: #DCE9BE;
 }
