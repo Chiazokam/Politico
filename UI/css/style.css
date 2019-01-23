@@ -1008,7 +1008,7 @@ form{
     width: 90%;
 }
 
-.modal, .modal-reset, .modal-petition{
+.modal, .modal-reset, .modal-petition, .modal-delete{
     display: none;
     left: 0;
     top: 0;
@@ -1020,13 +1020,14 @@ form{
     padding-top: 4%;
   }
 
-.modal p, .modal-reset p, .modal-petition p{
+.modal p, .modal-reset p, .modal-petition p, .delete-modal p{
     text-transform: uppercase;
     font-size: 30px;
     margin-top: 10px;
+    color: #DCE9BE;
 }
 
-.forgotPassword-modal, .resetPassword-modal, .createPetition-modal{
+.forgotPassword-modal, .resetPassword-modal, .createPetition-modal, .delete-modal{
     margin: 0 auto;
     width: 60%;
     background-color: #99173C;
@@ -1034,8 +1035,12 @@ form{
     border-radius: 4px;
 }
 
-.forgotPassword input, .resetPassword input, .createPetition input{
+.forgotPassword input, .resetPassword input, .createPetition input, .delete-modal input{
     min-width: 50%;
+}
+
+.delete{
+    cursor: pointer;
 }
 
 .resetPassword{
