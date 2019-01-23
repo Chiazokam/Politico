@@ -11,3 +11,9 @@ displayPetitionModal.addEventListener('click', function(){
 petitionClose.addEventListener('click', function(){
   petitionModal.style.display = "none";
 })
+
+window.onclick = function(event) {
+  if (event.target == petitionModal) {
+    petitionModal.style.display = "none";
+  }
+}
