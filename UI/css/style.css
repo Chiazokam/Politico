@@ -35,719 +35,9 @@ header h1{
     width: 100%
   }
 
-.brandname{
-    font-size: 20px;
-}
-
-header .brandname{
-    float: left;
-}
-
-header .brandname h1{
-    margin: 0;
-}
-
-header nav{
-    float: right;
-    margin-top: 15px;
-}
-
-header li{
-    float: left;
-    list-style: none;
-    padding: 0 20px 0 20px;
-}
-
-header a{
-    color: #DCE9BE;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-size: 14px;
-    letter-spacing: 1.5px;
-}
-
-.active a{
-   color: #99173C;
-   font-weight: bold;
-}
-
-/*ShowCase*/
-#showcase{
-    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80);
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 80vh;
-    text-align: center;
-    color: #DCE9BE;
-    padding-top: 4%;
-   }
-
-#showcase h1{
-   margin-top: 10%;
-   font-size: 70px;
-   margin-bottom: 10px;
-   letter-spacing: 2px;
-}
-
-#showcase p{
-   font-size: 40px;
-   font-weight: bold;
-}
-
-.btn{
-    height: 45px;
-    background-color: #99173C;
-    border: none;
-    border-radius: 5px;
-    letter-spacing: 1px;
-    font-weight: 100;
-    padding: 0 15px 0 15px;
-    font-size: 20px;
-    margin-left: 10px;
-    outline: none;
-  }
-
-  /*Global*/
-.btn-colored:hover{
-    color: #DCE9BE;
-    background-color: transparent;
-    border: 1px solid #99173C;
-  }
-  
-  /*Global*/
-.btn-trans{
-    background-color: transparent;
-    border: 1px solid #DCE9BE;
-  }
-
-   /*Global*/
-.btn-trans:hover{
-    color: #DCE9BE;
-    background-color: transparent;
-    border: 1px solid #99173C;
-    background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0));
-  }
-
-  /*Global*/
-.btn-trans a, .btn-colored a{
-    text-decoration: none;
-    color: #DCE9BE;
-  }
-
-.btn-dark:hover{
-    background-color: transparent;
-    border: 1px solid #99173C;
-}
-
-.btn-dark a:hover{
-    color: #DCE9BE;
-}
-
-
-.footer-text{
-    display: flex;
-    margin-top: 5px;
-    color: #DCE9BE;
-    font-size: 16px;
-}
-
-.footer-text li a, .footer-contact li{
-    color: #f5f6fa;
-    text-decoration: none;
-}
-
-.footer-text li a:hover{
-    color: #DCE9BE;
-}
-
-.footer-contact ul{
-    list-style: none;
-}
-
-.footer-text .footer-header{
-    font-size: 20px;
-    color: #DCE9BE;
-    margin-bottom: 10px;
-}
-
-.footer-subscribe input{
-    height: 20px;
-    border: 1px solid #DCE9BE;
-    border-radius: 4px;
-}
-
-.footer-subscribe button{
-    padding: 3px;
-    border-radius: 4px;
-    border: 1px solid #99173C;
-    background-color: #99173C;
-    color: #DCE9BE;
-}
-
-.footer-subscribe button:hover{
-    color: #DCE9BE;
-    background-color: transparent;
-    border: 1px solid #99173C;
-}
-
-.footer-quicklinks{
-    flex:1;
-    order: 1;
-    text-align: left;
-}
-
-.footer-contact{
-    flex:1;
-    order: 2;
-    text-align: center;
-}
-
-.footer-subscribe{
-    flex:1;
-    order: 3;
-    text-align: left;
-}
-
-
-/*---------------------------ABOUT PAGE---------------------------------*/
-
-.page-strip{
-    background-color: #99173C;
-    height: 10%;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-}
-
-.form-strip{
-    height: 3vh;
-}
-
-.page-strip p{
-    margin: 0;
-    color: #ffffff;
-    text-align: center;
-    padding: 0.7% 0 0.7% 0;
-    font-size: 24px;
-}
-
-#main-signup, #create-office{
-    border-radius: 4px;
-    width: 45%;
-    height: auto;
-    text-align: center;
-    /* margin: 25px 80px 25px 80px; */
-    border: 1px solid #2E2633;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-    background-color: #2E2633;
-    color: #DCE9BE;
-    margin: 25px auto;
-   }
-
-   #main-about{
-    border-radius: 4px;
-    width: 70%;
-    height: auto;
-    text-align: center;
-    margin: 25px 80px 25px 80px;
-    border: 1px solid #2E2633;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-    background-color: #2E2633;
-    color: #DCE9BE;
-    margin: 25px auto;
-   }
-
-#main-about p, #main-profile p{
-    margin: 0 10% 5% 4%;
-    line-height: 2.0;
-    letter-spacing: 2px;
-}
-
-footer{
-   background-color: #2E2633;
-   padding: 8px;
-   color: #DCE9BE;
-   text-align: center;
-}
-
-.footer-text{
-    display: flex;
-    margin-top: 5px;
-    color: #DCE9BE;
-    font-size: 16px;
-}
-.footer-text .footer-header{
-    font-size: 20px;
-    color: #DCE9BE;
-    margin-bottom: 10px;
-}
-
-.footer-contact{
-    flex:1;
-    order: 2;
-    /* text-align: left; */
-}
-
-.footer-contact .footer-contact-text, .footer-contact .footer-header{
-    padding-right: 20px;
-}
-
-.footer-contact .footer-contact-text i{
-    padding-right: 10px;
-}
-
-
-/*---------------------------ABOUT PAGE---------------------------------*/
-
-.page-strip{
-    background-color: #99173C;
-    height: 10%;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-}
-
-.page-strip p{
-    margin: 0;
-    color: #ffffff;
-    text-align: center;
-    padding: 0.7% 0 0.7% 0;
-    font-size: 24px;
-    /* font-weight: bold; */
-}
-
-#main-about, #main-signup, #main-signin, #create-office{
-    height: auto;
-    text-align: center;
-    margin: 25px 80px 25px 80px;
-    border: 1px solid #2E2633;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-    background-color: #2E2633;
-    color: #DCE9BE;
-   }
-
-#main-about p, #main-signin p, #main-profile p{
-    margin: 5% 10% 5% 10%;
-    line-height: 2.0;
-    letter-spacing: 2px;
-}
-
-footer{
-   background-color: #2E2633;
-   padding: 8px;
-   color: #DCE9BE;
-   text-align: center;
-}
-
-footer p{
-   letter-spacing: 1.5px;
-   margin: 3px;
-}
-
-/*---------------------------SIGNUP PAGE---------------------------------*/
-
-
-/*Global*/
-form{
-    padding: 10px 0 40px 20px;
-  }
- 
-   /*Global*/
- .form-field{
-    display: block;
-    margin: 25px 0 25px 0;   
-  }
- 
-   /*Global*/
- .form-field input, .form-field select{
-    min-width: 90%;
-    height: 40px;
-    border-radius: 5px;
-    font-size: 16px;
-    padding-left: 10px;
-    font-family: Arial;
-    margin-bottom: 15px;
-  }
- 
-   /*Global*/
- .form-field textarea{
-    min-width: 90%;
-    border-radius: 5px;
-    font-size: 16px;
-    padding-left: 10px;
-    font-family: Arial;
-  }
- 
-   /*Global*/
- form input, form select{
-    outline: none;
-    border: 1px solid #2E2633;
- }
-
- #main-signup .form-text, #main-signin .form-text, #create-office .form-text, #candidate .form-text{
-     color: #DCE9BE;
-     font-size: 34px;
-     margin-top: 15px;
-     margin-bottom: 0;
-     text-align: center;
- }
- 
- form p{
-    text-decoration: none;
-    color: #DCE9BE;
- }
-  
- form p:hover{
-    color: #99173C;
-    cursor: pointer;
-  }
- 
-.btn-signup{
-    margin: 0 auto;
-    width: 90%;
-}
-
-/*---------------------------SIGNIN PAGE---------------------------------*/
-#main-signin{
-    border-radius: 4px;
-    width: 45%;
-    height: auto;
-    text-align: left;
-    /* margin: 25px 80px 25px 80px; */
-    border: 1px solid #2E2633;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-    background-color: #2E2633;
-    color: #DCE9BE;
-    margin: 25px auto;
-   }
-
-   #candidate{
-    border-radius: 4px;
-    width: 45%;
-    height: auto;
-    text-align: center;
-    border: 1px solid #2E2633;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-    background-color: #2E2633;
-    color: #DCE9BE;
-    margin: 25px auto;
-   }
-
-#main-signin p{
-    margin: 0 10% 5% 0;
-    line-height: 2.0;
-    letter-spacing: 2px;
-}
-
-.btn-signin{
-    margin: 5px 0 40px 0;
-    width: 90%;
-}
-
-.modal, .modal-reset, .modal-petition{
-    display: none;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.9);
-    position: fixed;
-    padding-top: 4%;
-  }
-
-.modal p, .modal-reset p, .modal-petition p{
-    text-transform: uppercase;
-    font-size: 30px;
-    margin-top: 10px;
-}
-
-.forgotPassword-modal, .resetPassword-modal, .createPetition-modal{
-    margin: 0 auto;
-    width: 60%;
-    background-color: #99173C;
-    padding: 3% 0 5% 0;
-    border-radius: 4px;
-}
-
-.forgotPassword input, .resetPassword input, .createPetition input{
-    min-width: 50%;
-}
-
-.resetPassword{
-    margin: auto;
-}
-
-.btn-cancel-modal{
-    background-color: #2E2633;  
-    color: #DCE9BE; 
-}
-
-.btn-submit-modal{
-    background-color: #DCE9BE;
-}
-
-.btn-submit-modal a{
-    color: #2E2633;
-    text-decoration: none;
-}
-
-#input-password{
-    margin: 25px 0 0 0;
-}
-
-.password-field{
-    margin: 25px 0 0 0;
-}
-
-/*---------------------------USER PROFILE PAGE------------------------------*/
-#main-profile{
-    height: auto;
-    text-align: center;
-    margin: 25px 80px 25px 80px;
-    color: #DCE9BE;
-   }
-
-.reset-password{
-    cursor: pointer;
-}
-
-#main-profile{
-    height: 58vh;
-}
-
-.flex-container{
-    display: flex;
-    height: 100%;
-}
-.card{
-    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80);
-    background-position: center;
-    background-color: #2E2633;
-    height: 90%;
-    width: 30%;
-    margin: 20px 20px 20px 20px;
-    border-radius: 3px;
-    transition: transform 0.2s, opacity 0.2s;
-}
-
-.card:hover{
-    transform: scale(1.10);
-    opacity: 1;
-}
-
-.card .btn{
-    margin: 40% auto;
-}
-
-/*---------------------------USER PARTIES---------------------------------*/
-#view-party{
-    text-align: center;
-    height: 100vh;
-    overflow: scroll;
-    margin: auto;
-}
-
-.card-party{
-    height: auto;
-    margin: 25px 80px 25px 80px;
-    border: 1px solid #DCE9BE;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-    background-color: #DCE9BE;
-    color: #2E2633;
-    display: flex;
-    font-weight: bold;
-}
-
-.party-main{
-    flex: 3;
-    border-right: 2px solid #bfbfbf;
-    /* box-shadow: 5px 0px 5px #2E2633; */
-}
-
-.card-party #party-title{
-    font-weight: bold;
-}
-
-.party-main p{
-    margin: 20px;
-}
-
-.party-logo{
-    background-position: center;
-    background-size: contain;
-    flex: 1;
-    /* box-shadow: 5px 0px 5px #2E2633; */
-}
-
-.party-logo img{
-    width: 90%;
-    height: 140px;
-    margin-top: 10px;
-}
-
-/*---------------------------VOTE---------------------------------*/
-#vote-office{
-    text-align: center;
-    height: 100vh;
-    overflow: scroll;
-    margin: auto;
-}
-
-.office-main{
-    flex: 2;
-    border-right: 2px solid #DCE9BE;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-}
-
-.office-main p{
-    margin: 20px;
-}
-
-.office-vote{
-    flex: 3;
-    text-align: left;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-}
-
-.office-vote button{
-    margin-top: 30px;
-}
-
-.office-vote button:hover{
-    cursor: pointer;
-}
-
-.modal-main-vote{
-    display: none;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.9);
-    position: fixed;
-    padding-top: 4%;
-  }
-
-.modal-main-vote p{
-    text-transform: uppercase;
-    font-size: 24px;
-}
-
-.vote-modal{
-    width: 60%;
-    overflow: auto;
-    background-color: #99173C;
-    padding: 3% 0 5% 0;
-    border-radius: 4px;
-}
-
-.vote-modal form{
-    margin-top: 0;
-}
-
-.vote-modal input{
-    min-width: 50%;
-}
-
-.vote-modal{
-    margin: auto;
-}
-
-.office-vote-flex{
-    display: flex;
-}
-
-.candidate-party{
-    flex: 2;
-    text-align: left;
-    padding-left: 30px;
-}
-
-.candidate{
-    flex: 3;
-    border-right: 2px solid #DCE9BE;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-    text-align: left;
-    padding-left: 30px;
-}
-
-
-.radio-input{
-    display: block;
-}
-
-.radio-input, .candidate-party-select{
-    margin: 10px 0;
-}
-
-.submit-vote{
-    height: 10%;
-}
-
-.submit-vote button{
-    margin-top: 10px;
-}
-
-.submit-vote{
-    margin-top: 20px;
-}
-
-.btn-vote a:hover{
-    color: #99173C;
-}
-
-/*---------------------------VIEW VOTES---------------------------------*/
-.view-candidate, .view-candidate-party{
-    text-align: center;
-    padding-top: 30px;
-}
-
-.candidate-name{
-    margin: 10px auto; 
-}
-
-/*---------------------------CANDIDATE---------------------------------*/
-/*Sign in styles*/
-.create-petition:hover{
-    cursor: pointer;
-}
-
-body{
-    font: 18px/1.5 'Sarabun', sans-serif;  /*font-size/line-height font-family*/
-    margin: 0;
-    padding: 0;
-    background-color: #f5f6fa;
-}
-
- /*Global*/
-.container{
-    width: 80%;
-    margin: auto;
-    overflow: hidden;
-}
-
-ul{
-   margin: 0;
-   padding: 0;
-}
-
-/*Header Styles*/
-header{
-    background-color: #2E2633;
-    padding-top: 18px;
-    min-height: 70px;
-}
-
-header h1{
-    color: #DCE9BE;
-}
-
-.sticky {
-    position: fixed;
-    top: 0;
-    width: 100%
-  }
-
-.brandname{
-    font-size: 20px;
+.brandname .brandname-h1{
+    font-size: 40px;
+    text-transform: none;
 }
 
 header .brandname{
@@ -859,12 +149,18 @@ header a{
 .page-strip{
     padding-bottom: 10px;
     background-color: #99173C;
-    height: 10%;
+    height: 5%;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.strip-mend{
+    background-color: #99173C;
+    height: 7%;
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 
 .form-strip{
-    height: 3vh;
+    height: 1vh;
 }
 
 .page-strip p{
@@ -873,6 +169,18 @@ header a{
     text-align: center;
     padding: 0.7% 0 0.7% 0;
     font-size: 30px;
+}
+
+.strip-mend p{
+    margin: 0;
+    color: #DCE9BE;;
+    text-align: center;
+    padding: 0;
+    font-size: 28px;
+}
+
+.p-start{
+    padding-top: 25px;
 }
 
 #main-signup, #create-office{
@@ -918,6 +226,13 @@ footer p{
    letter-spacing: 1.5px;
 }
 
+.footer-contact-text, .footer-header{
+    padding-right: 15px;
+}
+
+.footer-contact-text i, .footer-header i{
+    padding-right: 7px;
+}
 /*---------------------------SIGNUP PAGE---------------------------------*/
 
 
@@ -929,13 +244,13 @@ form{
    /*Global*/
  .form-field{
     display: block;
-    margin: 25px 0 25px 0;   
+    margin: 5px 0 5px 0;
   }
  
    /*Global*/
  .form-field input, .form-field select{
     min-width: 90%;
-    height: 40px;
+    height: 35px;
     border-radius: 5px;
     font-size: 16px;
     padding-left: 10px;
@@ -958,7 +273,7 @@ form{
     border: 1px solid #2E2633;
  }
 
- #main-signup .form-text, #main-signin .form-text, #create-office .form-text{
+ #main-signup .form-text, #main-signin .form-text, #create-office .form-text, #candidate .form-text{
      color: #DCE9BE;
      font-size: 34px;
      margin-top: 15px;
@@ -980,6 +295,7 @@ form{
     margin: 0 auto;
     width: 90%;
 }
+
 
 /*---------------------------SIGNIN PAGE---------------------------------*/
 #main-signin{
@@ -1014,7 +330,7 @@ form{
 }
 
 .btn-signin{
-    margin: 5px 0 40px 0;
+    margin: 15px 0 40px 0;
     width: 90%;
 }
 
@@ -1042,6 +358,11 @@ form{
     background-color: #99173C;
     padding: 3% 0 5% 0;
     border-radius: 4px;
+    text-align: center;
+}
+
+.resetPassword-modal p{
+    color: #DCE9BE;
 }
 
 .forgotPassword input, .resetPassword input, .createPetition input{
@@ -1067,13 +388,12 @@ form{
 }
 
 #input-password{
-    margin: 25px 0 0 0;
+    margin: 0 0 0 0;
 }
 
 .password-field{
-    margin: 25px 0 0 0;
+    margin: 0 0 0 0;
 }
-
 /*---------------------------USER PROFILE PAGE------------------------------*/
 #main-profile{
     height: auto;
@@ -1130,16 +450,25 @@ form{
     background-color: #DCE9BE;
     color: #2E2633;
     display: flex;
-    font-weight: bold;
 }
 
 .title-header{
-    background-color: #2E2633;
+    background-color: #99173C;
     color: #DCE9BE;
-    padding: 15px 20px;
+    padding: 0 20px;
     border-radius: 4px;
     font-size: 24px;
 }
+
+.title-mobile{
+    display: none;
+    background-color: #99173C;
+    color: #DCE9BE;
+    padding: 0 20px;
+    border-radius: 4px;
+    font-size: 24px;
+}
+
 
 .leading-p {
     margin-top: 35px;
@@ -1150,6 +479,17 @@ form{
     text-align: left;
     border-right: 2px solid #bfbfbf;
     /* box-shadow: 5px 0px 5px #2E2633; */
+}
+
+.party-main-parties{
+    flex: 3;
+    text-align: left;
+    border-right: none;
+    /* box-shadow: 5px 0px 5px #2E2633; */
+}
+
+.card-party #party-title{
+    font-weight: bold;
 }
 
 .party-main p{
@@ -1181,7 +521,7 @@ form{
     flex: 2;
     text-align: left;
     border-right: 2px solid #DCE9BE;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    /*box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);*/
 }
 
 .office-main p{
@@ -1190,7 +530,8 @@ form{
 
 .office-vote{
     flex: 3;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    text-align: left;
+    /*box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);*/
 }
 
 .office-vote button{
@@ -1277,6 +618,10 @@ form{
     margin-top: 20px;
 }
 
+.btn-vote a:hover{
+    color: #99173C;
+}
+
 /*---------------------------VIEW VOTES---------------------------------*/
 .view-candidate, .view-candidate-party{
     text-align: left;
@@ -1289,17 +634,12 @@ form{
 
 .title-span {
     font-weight: 900 !important;
-    font-size: 24px;
 }
 
 /*---------------------------CANDIDATE---------------------------------*/
 /*Sign in styles*/
 .create-petition:hover{
     cursor: pointer;
-}
-
-.createPetition select, .createPetition textarea{
-    width: 60% !important;
 }
 
 /*---------------------------ADMIN PROFILE---------------------------------*/
@@ -1755,33 +1095,9 @@ form{
         border-radius: 4px;
     }
     
-    .footer-subscribe button{
-        padding: 3px;
-        border-radius: 4px;
-        border: 1px solid #99173C;
-        background-color: #99173C;
-    }
-    
-    .footer-subscribe button:hover{
-        color: #DCE9BE;
-        background-color: transparent;
-        border: 1px solid #99173C;
-    }
-    
-    .footer-quicklinks{
-        flex:1;
-        order: 1;
-    }
-    
     .footer-contact{
         flex:1;
         order: 2;
-        margin-bottom: 20px;
-    }
-    
-    .footer-subscribe{
-        flex:1;
-        order: 3;
         margin-bottom: 20px;
     }
 
@@ -1874,6 +1190,11 @@ form{
         margin: 25px;
     }
 
+    .vote-card-party{
+        display: flex;
+        flex-direction: column;
+    }
+
     .party-main{
         flex: 3;
     }
@@ -1890,6 +1211,18 @@ form{
         height: 235px;
     }
     /*-------------------VOTE---------------------*/
+    .title-header{
+        display: none;
+    }
+    
+    .title-mobile{
+        display: block;
+    }
+
+    .party-main{
+        border-right: none;
+    }
+
     .office-vote button{
         padding: 0 10px;
         margin-top: 35px;
