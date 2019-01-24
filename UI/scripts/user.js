@@ -11,3 +11,9 @@ displayResetModal.addEventListener('click', function(){
 modalClose.addEventListener('click', function(){
   resetModal.style.display = "none";
 })
+
+window.onclick = function(event) {
+  if (event.target == resetModal) {
+    resetModal.style.display = "none";
+  }
+}
