@@ -645,26 +645,6 @@ form{
     cursor: pointer;
 }
 
-/*---------------------------ADMIN PROFILE---------------------------------*/
-#admin-profile{
-    height: 74vh;
-}
-
-.admin-card{
-    padding-bottom: 20px;
-}
-
-.createPetition select, .createPetition textarea{
-    width: 60% !important;
-}
-
-/*---------------------------ADMIN PROFILE---------------------------------*/
-
-
-.admin-card{
-    padding-bottom: 20px;
-}
-
 .createPetition select, .createPetition textarea{
     width: 60% !important;
 }
@@ -724,12 +704,7 @@ form{
     color: #2E2633;
     border: 1px solid #99173C;
 }
-
-.admin-view-main{
-    text-align: center;
-}
-/************************************************MEDIA QUERIES************************************************/
-
+/*---------------------------MEDIA QUERIES---------------------------------*/
 
 @media(max-width:768px){
     /*INDEX PAGE*/
@@ -862,7 +837,7 @@ form{
     }
 
     #main-profile{
-        height: 110vh;
+        height: auto;
         text-align: center;
         margin: 25px;
         color: #DCE9BE;
@@ -997,7 +972,10 @@ form{
 
 #main-admin-profile .card .btn{
     margin-top: 51%;
-}
+    margin: 0 auto;
+    color: #DCE9BE;
+    width: 80%;
+   }
 
 /*---------------------------ADMIN CREATE PARTY---------------------------------*/
 .nav-menu .admin-dropdown-ul{
