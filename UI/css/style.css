@@ -649,7 +649,19 @@ form{
     width: 60% !important;
 }
 
+.party-main .delete:hover{
+    background-color: #DCE9BE;
+    color: #2E2633;
+    border: 1px solid #99173C;
+}
 /*---------------------------ADMIN PROFILE---------------------------------*/
+#admin-profile{
+    height: 74vh;
+}
+
+.createPetition select, .createPetition textarea{
+    width: 60% !important;
+}
 
 #main-admin-profile{
     height: auto;
@@ -688,7 +700,6 @@ form{
 .admin-card{
     padding-bottom: 20px;
 }
-
 .party-main .delete{
     border: 1px solid #99173C;
     border-radius: 3px; 
@@ -708,7 +719,6 @@ form{
 
 @media(max-width:768px){
     /*INDEX PAGE*/
-
     .btn-index{
         margin: 10px;
     }
@@ -966,8 +976,9 @@ form{
 #main-admin-profile{
     height: auto;
     text-align: center;
-    margin: 25px 80px 25px 80px;
+    margin: 0 auto;
     color: #DCE9BE;
+    width: 80%;
    }
 
 #main-admin-profile .card .btn{
@@ -975,6 +986,8 @@ form{
     margin: 0 auto;
     color: #DCE9BE;
     width: 80%;
+    margin-top: 30%;
+    color: #DCE9BE;
    }
 
 /*---------------------------ADMIN CREATE PARTY---------------------------------*/
@@ -1018,4 +1031,5 @@ form{
     background-color: #DCE9BE;
     color: #2E2633;
     border: 1px solid #99173C;
-}
+    }
+
