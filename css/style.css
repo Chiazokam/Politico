@@ -36,8 +36,9 @@ header h1{
     width: 100%
   }
 
-.brandname{
-    font-size: 20px;
+.brandname .brandname-h1{
+    font-size: 40px;
+    text-transform: none;
 }
 
 header .brandname{
@@ -148,12 +149,16 @@ header a{
 
 .page-strip{
     background-color: #99173C;
-    height: 10%;
+    height: 5%;
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 
+.strip-mend{
+    background-color: #99173C;
+}
+
 .form-strip{
-    height: 3vh;
+    height: 1vh;
 }
 
 .page-strip p{
@@ -161,7 +166,19 @@ header a{
     color: #ffffff;
     text-align: center;
     padding: 0.7% 0 0.7% 0;
-    font-size: 24px;
+    font-size: 30px;
+}
+
+.strip-mend p{
+    margin: 0;
+    color: #DCE9BE;;
+    text-align: center;
+    padding: 0;
+    font-size: 28px;
+}
+
+.p-start{
+    padding-top: 25px;
 }
 
 #main-signup, #create-office{
@@ -207,6 +224,13 @@ footer p{
    letter-spacing: 1.5px;
 }
 
+.footer-contact-text, .footer-header{
+    padding-right: 15px;
+}
+
+.footer-contact-text i, .footer-header i{
+    padding-right: 7px;
+}
 /*---------------------------SIGNUP PAGE---------------------------------*/
 
 
@@ -218,13 +242,13 @@ form{
    /*Global*/
  .form-field{
     display: block;
-    margin: 25px 0 25px 0;   
+    margin: 5px 0 5px 0;
   }
  
    /*Global*/
  .form-field input, .form-field select{
     min-width: 80%;
-    height: 40px;
+    height: 35px;
     border-radius: 5px;
     font-size: 16px;
     padding-left: 10px;
@@ -247,7 +271,7 @@ form{
     border: 1px solid #2E2633;
  }
 
- #main-signup .form-text, #main-signin .form-text, #create-office .form-text{
+ #main-signup .form-text, #main-signin .form-text, #create-office .form-text, #candidate .form-text{
      color: #DCE9BE;
      font-size: 34px;
      margin-top: 15px;
@@ -269,6 +293,7 @@ form{
     margin: 0 auto;
     width: 90%;
 }
+
 
 /*---------------------------SIGNIN PAGE---------------------------------*/
 #main-signin{
@@ -303,11 +328,11 @@ form{
 }
 
 .btn-signin{
-    margin: 5px 0 40px 0;
+    margin: 15px 0 40px 0;
     width: 90%;
 }
 
-.modal, .modal-reset, .modal-petition{
+.modal, .modal-reset, .modal-petition, .modal-delete{
     display: none;
     left: 0;
     top: 0;
@@ -319,9 +344,12 @@ form{
     padding-top: 4%;
   }
 
-.modal p, .modal-reset p, .modal-petition p{
+.delete{
+    cursor: pointer;
+}
+.modal p, .modal-reset p, .modal-petition p, .delete-modal p{
     text-transform: uppercase;
-    font-size: 30px;
+    font-size: 24px;
     margin-top: 10px;
     color: #DCE9BE;
 }
@@ -332,6 +360,11 @@ form{
     background-color: #99173C;
     padding: 3% 0 5% 0;
     border-radius: 4px;
+    text-align: center;
+}
+
+.resetPassword-modal p{
+    color: #DCE9BE;
     text-align: center
 }
 
@@ -358,13 +391,12 @@ form{
 }
 
 #input-password{
-    margin: 25px 0 0 0;
+    margin: 0 0 0 0;
 }
 
 .password-field{
-    margin: 25px 0 0 0;
+    margin: 0 0 0 0;
 }
-
 /*---------------------------USER PROFILE PAGE------------------------------*/
 #main-profile{
     height: auto;
@@ -421,13 +453,46 @@ form{
     background-color: #DCE9BE;
     color: #2E2633;
     display: flex;
-    font-weight: bold;
+}
+
+.title-header{
+    background-color: #99173C;
+    color: #DCE9BE;
+    padding: 0 20px;
+    border-radius: 4px;
+    font-size: 24px;
+}
+
+.title-mobile{
+    display: none;
+    background-color: #99173C;
+    color: #DCE9BE;
+    padding: 0 20px;
+    border-radius: 4px;
+    font-size: 24px;
+}
+
+
+.leading-p {
+    margin-top: 35px;
 }
 
 .party-main{
     flex: 3;
+    text-align: left;
     border-right: 2px solid #bfbfbf;
     /* box-shadow: 5px 0px 5px #2E2633; */
+}
+
+.party-main-parties{
+    flex: 3;
+    text-align: left;
+    border-right: none;
+    /* box-shadow: 5px 0px 5px #2E2633; */
+}
+
+.card-party #party-title{
+    font-weight: bold;
 }
 
 .party-main p{
@@ -457,8 +522,9 @@ form{
 
 .office-main{
     flex: 2;
+    text-align: left;
     border-right: 2px solid #DCE9BE;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    /*box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);*/
 }
 
 .office-main p{
@@ -467,7 +533,8 @@ form{
 
 .office-vote{
     flex: 3;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    text-align: left;
+    /*box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);*/
 }
 
 .office-vote button{
@@ -554,14 +621,22 @@ form{
     margin-top: 20px;
 }
 
+.btn-vote a:hover{
+    color: #99173C;
+}
+
 /*---------------------------VIEW VOTES---------------------------------*/
 .view-candidate, .view-candidate-party{
-    text-align: center;
+    text-align: left;
     padding-top: 30px;
 }
 
 .candidate-name{
     margin: 10px auto; 
+}
+
+.title-span {
+    font-weight: 900 !important;
 }
 
 /*---------------------------CANDIDATE---------------------------------*/
@@ -575,6 +650,35 @@ form{
 }
 
 /*---------------------------ADMIN PROFILE---------------------------------*/
+
+
+.admin-card{
+    padding-bottom: 20px;
+}
+
+.party-main .delete{
+    border: 1px solid #99173C;
+    border-radius: 3px; 
+    padding: 8px 20px;
+    background-color: #99173C;
+    color: #f5f6fa;
+    font-weight: 100;
+    text-decoration: none;
+}
+
+.party-main .delete:hover{
+    background-color: #DCE9BE;
+    color: #2E2633;
+    border: 1px solid #99173C;
+=======
+/*---------------------------ADMIN PROFILE---------------------------------*/
+#admin-profile{
+    height: 74vh;
+}
+
+.createPetition select, .createPetition textarea{
+    width: 60% !important;
+}
 
 #main-admin-profile{
     height: auto;
@@ -613,7 +717,6 @@ form{
 .admin-card{
     padding-bottom: 20px;
 }
-
 .party-main .delete{
     border: 1px solid #99173C;
     border-radius: 3px; 
@@ -629,11 +732,15 @@ form{
     color: #2E2633;
     border: 1px solid #99173C;
 }
-/*---------------------------MEDIA QUERIES---------------------------------*/
+
+.admin-view-main{
+    text-align: center;
+}
+/************************************************MEDIA QUERIES************************************************/
+
 
 @media(max-width:768px){
     /*INDEX PAGE*/
-
     .btn-index{
         margin: 10px;
     }
@@ -790,6 +897,10 @@ form{
         margin: 25px;
     }
 
+    .vote-card-party{
+        flex-direction: column;
+    }
+
     .party-main{
         flex: 3;
     }
@@ -803,7 +914,9 @@ form{
     }
 
     .party-logo img{
-        height: 235px;
+        width: 90%;
+        height: 100px;
+        margin: 80px 0;
     }
     /*-------------------VOTE---------------------*/
     .office-vote button{
@@ -816,9 +929,20 @@ form{
     }
     
     .candidate{
-        padding-left: 10px;
+        padding: 0 10px;
     }
 
+    .title-header{
+        display: none;
+    }
+    
+    .title-mobile{
+        display: block;
+    }
+
+    .party-main{
+        border-right: none;
+    }
     /*-------------------VIEW VOTE---------------------*/
     .view-candidate, .view-candidate-party{
         text-align: center;
@@ -841,6 +965,11 @@ form{
         margin-bottom: 15px;
     }
 
+    /*-------------------CANDIDATE---------------------*/
+    #candidate{
+        width: 80%;
+    }
+
     /*-------------------ADMIN PROFILE---------------------*/
 
     #main-admin-profile{
@@ -855,7 +984,8 @@ form{
     
     #create-office{
         height: 58vh;
-        margin: 25px;
+        margin: 25px auto;
+        width: 80%;
     }
 }
 
@@ -875,7 +1005,9 @@ form{
 
 #main-admin-profile .card .btn{
     margin-top: 30%;
-}
+    margin: 25px 80px 25px 80px;
+    color: #DCE9BE;
+   }
 
 /*---------------------------ADMIN CREATE PARTY---------------------------------*/
 .nav-menu .admin-dropdown-ul{
@@ -919,3 +1051,4 @@ form{
     color: #2E2633;
     border: 1px solid #99173C;
     }
+
