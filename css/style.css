@@ -148,7 +148,6 @@ header a{
 /*---------------------------ABOUT PAGE---------------------------------*/
 
 .page-strip{
-    padding-bottom: 10px;
     background-color: #99173C;
     height: 5%;
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
@@ -156,8 +155,6 @@ header a{
 
 .strip-mend{
     background-color: #99173C;
-    height: 7%;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 
 .form-strip{
@@ -660,6 +657,17 @@ form{
 
 /*---------------------------ADMIN PROFILE---------------------------------*/
 
+
+.admin-card{
+    padding-bottom: 20px;
+}
+
+.createPetition select, .createPetition textarea{
+    width: 60% !important;
+}
+
+/*---------------------------ADMIN PROFILE---------------------------------*/
+
 #main-admin-profile{
     height: auto;
     text-align: center;
@@ -713,7 +721,6 @@ form{
     color: #2E2633;
     border: 1px solid #99173C;
 }
-
 
 .admin-view-main{
     text-align: center;
