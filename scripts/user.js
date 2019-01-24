@@ -13,7 +13,6 @@ modalClose.addEventListener('click', function(){
 })
 
 
-
 let displayDeleteModal = document.querySelector(".delete");
 let deleteModal = document.querySelector(".modal-delete");
 let closeDeleteModal = document.querySelector(".delete-btn");
