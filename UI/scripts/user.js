@@ -12,6 +12,14 @@ modalClose.addEventListener('click', function(){
   resetModal.style.display = "none";
 })
 
+window.onclick = function(event) {
+  if (event.target == resetModal) {
+    resetModal.style.display = "none";
+  }
+}
+
+
+
 
 let displayDeleteModal = document.querySelector(".delete");
 let deleteModal = document.querySelector(".modal-delete");
