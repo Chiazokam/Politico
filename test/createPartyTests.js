@@ -31,6 +31,25 @@ describe('POST Requests', () => {
     });
 
     describe ('POST /api/v1/parties', () => {
+      it('should attempt to create an existing party', (done) => {
+        request(app)
+          .post('/api/v1/parties')
+          .send({
+            partyName: 'People Congress',
+            partyAddress: 'Folawiyo Bankole Street',
+            partyLogo: 'www.logo.com/url.jpg',
+          })
+          .end((err, res) => {
+            expect(res.statusCode).to.equal(400);
+            expect(res.body).to.be.an('object');
+            expect(res.body.error).to.equal('Party Name, Address or Logo Already Exists');
+          if (err) { return done(err); }
+          done();
+          });
+      });
+    });
+
+    describe ('POST /api/v1/parties', () => {
         it('should test for wrong party Name format', (done) => {
           request(app)
             .post('/api/v1/parties')
@@ -165,4 +184,23 @@ describe('POST Requests', () => {
             });
         });
       });
+});
+
+
+describe ('GET Requests', () => {
+
+  describe ('GET /api/v1/parties', () => {
+    it('should get all parties', (done) => {
+      request(app)
+        .get('/api/v1/parties')
+        .end((err, res) => {
+          expect(res.statusCode).to.equal(200);
+          expect(res.body).to.be.an('object');
+          expect(res.body.data).to.be.an('array');
+          expect(res.body.data[0]).to.be.an('object');
+          if (err) { return done(err); }
+          done();
+        });
+    });
+  });
 });

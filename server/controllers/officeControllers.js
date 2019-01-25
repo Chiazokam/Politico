@@ -13,7 +13,7 @@ class OfficeController {
     officeName = officeName.toLowerCase();
     const offices = officeObject.offices;
     const foundOffice = officeObject.doesOfficeExist(officeName, offices);
-    if (foundOffice === undefined) {
+    if (!foundOffice) {
         let data = {
             officeName: officeName.trim(),
             officeType: officeType.trim(),

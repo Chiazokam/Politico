@@ -11,22 +11,46 @@ class PartyController {
   createNewParty(req, res) {
     const { partyName, partyLogo } = req.body;
     const formattedAddr = req.partyAddr;
-    let data = {
+    const requestData = {
       partyName: partyName.trim(),
       partyAddress: formattedAddr,
       partyLogo: partyLogo.trim(),
     };
-    data = partyObject.createParty(data);
-    if (data) {
-      return res.status(201).send({
-          status: 201,
-          data: [data],
+
+    const parties = partyObject.parties;
+    const foundParty = partyObject.doesPartyExist(requestData, parties);
+    const { foundName, foundAddress, foundLogo } = foundParty;
+    if (!foundName || !foundAddress || !foundLogo) {
+      const data = partyObject.createParty(requestData);
+      if (data) {
+        return res.status(201).send({
+            status: 201,
+            data: [data],
+        });
+      }
+      return res.status(400).send({
+        status: 400,
+        error: 'Party not created',
       });
     }
     return res.status(400).send({
       status: 400,
-      error: 'Party not created',
+      error: 'Party Name, Address or Logo Already Exists',
     });
+  }
+
+  getAllParties(req, res) {
+    const data = partyObject.getAllParties();
+    if (data) {
+      return res.status(200).send({
+        status: 200,
+        data,
+      });
+    }
+    return res.status(400).send({
+      status: 400,
+      error: 'Cannot Get Parties',
+      });
   }
 }
 
