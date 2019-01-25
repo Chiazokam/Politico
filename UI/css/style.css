@@ -107,6 +107,7 @@ header a{
     font-size: 20px;
     margin-left: 10px;
     outline: none;
+    color: #DCE9BE
   }
 
   /*Global*/
@@ -181,7 +182,7 @@ header a{
     padding-top: 25px;
 }
 
-#main-signup, #create-office{
+#main-signup{
     border-radius: 4px;
     width: 45%;
     height: auto;
@@ -222,6 +223,7 @@ footer{
 
 footer p{
    letter-spacing: 1.5px;
+   margin-bottom: 0;
 }
 
 .footer-contact-text, .footer-header{
@@ -247,7 +249,7 @@ form{
  
    /*Global*/
  .form-field input, .form-field select{
-    min-width: 80%;
+    min-width: 90%;
     height: 35px;
     border-radius: 5px;
     font-size: 16px;
@@ -258,7 +260,7 @@ form{
  
    /*Global*/
  .form-field textarea{
-    min-width: 80%;
+    min-width: 90%;
     border-radius: 5px;
     font-size: 16px;
     padding-left: 10px;
@@ -306,7 +308,7 @@ form{
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
     background-color: #2E2633;
     color: #DCE9BE;
-    margin: 25px auto;
+    margin: 60px auto;
    }
 
    #candidate{
@@ -318,7 +320,7 @@ form{
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
     background-color: #2E2633;
     color: #DCE9BE;
-    margin: 25px auto;
+    margin: 80px auto;
    }
 
 #main-signin p{
@@ -398,10 +400,10 @@ form{
     margin: 0 0 0 0;
 }
 /*---------------------------USER PROFILE PAGE------------------------------*/
-#main-profile{
+#main-profile, .main-admin-profile{
     height: auto;
     text-align: center;
-    margin: 25px 80px 25px 80px;
+    margin: 60px 80px;
     color: #DCE9BE;
    }
 
@@ -409,7 +411,7 @@ form{
     cursor: pointer;
 }
 
-#main-profile{
+#main-profile, .main-admin-profile{
     height: 58vh;
 }
 
@@ -434,7 +436,8 @@ form{
 }
 
 .card .btn{
-    margin: 40% auto;
+    margin: 50% auto;
+    color: #DCE9BE;
 }
 
 /*---------------------------USER PARTIES---------------------------------*/
@@ -484,9 +487,16 @@ form{
     /* box-shadow: 5px 0px 5px #2E2633; */
 }
 
+.party-main-admin{
+    flex: 3;
+    text-align: center;
+    border-right: 2px solid #bfbfbf;
+    /* box-shadow: 5px 0px 5px #2E2633; */
+}
+
 .party-main-parties{
     flex: 3;
-    text-align: left;
+    text-align: center;
     border-right: none;
     /* box-shadow: 5px 0px 5px #2E2633; */
 }
@@ -621,8 +631,8 @@ form{
     margin-top: 20px;
 }
 
-.btn-vote a:hover{
-    color: #99173C;
+.btn-vote:hover{
+    color: #2E2633;
 }
 
 /*---------------------------VIEW VOTES---------------------------------*/
@@ -654,9 +664,13 @@ form{
     color: #2E2633;
     border: 1px solid #99173C;
 }
+
+.form-field .petition-textarea{
+    min-width: 90%;
+  }
 /*---------------------------ADMIN PROFILE---------------------------------*/
 #admin-profile{
-    height: 74vh;
+    height: 80vh;
 }
 
 .createPetition select, .createPetition textarea{
@@ -666,13 +680,9 @@ form{
 #main-admin-profile{
     height: auto;
     text-align: center;
-    margin: 25px 80px 25px 80px;
+    margin: 60px 80px;
     color: #DCE9BE;
    }
-
-#main-admin-profile .card .btn{
-    margin-top: 51%;
-}
 
 /*---------------------------ADMIN CREATE PARTY---------------------------------*/
 .nav-menu .admin-dropdown-ul{
@@ -681,7 +691,7 @@ form{
 
 /*---------------------------ADMIN VIEW PARTY---------------------------------*/
 
-.party-main .edit{
+.party-main-admin .edit{
     border: 1px solid #78e08f;
     border-radius: 3px; 
     padding: 8px 20px;
@@ -691,7 +701,7 @@ form{
     text-decoration: none;
 }
 
-.party-main .edit:hover{
+.party-main-admin .edit:hover{
     background-color: #DCE9BE;
     color: #2E2633;
     border: 1px solid #7bed9f;
@@ -700,7 +710,7 @@ form{
 .admin-card{
     padding-bottom: 20px;
 }
-.party-main .delete{
+.party-main-admin .delete{
     border: 1px solid #99173C;
     border-radius: 3px; 
     padding: 8px 20px;
@@ -710,11 +720,26 @@ form{
     text-decoration: none;
 }
 
-.party-main .delete:hover{
+.party-main-admin .delete:hover{
     background-color: #DCE9BE;
     color: #2E2633;
     border: 1px solid #99173C;
 }
+
+/*---------------------------CREATE OFFICE---------------------------------*/
+
+#create-office{
+    border-radius: 4px;
+    width: 45%;
+    height: auto;
+    text-align: center;
+    /* margin: 25px 80px 25px 80px; */
+    border: 1px solid #2E2633;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    background-color: #2E2633;
+    color: #DCE9BE;
+    margin: 80px auto;
+   }
 /*---------------------------MEDIA QUERIES---------------------------------*/
 
 @media(max-width:768px){
@@ -839,14 +864,14 @@ form{
 
      .resetPassword-modal{
         margin-top: 30%;
-        width: 40%;
+        width: 90%;
     }
 
     .resetPassword input{
         min-width: 80%;
     }
 
-    #main-profile{
+    #main-profile, .main-admin-profile{
         height: auto;
         text-align: center;
         margin: 25px;
@@ -949,6 +974,9 @@ form{
     }
 
     /*-------------------ADMIN PROFILE---------------------*/
+    #admin-profile{
+        height: auto;
+    }
 
     #main-admin-profile{
         margin: 25px;
@@ -973,13 +1001,6 @@ form{
 
 /*---------------------------ADMIN PROFILE---------------------------------*/
 
-#main-admin-profile{
-    height: auto;
-    text-align: center;
-    margin: 0 auto;
-    color: #DCE9BE;
-    width: 80%;
-   }
 
 #main-admin-profile .card .btn{
     margin-top: 51%;
@@ -1033,3 +1054,16 @@ form{
     border: 1px solid #99173C;
     }
 
+    /*@media(max-width:1440px){
+        #create-office{
+            border-radius: 4px;
+            width: 45%;
+            height: auto;
+            text-align: center;
+            border: 1px solid #2E2633;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+            background-color: #2E2633;
+            color: #DCE9BE;
+            margin: 210px auto;
+           }
+    }*/
