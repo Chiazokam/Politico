@@ -29,4 +29,6 @@ router.post('/api/v1/offices', validateOfficeInput.isOfficeFieldEmpty,
 
 router.get('/api/v1/parties', party.getAllParties);
 
+router.get('/api/v1/offices', office.getAllOffices);
+
 export default router;

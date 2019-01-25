@@ -35,6 +35,20 @@ class OfficeController {
         error: 'Office Already Exists',
     });
   }
+
+  getAllOffices(req, res) {
+    const data = officeObject.getAllOffices();
+    if (data) {
+      return res.status(200).send({
+        status: 200,
+        data,
+      });
+    }
+    return res.status(400).send({
+      status: 400,
+      error: 'Cannot Get Offices',
+      });
+  }
 }
 
 export default OfficeController;

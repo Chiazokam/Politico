@@ -23,6 +23,11 @@ class Office {
       const foundOffice = officeArray.find(officeObj => officeObj.officeName === officeLowerCase);
       return foundOffice;
     }
+
+    getAllOffices() {
+      const allOffices = this.offices;
+      return (allOffices);
+    }
   }
 
   export default Office;
