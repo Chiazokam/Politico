@@ -403,7 +403,7 @@ form{
 #main-profile, .main-admin-profile{
     height: auto;
     text-align: center;
-    margin: 60px 80px;
+    margin: 100px 80px;
     color: #DCE9BE;
    }
 
@@ -738,7 +738,7 @@ form{
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
     background-color: #2E2633;
     color: #DCE9BE;
-    margin: 80px auto;
+    margin: 100px auto;
    }
 /*---------------------------MEDIA QUERIES---------------------------------*/
 
