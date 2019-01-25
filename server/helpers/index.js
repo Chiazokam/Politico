@@ -1,6 +1,7 @@
 /* eslint-disable linebreak-style */
 /* eslint-disable eol-last */
 
-import Party from './partyHelper';
+import Party from './partyHelpers';
+import Office from './officeHelpers';
 
-export default Party;
+export { Party, Office };

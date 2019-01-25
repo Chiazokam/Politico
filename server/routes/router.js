@@ -3,22 +3,28 @@
 /* eslint-disable indent */
 
 import express from 'express';
-import { InputValidators, ThirdPartyValidators } from '../middlewares';
-import { PartyController } from '../controllers';
+import { PartyValidators, ThirdPartyValidators, OfficeValidators } from '../middlewares';
+import { PartyController, OfficeController } from '../controllers';
 
 const router = express.Router();
-const validateInput = new InputValidators();
+const validatePartyInput = new PartyValidators();
+const validateOfficeInput = new OfficeValidators();
 const party = new PartyController();
+const office = new OfficeController();
 const validateAddress = new ThirdPartyValidators();
 
 router.get('/', (req, res) => res.status(200).send({
   message: 'Welcome to Politico',
 }));
 
-router.post('/api/v1/parties', validateInput.isFieldEmpty,
-                                validateInput.isPartyNameString,
-                                validateInput.isLogoUrlValid,
+router.post('/api/v1/parties', validatePartyInput.isPartyFieldEmpty,
+                                validatePartyInput.isPartyNameString,
+                                validatePartyInput.isLogoUrlValid,
                                 validateAddress.isAddressValid,
                                 party.createNewParty);
+
+router.post('/api/v1/offices', validateOfficeInput.isOfficeFieldEmpty,
+                               validateOfficeInput.isOfficeTypeValid,
+                               office.createNewOffice);
 
 export default router;

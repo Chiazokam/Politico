@@ -10,19 +10,19 @@ import bodyParser from 'body-parser';
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 
-class InputValidators {
-  isFieldEmpty(req, res, next) {
+class PartyValidators {
+  isPartyFieldEmpty(req, res, next) {
     const { partyName, partyAddress, partyLogo } = req.body;
     const errors = {};
     if (!partyName || !partyName.trim() || !partyAddress || !partyAddress.trim() || !partyLogo || !partyLogo.trim()) {
       if (!partyName || !partyName.trim()) {
-        errors['partyName'] = 'Improper party Name format';
+        errors.partyName = 'Improper party Name format';
       }
       if (!partyAddress || !partyAddress.trim()) {
-        errors['partyAddress'] = 'Improper party Address format';
+        errors.partyAddress = 'Improper party Address format';
       }
       if (!partyLogo || !partyLogo.trim()) {
-        errors['partyLogo'] = 'Improper party Logo format';
+        errors.partyLogo = 'Improper party Logo format';
       }
       if (errors) {
         return res.status(400).send({
@@ -59,4 +59,4 @@ class InputValidators {
   }
 }
 
-export default InputValidators;
+export default PartyValidators;

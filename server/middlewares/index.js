@@ -1,7 +1,8 @@
 /* eslint-disable linebreak-style */
 /* eslint-disable eol-last */
-import InputValidators from './inputValidators';
+import PartyValidators from './partyValidators';
 import ThirdPartyValidators from './validateAddress';
+import OfficeValidators from './officeValidators';
 
 
-export { InputValidators, ThirdPartyValidators };
+export { PartyValidators, ThirdPartyValidators, OfficeValidators };

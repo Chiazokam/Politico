@@ -3,7 +3,7 @@
 /* eslint-disable class-methods-use-this */
 /* eslint-disable indent */
 
-import Party from '../helpers';
+import { Party } from '../helpers';
 
 const partyObject = new Party();
 
