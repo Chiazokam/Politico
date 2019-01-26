@@ -28,6 +28,11 @@ class Office {
       const allOffices = this.offices;
       return (allOffices);
     }
+
+    findOneOffice(id) {
+      const foundOffice = this.offices.find(office => office.id === Number(id));
+      return foundOffice;
+    }
   }
 
   export default Office;

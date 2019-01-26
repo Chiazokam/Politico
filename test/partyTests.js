@@ -204,7 +204,7 @@ describe ('GET Requests', () => {
     });
   });
 
-  describe ('GET /api/v1/parties', () => {
+  describe ('GET /api/v1/parties/:id', () => {
     it('should get one party', (done) => {
       request(app)
         .get('/api/v1/parties/1')
@@ -219,7 +219,7 @@ describe ('GET Requests', () => {
     });
   });
 
-  describe ('GET /api/v1/parties', () => {
+  describe ('GET /api/v1/parties/:id', () => {
     it('should get a non-existing party', (done) => {
       request(app)
         .get('/api/v1/parties/3')

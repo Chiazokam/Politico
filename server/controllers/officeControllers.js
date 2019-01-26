@@ -49,6 +49,21 @@ class OfficeController {
       error: 'Cannot Get Offices',
       });
   }
+
+  getOneOffice(req, res) {
+    const officeId = req.params.id;
+    const foundOffice = officeObject.findOneOffice(officeId);
+    if (foundOffice) {
+      return res.status(200).send({
+        status: 200,
+        data: [foundOffice],
+      });
+    }
+    return res.status(404).send({
+      status: 404,
+      error: 'Office Not Found',
+    });
+  }
 }
 
 export default OfficeController;

@@ -33,4 +33,6 @@ router.get('/api/v1/offices', office.getAllOffices);
 
 router.get('/api/v1/parties/:id', party.getOneParty);
 
+router.get('/api/v1/offices/:id', office.getOneOffice);
+
 export default router;
