@@ -40,17 +40,32 @@ class PartyController {
   }
 
   getAllParties(req, res) {
-    const data = partyObject.getAllParties();
+    const data = partyObject.findAllParties();
     if (data) {
       return res.status(200).send({
         status: 200,
         data,
       });
     }
-    return res.status(400).send({
-      status: 400,
+    return res.status(404).send({
+      status: 404,
       error: 'Cannot Get Parties',
       });
+  }
+
+  getOneParty(req, res) {
+    const partyId = req.params.id;
+    const foundParty = partyObject.findOneParty(partyId);
+    if (foundParty) {
+      return res.status(200).send({
+        status: 200,
+        data: [foundParty],
+      });
+    }
+    return res.status(404).send({
+      status: 404,
+      error: 'Party Not Found',
+    });
   }
 }
 

@@ -32,9 +32,14 @@ class Party {
    return foundObject;
   }
 
-  getAllParties() {
+  findAllParties() {
     const allParties = this.parties;
     return (allParties);
+  }
+
+  findOneParty(id) {
+    const foundParty = this.parties.find(party => party.id === Number(id));
+    return foundParty;
   }
 }
 

@@ -24,7 +24,7 @@ class Office {
       return foundOffice;
     }
 
-    getAllOffices() {
+    findAllOffices() {
       const allOffices = this.offices;
       return (allOffices);
     }

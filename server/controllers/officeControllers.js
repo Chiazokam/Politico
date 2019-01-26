@@ -37,15 +37,15 @@ class OfficeController {
   }
 
   getAllOffices(req, res) {
-    const data = officeObject.getAllOffices();
+    const data = officeObject.findAllOffices();
     if (data) {
       return res.status(200).send({
         status: 200,
         data,
       });
     }
-    return res.status(400).send({
-      status: 400,
+    return res.status(404).send({
+      status: 404,
       error: 'Cannot Get Offices',
       });
   }

@@ -203,4 +203,33 @@ describe ('GET Requests', () => {
         });
     });
   });
+
+  describe ('GET /api/v1/parties', () => {
+    it('should get one party', (done) => {
+      request(app)
+        .get('/api/v1/parties/1')
+        .end((err, res) => {
+          expect(res.statusCode).to.equal(200);
+          expect(res.body).to.be.an('object');
+          expect(res.body.data).to.be.an('array');
+          expect(res.body.data[0]).to.be.an('object');
+          if (err) { return done(err); }
+          done();
+        });
+    });
+  });
+
+  describe ('GET /api/v1/parties', () => {
+    it('should get a non-existing party', (done) => {
+      request(app)
+        .get('/api/v1/parties/3')
+        .end((err, res) => {
+          expect(res.statusCode).to.equal(404);
+          expect(res.body).to.be.an('object');
+          expect(res.body.error).to.equal('Party Not Found');
+          if (err) { return done(err); }
+          done();
+        });
+    });
+  });
 });
