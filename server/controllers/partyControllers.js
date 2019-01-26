@@ -84,6 +84,24 @@ class PartyController {
       error: 'Cannot Edit a Non-Existing Party',
     });
   }
+
+  deleteParty(req, res) {
+    const partyId = req.params.id;
+    const { foundParty } = partyObject.findOneParty(partyId);
+    if (foundParty) {
+      const deletedParty = partyObject.deleteParty(partyId);
+      return res.status(200).send({
+        status: 200,
+        data: [{
+          message: `Successfully deleted '${deletedParty.partyName}'`,
+        }],
+      });
+    }
+    return res.status(404).send({
+      status: 404,
+      error: 'Party Does Not Exist',
+    });
+  }
 }
 
 export default PartyController;
