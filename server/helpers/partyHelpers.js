@@ -39,6 +39,17 @@ class Party {
 
   findOneParty(id) {
     const foundParty = this.parties.find(party => party.id === Number(id));
+    const foundPartyIndex = this.parties.findIndex(party => party.id === Number(id));
+    const foundObj = {
+      foundParty,
+      foundPartyIndex,
+    };
+    return foundObj;
+  }
+
+  updateParty(id, name) {
+    const { foundParty, foundPartyIndex } = this.findOneParty(id);
+    this.parties[foundPartyIndex].partyName = name;
     return foundParty;
   }
 }

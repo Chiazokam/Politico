@@ -55,7 +55,7 @@ class PartyController {
 
   getOneParty(req, res) {
     const partyId = req.params.id;
-    const foundParty = partyObject.findOneParty(partyId);
+    const { foundParty } = partyObject.findOneParty(partyId);
     if (foundParty) {
       return res.status(200).send({
         status: 200,
@@ -65,6 +65,23 @@ class PartyController {
     return res.status(404).send({
       status: 404,
       error: 'Party Not Found',
+    });
+  }
+
+  editParty(req, res) {
+    const partyId = req.params.id;
+    const { partyName } = req.body;
+    const { foundParty } = partyObject.findOneParty(partyId);
+    if (foundParty) {
+      const newParty = partyObject.updateParty(partyId, partyName);
+      return res.status(201).send({
+        status: 201,
+        data: [newParty],
+      });
+    }
+    return res.status(404).send({
+      status: 404,
+      error: 'Cannot Edit a Non-Existing Party',
     });
   }
 }

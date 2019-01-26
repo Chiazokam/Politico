@@ -35,4 +35,6 @@ router.get('/api/v1/parties/:id', party.getOneParty);
 
 router.get('/api/v1/offices/:id', office.getOneOffice);
 
+router.patch('/api/v1/parties/:id/name', party.editParty);
+
 export default router;

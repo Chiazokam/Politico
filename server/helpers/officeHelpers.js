@@ -31,7 +31,12 @@ class Office {
 
     findOneOffice(id) {
       const foundOffice = this.offices.find(office => office.id === Number(id));
-      return foundOffice;
+      const foundOfficeIndex = this.offices.findIndex(office => office.id === Number(id));
+      const foundObj = {
+        foundOffice,
+        foundOfficeIndex,
+      };
+      return foundObj;
     }
   }
 

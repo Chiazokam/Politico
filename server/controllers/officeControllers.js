@@ -52,7 +52,7 @@ class OfficeController {
 
   getOneOffice(req, res) {
     const officeId = req.params.id;
-    const foundOffice = officeObject.findOneOffice(officeId);
+    const { foundOffice } = officeObject.findOneOffice(officeId);
     if (foundOffice) {
       return res.status(200).send({
         status: 200,

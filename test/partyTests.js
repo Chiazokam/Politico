@@ -233,3 +233,42 @@ describe ('GET Requests', () => {
     });
   });
 });
+
+describe ('PATCH Requests', () => {
+
+  describe ('PATCH /api/v1/partiesid/name/:', () => {
+    it('should edit the name of a party', (done) => {
+      request(app)
+        .patch('/api/v1/parties/1/name')
+        .send({
+          partyName: 'Democratic Congress',
+        })
+        .end((err, res) => {
+          expect(res.statusCode).to.equal(201);
+          expect(res.body).to.be.an('object');
+          expect(res.body.data).to.be.an('array');
+          expect(res.body.data[0]).to.be.an('object');
+          expect(res.body.data[0].partyName).to.equal('Democratic Congress');
+          if (err) { return done(err); }
+          done();
+        });
+    });
+  });
+
+  describe ('PATCH /api/v1/partiesid/name/:', () => {
+    it('should attempt to edit a non-existing', (done) => {
+      request(app)
+        .patch('/api/v1/parties/3/name')
+        .send({
+          partyName: 'Democratic Congress',
+        })
+        .end((err, res) => {
+          expect(res.statusCode).to.equal(404);
+          expect(res.body).to.be.an('object');
+          expect(res.body.error).to.equal('Cannot Edit a Non-Existing Party');
+          if (err) { return done(err); }
+          done();
+        });
+    });
+});
+});
