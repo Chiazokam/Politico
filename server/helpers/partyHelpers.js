@@ -52,6 +52,12 @@ class Party {
     this.parties[foundPartyIndex].partyName = name;
     return foundParty;
   }
+
+  deleteParty(id) {
+    const { foundParty, foundPartyIndex } = this.findOneParty(id);
+    this.parties.splice(foundPartyIndex, 1);
+    return foundParty;
+  }
 }
 
 export default Party;

@@ -236,7 +236,7 @@ describe ('GET Requests', () => {
 
 describe ('PATCH Requests', () => {
 
-  describe ('PATCH /api/v1/partiesid/name/:', () => {
+  describe ('PATCH /api/v1/parties/:id/name', () => {
     it('should edit the name of a party', (done) => {
       request(app)
         .patch('/api/v1/parties/1/name')
@@ -255,8 +255,8 @@ describe ('PATCH Requests', () => {
     });
   });
 
-  describe ('PATCH /api/v1/partiesid/name/:', () => {
-    it('should attempt to edit a non-existing', (done) => {
+  describe ('PATCH /api/v1/parties/:id/name', () => {
+    it('should attempt to edit a non-existing party', (done) => {
       request(app)
         .patch('/api/v1/parties/3/name')
         .send({
@@ -266,6 +266,39 @@ describe ('PATCH Requests', () => {
           expect(res.statusCode).to.equal(404);
           expect(res.body).to.be.an('object');
           expect(res.body.error).to.equal('Cannot Edit a Non-Existing Party');
+          if (err) { return done(err); }
+          done();
+        });
+    });
+});
+});
+
+describe ('DELETE Requests', () => {
+
+  describe ('DELETE /api/v1/parties/:id', () => {
+    it('should delete a party', (done) => {
+      request(app)
+        .delete('/api/v1/parties/1')
+        .end((err, res) => {
+          expect(res.statusCode).to.equal(200);
+          expect(res.body).to.be.an('object');
+          expect(res.body.data).to.be.an('array');
+          expect(res.body.data[0]).to.be.an('object');
+          expect(res.body.data[0].message).to.equal("Successfully deleted 'Democratic Congress'");
+          if (err) { return done(err); }
+          done();
+        });
+    });
+  });
+
+  describe ('PATCH /api/v1/parties/:id', () => {
+    it('should attempt to delete a non-existing party', (done) => {
+      request(app)
+        .delete('/api/v1/parties/3')
+        .end((err, res) => {
+          expect(res.statusCode).to.equal(404);
+          expect(res.body).to.be.an('object');
+          expect(res.body.error).to.equal('Party Does Not Exist');
           if (err) { return done(err); }
           done();
         });
