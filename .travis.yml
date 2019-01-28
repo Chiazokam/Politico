@@ -1,6 +1,8 @@
 language: node_js
 node_js:
   - node
+services:
+  - postgresql
 after success:
   - npm run coverage
 env:
@@ -9,3 +11,5 @@ env:
 cache:
   directories:
   - node_modules
+before_script:
+  - psql -f ./server/db.sql -U postgres 

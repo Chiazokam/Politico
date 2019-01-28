@@ -11,10 +11,10 @@ dotenv.config();
 
 const dropTables = async () => {
   await db.none(`BEGIN;
-        DROP TABLE IF EXISTS users;
-        DROP TABLE IF EXISTS parties;
-        DROP TABLE IF EXISTS offices;
-        DROP TABLE IF EXISTS candidates;
+        DROP TABLE IF EXISTS users CASCADE;
+        DROP TABLE IF EXISTS parties CASCADE;
+        DROP TABLE IF EXISTS offices CASCADE;
+        DROP TABLE IF EXISTS candidates CASCADE;
         DROP TABLE IF EXISTS votes;
         DROP TABLE IF EXISTS petitions;
         COMMIT;`

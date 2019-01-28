@@ -3,11 +3,16 @@
 /* eslint-disable indent */
 
 import express from 'express';
-import { UserValidators } from '../middlewares';
-import { UserController } from '../controllers';
+import { PartyValidators, ThirdPartyValidators, OfficeValidators, UserValidators } from '../middlewares';
+import { PartyController, OfficeController, UserController } from '../controllers';
 
 const router = express.Router();
+const validatePartyInput = new PartyValidators();
+const validateOfficeInput = new OfficeValidators();
+const validateAddress = new ThirdPartyValidators();
 const validateUser = new UserValidators();
+const party = new PartyController();
+const office = new OfficeController();
 const user = new UserController();
 
 router.get('/', (req, res) => res.status(200).send({
