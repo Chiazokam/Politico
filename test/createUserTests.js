@@ -320,7 +320,7 @@ describe('POST Requests', () => {
             password: 'lilian',
           })
           .end((err, res) => {
-            expect(res.statusCode).to.equal(401);
+            expect(res.statusCode).to.equal(400);
             expect(res.body).to.be.an('object');
             expect(res.body.error).to.equal('Email or password is incorrect');
           if (err) { return done(err); }
@@ -338,7 +338,7 @@ describe('POST Requests', () => {
             password: 'lilianin',
           })
           .end((err, res) => {
-            expect(res.statusCode).to.equal(401);
+            expect(res.statusCode).to.equal(400);
             expect(res.body).to.be.an('object');
             expect(res.body.error).to.equal('Email or password is incorrect');
           if (err) { return done(err); }

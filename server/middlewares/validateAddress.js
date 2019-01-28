@@ -37,10 +37,10 @@ class ThirdPartyValidators {
                     });
                 }
             })
-            .catch((err) => {
-                return res.status(500).send({
-                    status: 500,
-                    error: err.message,
+            .catch(() => {
+                return res.status(400).send({
+                    status: 400,
+                    error: 'Put In a Correct Address Please',
                 });
             });
     }

@@ -4,6 +4,7 @@ import PartyValidators from './partyValidators';
 import ThirdPartyValidators from './validateAddress';
 import OfficeValidators from './officeValidators';
 import UserValidators from './userValidators';
+import verifyToken from './verifytoken';
 
 
-export { PartyValidators, ThirdPartyValidators, OfficeValidators, UserValidators };
+export { PartyValidators, ThirdPartyValidators, OfficeValidators, UserValidators, verifyToken };

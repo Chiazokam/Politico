@@ -26,7 +26,7 @@ const createTables = async () => {
     CREATE TABLE IF NOT EXISTS parties( 
         id SERIAL PRIMARY KEY,
         partyName VARCHAR(128) UNIQUE NOT NULL,
-        partyAddress VARCHAR(128) UNIQUE NOT NULL,
+        partyAddress VARCHAR(128) NOT NULL,
         partyLogo VARCHAR(128) UNIQUE NOT NULL,
         createdOn TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     );

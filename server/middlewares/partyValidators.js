@@ -2,13 +2,11 @@
 /* eslint-disable eol-last */
 /* eslint-disable class-methods-use-this */
 /* eslint-disable consistent-return */
+/* eslint-disable indent */
 
-import express from 'express';
-import bodyParser from 'body-parser';
+import { PartyQueries } from '../helpers';
 
-
-const app = express();
-app.use(bodyParser.urlencoded({ extended: true }));
+const query = new PartyQueries();
 
 class PartyValidators {
   isPartyFieldEmpty(req, res, next) {
@@ -47,7 +45,8 @@ class PartyValidators {
   }
 
   isLogoUrlValid(req, res, next) {
-    const { partyLogo } = req.body;
+    let { partyLogo } = req.body;
+    partyLogo = partyLogo.trim();
     if (/\.(jpeg|jpg|png)$/.test(partyLogo)) {
       next();
     } else {
@@ -57,6 +56,30 @@ class PartyValidators {
       });
     }
   }
+
+  doesPartyExist(req, res, next) {
+    let { partyName, partyLogo } = req.body;
+    partyName = partyName.trim();
+    partyLogo = partyLogo.trim();
+
+    query.checkPartyExistence(partyName, partyLogo)
+    .then((response) => {
+      if (response.length > 0) {
+        res.status(400).send({
+            status: 400,
+            error: 'Party Name or Logo already exists',
+        });
+        } else {
+        next();
+      }
+    })
+    .catch((error) => {
+      return res.status(500).send({
+        status: 500,
+        error: error.message,
+      });
+    })
+  } 
 }
 
 export default PartyValidators;

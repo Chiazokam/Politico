@@ -3,17 +3,46 @@
 /* eslint-disable consistent-return */
 /* eslint-disable indent */
 
-/*
 import chai, { expect } from 'chai';
 import request from 'supertest';
 import app from '../server/app';
 
+let token;
+
 describe('POST Requests', () => {
+
+  describe ('POST /api/v1/auth/signup', () => {
+    it('should create a new user', (done) => {
+      request(app)
+        .post('/api/v1/auth/signup')
+        .send({
+          firstname: 'Seth',
+          lastname: 'Wolverine',
+          othername: 'Cory',
+          email: 'seth@cory.com',
+          phone: '+234-7032989466',
+          passportUrl: 'www.passporting.jpeg',
+          password: 'wolf',
+          isAdmin: true,
+        })
+        .end((err, res) => {
+          expect(res.statusCode).to.equal(201);
+          expect(res.body).to.be.an('object');
+          expect(res.body.data).to.be.an('array');
+          expect(res.body.data[0]).to.be.an('object');
+          expect(res.body.data[0].user.firstname).to.equal('Seth');
+          token = res.body.data[0].token;
+        if (err) { return done(err); }
+        done();
+        });
+    });
+  });
 
     describe ('POST /api/v1/parties', () => {
       it('should create a new party', (done) => {
         request(app)
           .post('/api/v1/parties')
+          .set('token', token)
           .send({
             partyName: 'People Congress',
             partyAddress: 'Folawiyo Bankole Street',
@@ -32,9 +61,50 @@ describe('POST Requests', () => {
     });
 
     describe ('POST /api/v1/parties', () => {
+      it('should attempt to create a party with a wrong token', (done) => {
+        request(app)
+          .post('/api/v1/parties')
+          .set('token', '253533637722hxhchfhdfhs')
+          .send({
+            partyName: 'Developed People',
+            partyAddress: 'Surulere',
+            partyLogo: 'www.logodeveloped.jpg',
+          })
+          .end((err, res) => {
+            expect(res.statusCode).to.equal(401);
+            expect(res.body).to.be.an('object');
+            expect(res.body.error).to.equal('user unauthenticated');
+          if (err) { return done(err); }
+          done();
+          });
+      });
+    });
+
+    describe ('POST /api/v1/parties', () => {
+      it('should attempt to create a party without a wrong token', (done) => {
+        request(app)
+          .post('/api/v1/parties')
+          .send({
+            partyName: 'Developed People',
+            partyAddress: 'Surulere',
+            partyLogo: 'www.logodeveloped.jpg',
+          })
+          .end((err, res) => {
+            expect(res.statusCode).to.equal(401);
+            expect(res.body).to.be.an('object');
+            expect(res.body.error).to.equal('token not provided');
+          if (err) { return done(err); }
+          done();
+          });
+      });
+    });
+
+    
+   describe ('POST /api/v1/parties', () => {
       it('should attempt to create an existing party', (done) => {
         request(app)
           .post('/api/v1/parties')
+          .set('token', token)
           .send({
             partyName: 'People Congress',
             partyAddress: 'Folawiyo Bankole Street',
@@ -43,7 +113,7 @@ describe('POST Requests', () => {
           .end((err, res) => {
             expect(res.statusCode).to.equal(400);
             expect(res.body).to.be.an('object');
-            expect(res.body.error).to.equal('Party Name, Address or Logo Already Exists');
+            expect(res.body.error).to.equal('Party Name or Logo already exists');
           if (err) { return done(err); }
           done();
           });
@@ -54,6 +124,7 @@ describe('POST Requests', () => {
         it('should test for wrong party Name format', (done) => {
           request(app)
             .post('/api/v1/parties')
+            .set('token', token)
             .send({
               partyName: '   ',
               partyAddress: 'Folawiyo Bankole Street',
@@ -73,6 +144,7 @@ describe('POST Requests', () => {
         it('should test for wrong party Address format', (done) => {
           request(app)
             .post('/api/v1/parties')
+            .set('token', token)
             .send({
               partyName: 'People Congress',
               partyAddress: '   ',
@@ -92,6 +164,7 @@ describe('POST Requests', () => {
         it('should test for wrong party Logo format', (done) => {
           request(app)
             .post('/api/v1/parties')
+            .set('token', token)
             .send({
               partyName: 'People Congress',
               partyAddress: 'Folawiyo Bankole Street',
@@ -111,6 +184,7 @@ describe('POST Requests', () => {
         it('should check if party Name is a string', (done) => {
           request(app)
             .post('/api/v1/parties')
+            .set('token', token)
             .send({
               partyName: 'People Congress 999',
               partyAddress: 'Folawiyo Bankole Street',
@@ -130,6 +204,7 @@ describe('POST Requests', () => {
         it('should check if image format is wrong', (done) => {
           request(app)
             .post('/api/v1/parties')
+            .set('token', token)
             .send({
               partyName: 'People Congress',
               partyAddress: 'Folawiyo Bankole Street',
@@ -149,6 +224,7 @@ describe('POST Requests', () => {
         it('should test all input for wrong format', (done) => {
           request(app)
             .post('/api/v1/parties')
+            .set('token', token)
             .send({
               partyName: '   ',
               partyAddress: ' ',
@@ -171,15 +247,16 @@ describe('POST Requests', () => {
         it('should test for a wrong address', (done) => {
           request(app)
             .post('/api/v1/parties')
+            .set('token', token)
             .send({
-              partyName: 'People Congress',
-              partyAddress: '89 J',
-              partyLogo: 'www.logo.com/url.jpg',
+              partyName: 'Good People',
+              partyAddress: 'Bode Thomas',
+              partyLogo: 'www.logogood.com/url.jpg',
             })
             .end((err, res) => {
-              expect(res.statusCode).to.equal(500);
+              expect(res.statusCode).to.equal(400);
               expect(res.body).to.be.an('object');
-              expect(res.body.error).to.equal("Cannot read property 'formatted_address' of undefined");
+              expect(res.body.error).to.equal('Put In a Correct Address Please');
             if (err) { return done(err); }
             done();
             });
@@ -187,7 +264,7 @@ describe('POST Requests', () => {
       });
 });
 
-
+/*
 describe ('GET Requests', () => {
 
   describe ('GET /api/v1/parties', () => {
@@ -305,5 +382,4 @@ describe ('DELETE Requests', () => {
         });
     });
 });
-});
-*/
+}); */

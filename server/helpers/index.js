@@ -3,5 +3,6 @@
 
 
 import UserQueries from './userQueries';
+import PartyQueries from './partyQueries';
 
-export { UserQueries };
+export { UserQueries, PartyQueries };

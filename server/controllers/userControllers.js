@@ -54,7 +54,7 @@ class UserController {
                     }],
                 });
             }
-            return res.status(401).send({
+            return res.status(400).send({
                 status: 400,
                 error: 'User Not Created',
               });
@@ -76,8 +76,8 @@ class UserController {
         .then((response) => {
             if (response.length > 0) {
                 if (!bcrypt.compareSync(password, response[0].password)) {
-                    return res.status(401).send({
-                      status: 401,
+                    return res.status(400).send({
+                      status: 400,
                       error: 'Email or password is incorrect',
                     });
                   }
@@ -99,8 +99,8 @@ class UserController {
                     }],
                   });
             }
-            return res.status(401).send({
-                status: 401,
+            return res.status(400).send({
+                status: 400,
                 error: 'Email or password is incorrect',
               });
         })
