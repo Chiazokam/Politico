@@ -54,10 +54,47 @@ class UserController {
                     }],
                 });
             }
-            return res.status(400).send({
-                status: 400,
-                error: 'User Not Created',
+        })
+        .catch((error) => {
+            return res.status(500).send({
+                status: 500,
+                error: error.message,
             });
+        });
+    }
+
+    loginUser(req, res) {
+        let { email, password } = req.body;
+        email = email.trim();
+        const hash = bcrypt.hashSync(password, 10);
+
+        query.isUserRegisteredQuery(email, hash)
+        .then((response) => {
+            if (response.length > 0) {
+                if (!bcrypt.compareSync(password, response[0].password)) {
+                    return res.status(401).send({
+                      status: 401,
+                      error: 'Email or password is incorrect',
+                    });
+                  }
+                const data = {
+                    id: response[0].id,
+                    firstname: response[0].firstname,
+                    lastname: response[0].lastname,
+                    othername: response[0].othername,
+                    email: response[0].email,
+                    phone: response[0].phone,
+                    passportUrl: response[0].passportUrl,
+                  };
+                const token = jwt.sign(data, process.env.SECRET_KEY, { expiresIn: '2d' });
+                return res.status(200).send({
+                    status: 200,
+                    data: [{
+                      token,
+                      user: data,
+                    }],
+                  });
+            }
         })
         .catch((error) => {
             return res.status(500).send({

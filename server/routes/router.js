@@ -21,4 +21,8 @@ router.post('/api/v1/auth/signup', validateUser.isUserFieldEmpty,
                                     validateUser.doesUserExist,
                                     user.createUser);
 
+router.post('/api/v1/auth/login', validateUser.isUserLoginFieldEmpty,
+                                  validateUser.isEmailValid,
+                                  user.loginUser);
+
 export default router;
