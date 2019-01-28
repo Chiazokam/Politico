@@ -122,6 +122,30 @@ class UserValidators {
             });
         });
     }
+
+    isUserAdmin(req, res, next) {
+      const userId = req.userData.id;
+      query.isUserAdminQuery(userId)
+      .then((response) => {
+        const user = {
+          id: response[0].id,
+          isAdmin: response[0].isadmin,
+        };
+        if (user.isAdmin === false) {
+          return res.status(401).send({
+            status: 401,
+            error: 'User Unauthorized',
+          });
+        }
+        next();
+      })
+      .catch((error) => {
+        return res.status(500).send({
+          status: 500,
+          error: error.message,
+        });
+      });
+    }
 }
 
 export default UserValidators;

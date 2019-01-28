@@ -19,6 +19,10 @@ class PartyQueries {
     checkPartyExistence(partyName, partyLogo) {
       return db.any('SELECT * FROM parties WHERE partyname = $1 OR partylogo = $2', [partyName, partyLogo]);
     }
+
+    getAllPartiesQuery() {
+      return db.any('SELECT * FROM parties');
+    }
 }
 
 export default PartyQueries;

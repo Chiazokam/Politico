@@ -38,55 +38,6 @@ describe('POST Requests', () => {
       });
     });
 
-      /* ***************************CREATE PARTY******************************* */
-
-      describe ('POST /api/v1/parties', () => {
-        it('should attempt to create party without admin rights', (done) => {
-          request(app)
-            .post('/api/v1/parties')
-            .set('token', token)
-            .send({
-              partyName: 'Peoples Develop Party',
-              partyAddress: 'Folawiyo Bankole Street',
-              partyLogo: 'www.develop.com/url.jpg',
-            })
-            .end((err, res) => {
-              expect(res.statusCode).to.equal(401);
-              expect(res.body).to.be.an('object');
-              expect(res.body.error).to.equal('User Unauthorized');
-            if (err) { return done(err); }
-            done();
-            });
-        });
-      });
-  
-
-     /* ********************************************************************** */
-
-    /* ***************************CREATE OFFICE******************************* */
-
-      describe ('POST /api/v1/offices', () => {
-        it('should attempt to create office without admin rights', (done) => {
-          request(app)
-            .post('/api/v1/offices')
-            .set('token', token)
-            .send({
-              officeName: 'Chief Justice',
-              officeType: 'Legislative',
-            })
-            .end((err, res) => {
-              expect(res.statusCode).to.equal(401);
-              expect(res.body).to.be.an('object');
-              expect(res.body.error).to.equal('User Unauthorized');
-            if (err) { return done(err); }
-            done();
-            });
-        });
-      });
-  
-
-     /* ******************************************************************* */
-
     describe ('POST /api/v1/auth/signup', () => {
       it('should attempt to recreate an existing user', (done) => {
         request(app)

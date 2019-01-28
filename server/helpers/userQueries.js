@@ -28,7 +28,7 @@ class UserQueries {
     return db.any('SELECT * FROM users WHERE email = $1 OR password = $2', [email, hash]);
   }
 
-  isUserAdmin(id) {
+  isUserAdminQuery(id) {
     return db.any('SELECT * FROM users WHERE id = $1', [id]);
   }
 }

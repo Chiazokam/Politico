@@ -14,7 +14,7 @@ dotenv.load();
 class OfficeController {
     createOffice(req, res) {
         const userId = req.userData.id;
-        userQuery.isUserAdmin(userId)
+        userQuery.isUserAdminQuery(userId)
         .then((responseObject) => {
             const user = {
                 id: responseObject[0].id,
