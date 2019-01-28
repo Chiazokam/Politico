@@ -54,6 +54,10 @@ class UserController {
                     }],
                 });
             }
+            return res.status(401).send({
+                status: 400,
+                error: 'User Not Created',
+              });
         })
         .catch((error) => {
             return res.status(500).send({
@@ -95,6 +99,10 @@ class UserController {
                     }],
                   });
             }
+            return res.status(401).send({
+                status: 401,
+                error: 'Email or password is incorrect',
+              });
         })
         .catch((error) => {
             return res.status(500).send({
