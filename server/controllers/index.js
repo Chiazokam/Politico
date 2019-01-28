@@ -3,5 +3,6 @@
 
 import UserController from './userControllers';
 import PartyController from './partyControllers';
+import OfficeController from './officeControllers';
 
-export { UserController, PartyController };
+export { UserController, PartyController, OfficeController };

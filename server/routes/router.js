@@ -3,16 +3,18 @@
 /* eslint-disable indent */
 
 import express from 'express';
-import { UserValidators, verifyToken, ThirdPartyValidators, PartyValidators } from '../middlewares';
-import { UserController, PartyController } from '../controllers';
+import { UserValidators, verifyToken, ThirdPartyValidators, PartyValidators, OfficeValidators } from '../middlewares';
+import { UserController, PartyController, OfficeController } from '../controllers';
 
 const router = express.Router();
 const validateUser = new UserValidators();
 const validateAddress = new ThirdPartyValidators();
 const validatePartyInput = new PartyValidators();
+const validateOfficeInput = new OfficeValidators();
 
 const user = new UserController();
 const party = new PartyController();
+const office = new OfficeController();
 
 router.get('/', (req, res) => res.status(200).send({
   message: 'Welcome to Politico',
@@ -36,5 +38,12 @@ router.post('/api/v1/parties', verifyToken,
                                validatePartyInput.doesPartyExist,
                                validateAddress.isAddressValid,
                                party.createParty);
+
+                               
+router.post('/api/v1/offices', verifyToken,
+                               validateOfficeInput.isOfficeFieldEmpty,
+                               validateOfficeInput.isOfficeTypeValid,
+                               validateOfficeInput.doesOfficeExist,
+                               office.createOffice);
 
 export default router;

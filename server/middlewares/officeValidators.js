@@ -4,12 +4,10 @@
 /* eslint-disable consistent-return */
 /* eslint-disable indent */
 
-import express from 'express';
-import bodyParser from 'body-parser';
+import { OfficeQueries } from '../helpers';
 
+const query = new OfficeQueries();
 
-const app = express();
-app.use(bodyParser.urlencoded({ extended: true }));
 
 class OfficeValidators {
     isOfficeFieldEmpty(req, res, next) {
@@ -46,6 +44,29 @@ class OfficeValidators {
             });
           } 
       }
+
+      doesOfficeExist(req, res, next) {
+        let { officeName } = req.body;
+        officeName = officeName.trim();
+    
+        query.checkOfficeExistence(officeName)
+        .then((response) => {
+          if (response.length > 0) {
+            res.status(400).send({
+                status: 400,
+                error: 'Office Already Exists',
+            });
+            } else {
+            next();
+          }
+        })
+        .catch((error) => {
+          return res.status(500).send({
+            status: 500,
+            error: error.message,
+          });
+        })
+      } 
 }
 
 export default OfficeValidators;

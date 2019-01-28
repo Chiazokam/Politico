@@ -11,26 +11,19 @@ let token;
 
 describe('POST Requests', () => {
 
-  describe ('POST /api/v1/auth/signup', () => {
-    it('should create a new user', (done) => {
+  describe ('POST /api/v1/auth/login', () => {
+    it('should sign in a user', (done) => {
       request(app)
-        .post('/api/v1/auth/signup')
+        .post('/api/v1/auth/login')
         .send({
-          firstname: 'Seth',
-          lastname: 'Wolverine',
-          othername: 'Cory',
-          email: 'seth@cory.com',
-          phone: '+234-7032989466',
-          passportUrl: 'www.passporting.jpeg',
-          password: 'wolf',
-          isAdmin: true,
+          email: 'chiazokamecheta@gmail.com',
+          password: 'root',
         })
         .end((err, res) => {
-          expect(res.statusCode).to.equal(201);
+          expect(res.statusCode).to.equal(200);
           expect(res.body).to.be.an('object');
           expect(res.body.data).to.be.an('array');
           expect(res.body.data[0]).to.be.an('object');
-          expect(res.body.data[0].user.firstname).to.equal('Seth');
           token = res.body.data[0].token;
         if (err) { return done(err); }
         done();

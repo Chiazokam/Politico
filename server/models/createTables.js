@@ -34,7 +34,7 @@ const createTables = async () => {
     CREATE TABLE IF NOT EXISTS offices( 
         id SERIAL PRIMARY KEY,
         officeName VARCHAR(128) UNIQUE NOT NULL,
-        officeType VARCHAR(128) UNIQUE NOT NULL,
+        officeType VARCHAR(128) NOT NULL,
         createdOn TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     );
 
