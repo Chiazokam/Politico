@@ -47,6 +47,26 @@ class UserValidators {
           next();
     }
 
+    isUserLoginFieldEmpty(req, res, next) {
+      const { email, password } = req.body;
+      const errors = {};
+      if (!email || !email.trim() || !password || !password.trim()) {
+          if (!email || !email.trim()) {
+              errors.email = 'Email field cannot be empty';
+          }
+          if (!password || !password.trim()) {
+              errors.password = 'Password field cannot be empty';
+          }
+          if (errors) {
+            return res.status(400).send({
+              status: 400,
+              error: errors,
+            });
+          }
+        }
+        next();
+   }
+
     isEmailValid(req, res, next) {
         const { email } = req.body;
         if (/\S+@\S+\.\S+/.test(email)) {
