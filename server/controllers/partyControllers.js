@@ -114,11 +114,38 @@ class PartyController {
           id: response[0].id,
           name,
         };
-        query.updatePartyName(id, name)
+        query.updatePartyNameQuery(id, name)
           return res.status(200).send({
             status: 200,
             data: [data],
           });
+      })
+      .catch((error) => {
+        return res.status(500).send({
+          status: 500,
+          error: error.message,
+        });
+      })
+    }
+
+    deleteParty(req, res) {
+      const { id } = req.params;
+      const { name } = req.body;
+      query.getOnePartyQuery(id)
+      .then((response) => {
+        if (response.length === 0) {
+          return res.status(404).send({
+            status: 404,
+            error: 'Party Not Found',
+          });
+        }
+        query.deletePartyQuery(id);
+        return res.status(200).send({
+          status: 200,
+          data: [{
+            message: 'Party Successfully deleted',
+          }],
+        });
       })
       .catch((error) => {
         return res.status(500).send({

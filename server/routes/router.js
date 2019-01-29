@@ -70,4 +70,8 @@ router.get('/api/v1/offices/:id', verifyToken,
 router.patch('/api/v1/parties/:id/name', verifyToken,
                                        validateUser.isUserAdmin,
                                        party.editParty);
+
+router.delete('/api/v1/parties/:id', verifyToken,
+                                    validateUser.isUserAdmin,
+                                    party.deleteParty);
 export default router;

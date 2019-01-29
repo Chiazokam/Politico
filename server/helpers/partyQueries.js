@@ -28,8 +28,12 @@ class PartyQueries {
       return db.any('SELECT * FROM parties WHERE id = $1 ', [id]);
     }
 
-    updatePartyName(id, name) {
+    updatePartyNameQuery(id, name) {
       return db.any('UPDATE parties SET name = $1 WHERE id = $2', [name, id]);
+    }
+
+    deletePartyQuery(id) {
+      return db.any('DELETE FROM parties WHERE id = $1', [id]);
     }
 }
 

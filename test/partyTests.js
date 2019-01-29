@@ -386,19 +386,20 @@ describe ('PATCH Requests', () => {
 });
 });
 
-/*
+
 describe ('DELETE Requests', () => {
 
   describe ('DELETE /api/v1/parties/:id', () => {
     it('should delete a party', (done) => {
       request(app)
         .delete('/api/v1/parties/1')
+        .set('token', token)
         .end((err, res) => {
           expect(res.statusCode).to.equal(200);
           expect(res.body).to.be.an('object');
           expect(res.body.data).to.be.an('array');
           expect(res.body.data[0]).to.be.an('object');
-          expect(res.body.data[0].message).to.equal("Successfully deleted 'Democratic Congress'");
+          expect(res.body.data[0].message).to.equal('Party Successfully deleted');
           if (err) { return done(err); }
           done();
         });
@@ -408,14 +409,15 @@ describe ('DELETE Requests', () => {
   describe ('DELETE /api/v1/parties/:id', () => {
     it('should attempt to delete a non-existing party', (done) => {
       request(app)
-        .delete('/api/v1/parties/3')
+        .delete('/api/v1/parties/8')
+        .set('token', token)
         .end((err, res) => {
           expect(res.statusCode).to.equal(404);
           expect(res.body).to.be.an('object');
-          expect(res.body.error).to.equal('Party Does Not Exist');
+          expect(res.body.error).to.equal('Party Not Found');
           if (err) { return done(err); }
           done();
         });
     });
 });
-}); */
+}); 
