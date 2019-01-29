@@ -9,7 +9,7 @@
     "build": "babel server --out-dir build/server",
     "createTable": "node build/server/models/createTables.js",
     "dropTable": "node build/server/models/dropTables.js",
-    "start:table": "npm run dropTable && npm run createTable",
+    "start:table": "npm run build && npm run dropTable && npm run createTable",
     "start:dev": "npm run build && babel-watch server/app.js"
   },
   "repository": {

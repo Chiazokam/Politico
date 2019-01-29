@@ -8,16 +8,16 @@ import db from '../models/db';
 
 class PartyQueries {
     createPartyQuery(object) {
-        return db.any(`INSERT INTO parties(partyName, partyAddress, partyLogo)
+        return db.any(`INSERT INTO parties(name, hqAddress, logoUrl)
           VALUES($1, $2, $3) RETURNING *`, [
-            object.partyName,
-            object.partyAddress,
-            object.partyLogo,
+            object.name,
+            object.hqAddress,
+            object.logoUrl,
           ]);
      }
 
-    checkPartyExistence(partyName, partyLogo) {
-      return db.any('SELECT * FROM parties WHERE partyname = $1 OR partylogo = $2', [partyName, partyLogo]);
+    checkPartyExistence(name, logoUrl) {
+      return db.any('SELECT * FROM parties WHERE name = $1 OR logoUrl = $2', [name, logoUrl]);
     }
 
     getAllPartiesQuery() {

@@ -38,15 +38,15 @@ describe('POST Requests', () => {
           .post('/api/v1/offices')
           .set('token', token)
           .send({
-            officeName: 'Governor',
-            officeType: 'State',
+            name: 'Governor',
+            type: 'State',
         })
           .end((err, res) => {
             expect(res.statusCode).to.equal(201);
             expect(res.body).to.be.an('object');
             expect(res.body.data).to.be.an('array');
             expect(res.body.data[0]).to.be.an('object');
-            expect(res.body.data[0].officeName).to.equal('Governor');
+            expect(res.body.data[0].name).to.equal('Governor');
           if (err) { return done(err); }
           done();
           });
@@ -59,8 +59,8 @@ describe('POST Requests', () => {
             .post('/api/v1/offices')
             .set('token', token)
             .send({
-              officeName: 'Governor',
-              officeType: 'State',
+              name: 'Governor',
+              type: 'State',
             })
             .end((err, res) => {
               expect(res.statusCode).to.equal(400);
@@ -73,18 +73,18 @@ describe('POST Requests', () => {
       });
 
       describe ('POST /api/v1/offices', () => {
-        it('should check for an empty officeName field', (done) => {
+        it('should check for an empty name field', (done) => {
           request(app)
             .post('/api/v1/offices')
             .set('token', token)
             .send({
-              officeName: '  ',
-              officeType: 'State',
+              name: '  ',
+              type: 'State',
             })
             .end((err, res) => {
               expect(res.statusCode).to.equal(400);
               expect(res.body).to.be.an('object');
-              expect(res.body.error.officeName).to.equal('Improper office Name format');
+              expect(res.body.error.name).to.equal('Improper office Name format');
             if (err) { return done(err); }
             done();
             });
@@ -92,18 +92,18 @@ describe('POST Requests', () => {
       });
 
       describe ('POST /api/v1/offices', () => {
-        it('should check for an empty officeType field', (done) => {
+        it('should check for an empty type field', (done) => {
           request(app)
             .post('/api/v1/offices')
             .set('token', token)
             .send({
-              officeName: 'President',
-              officeType: '    ',
+              name: 'President',
+              type: '    ',
             })
             .end((err, res) => {
               expect(res.statusCode).to.equal(400);
               expect(res.body).to.be.an('object');
-              expect(res.body.error.officeType).to.equal('Improper office Type format');
+              expect(res.body.error.type).to.equal('Improper office Type format');
             if (err) { return done(err); }
             done();
             });
@@ -111,13 +111,13 @@ describe('POST Requests', () => {
       });
 
       describe ('POST /api/v1/offices', () => {
-        it('should check for a wrong officeType format', (done) => {
+        it('should check for a wrong type format', (done) => {
           request(app)
             .post('/api/v1/offices')
             .set('token', token)
             .send({
-              officeName: 'President',
-              officeType: 'Officer',
+              name: 'President',
+              type: 'Officer',
             })
             .end((err, res) => {
               expect(res.statusCode).to.equal(400);

@@ -33,19 +33,23 @@ router.post('/api/v1/auth/login', validateUser.isUserLoginFieldEmpty,
                                   user.loginUser);
 
 router.post('/api/v1/parties', verifyToken,
+                               validateUser.isUserAdmin,
                                validatePartyInput.isPartyFieldEmpty,
                                validatePartyInput.isPartyNameString,
                                validatePartyInput.isLogoUrlValid,
                                validatePartyInput.doesPartyExist,
+                               validatePartyInput.isPartyInputInteger,
                                validateAddress.isAddressValid,
-                               validateUser.isUserAdmin,
+                               
                                party.createParty);
 
                                
 router.post('/api/v1/offices', verifyToken,
+                               validateUser.isUserAdmin,
                                validateOfficeInput.isOfficeFieldEmpty,
                                validateOfficeInput.isOfficeTypeValid,
                                validateOfficeInput.doesOfficeExist,
+                               
                                office.createOffice);
 
 router.get('/api/v1/parties', verifyToken,

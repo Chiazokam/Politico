@@ -8,15 +8,15 @@ import db from '../models/db';
 
 class OfficeQueries {
     createOfficeQuery(object) {
-        return db.any(`INSERT INTO offices(officeName, officeType)
+        return db.any(`INSERT INTO offices(name, type)
           VALUES($1, $2) RETURNING *`, [
-            object.officeName,
-            object.officeType,
+            object.name,
+            object.type,
           ]);
      }
 
-    checkOfficeExistence(officeName) {
-      return db.any('SELECT * FROM offices WHERE officename = $1', [officeName]);
+    checkOfficeExistence(name) {
+      return db.any('SELECT * FROM offices WHERE name = $1', [name]);
     }
 
     getAllOfficesQuery() {

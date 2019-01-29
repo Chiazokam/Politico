@@ -12,21 +12,21 @@ dotenv.load();
 
 class PartyController {
     createParty(req, res) {
-        const { partyName, partyLogo } = req.body;
+        const { name, logoUrl } = req.body;
         const formattedAddr = req.partyAddr;
         const requestData = {
-            partyName: partyName.trim(),
-            partyAddress: formattedAddr,
-            partyLogo: partyLogo.trim(),
+            name: name.trim(),
+            hqAddress: formattedAddr,
+            logoUrl: logoUrl.trim(),
           };
         
         query.createPartyQuery(requestData)
         .then((response) => {
             if (response.length > 0) {
               const data = { 
-                partyName: response[0].partyname,
-                partyAddress: response[0].partyaddress,
-                partyLogo: response[0].partylogo,
+                name: response[0].name,
+                hqAddress: response[0].hqaddress,
+                logoUrl: response[0].logourl,
                 createdOn: response[0].createdon,
               };
               return res.status(201).send({

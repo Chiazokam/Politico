@@ -4,40 +4,26 @@
 /* eslint-disable class-methods-use-this */
 
 import dotenv from 'dotenv';
-import { OfficeQueries, UserQueries } from '../helpers';
+import { OfficeQueries } from '../helpers';
 
 const query = new OfficeQueries();
-const userQuery = new UserQueries();
 
 dotenv.load();
 
 class OfficeController {
   createOffice(req, res) {
-    const userId = req.userData.id;
-    userQuery.isUserAdminQuery(userId)
-    .then((responseObject) => {
-        const user = {
-            id: responseObject[0].id,
-            isAdmin: responseObject[0].isadmin,
-        };
-        if (user.isAdmin === false) {
-            return res.status(401).send({
-                status: 401,
-                error: 'User Unauthorized',
-              });
-        }
-        const { officeName, officeType } = req.body;
+        const { name, type } = req.body;
         const requestData = {
-            officeName: officeName.trim(),
-            officeType: officeType.trim(),
+            name: name.trim(),
+            type: type.trim(),
         };
       
         query.createOfficeQuery(requestData)
         .then((response) => {
             if (response.length > 0) {
               const data = {
-                officeName: response[0].officename,
-                officeType: response[0].officetype,
+                name: response[0].name,
+                type: response[0].type,
               };
               return res.status(201).send({
                 status: 201,
@@ -55,13 +41,6 @@ class OfficeController {
               error: error.message,
             });
           })
-    })
-    .catch((error) => {
-        return res.status(500).send({
-          status: 500,
-          error: error.message,
-        });
-    })
   }
 
     getAllOffices(req, res) {

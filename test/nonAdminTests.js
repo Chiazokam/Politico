@@ -13,7 +13,7 @@ let token;
 describe('POST Requests', () => {
 
     describe ('POST /api/v1/auth/signup', () => {
-      it('should create a new user', (done) => {
+      it('should create a new user for other tests', (done) => {
         request(app)
           .post('/api/v1/auth/signup')
           .send({
@@ -21,7 +21,7 @@ describe('POST Requests', () => {
             lastname: 'Diana',
             othername: 'Marta',
             email: 'sally@mart.com',
-            phone: '+234-7034567281',
+            phone: '+234-123456789',
             passportUrl: 'www.sallypassport.jpeg',
             password: 'diana',
           })
@@ -45,9 +45,9 @@ describe('POST Requests', () => {
             .post('/api/v1/parties')
             .set('token', token)
             .send({
-              partyName: 'Peoples Develop Party',
-              partyAddress: 'Folawiyo Bankole Street',
-              partyLogo: 'www.develop.com/url.jpg',
+              name: 'Peoples Develop Party',
+              hqAddress: 'Folawiyo Bankole Street',
+              logoUrl: 'www.develop.com/url.jpg',
             })
             .end((err, res) => {
               expect(res.statusCode).to.equal(401);
@@ -67,8 +67,8 @@ describe('POST Requests', () => {
             .post('/api/v1/offices')
             .set('token', token)
             .send({
-              officeName: 'Chief Justice',
-              officeType: 'Legislative',
+              name: 'Chief Justice',
+              type: 'Legislative',
             })
             .end((err, res) => {
               expect(res.statusCode).to.equal(401);
@@ -109,7 +109,6 @@ describe('GET Requests', () => {
           .get('/api/v1/offices')
           .set('token', token)
           .end((err, res) => {
-            console.log(res);
             expect(res.statusCode).to.equal(401);
             expect(res.body).to.be.an('object');
             expect(res.body.error).to.equal('User Unauthorized');
@@ -118,4 +117,4 @@ describe('GET Requests', () => {
           });
       });
     });
-})
+});
