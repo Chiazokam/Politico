@@ -23,6 +23,10 @@ class PartyQueries {
     getAllPartiesQuery() {
       return db.any('SELECT * FROM parties');
     }
+
+    getOnePartyQuery(id) {
+      return db.any('SELECT * FROM parties WHERE id = $1 ', [id]);
+    }
 }
 
 export default PartyQueries;

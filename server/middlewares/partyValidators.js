@@ -32,7 +32,7 @@ class PartyValidators {
     next();
   }
 
-  isPartyInputInteger(req, res, next) {
+  isAddressAnInteger(req, res, next) {
     const { hqAddress } = req.body;
     if ( isNaN(parseFloat(hqAddress))) {
       return next();
