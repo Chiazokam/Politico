@@ -100,4 +100,22 @@ describe('GET Requests', () => {
             });
         });
       });
+
+    /* ***************************GET ALL OFFICES******************************* */
+
+    describe ('GET /api/v1/offices', () => {
+      it('should get all offices without admin rights', (done) => {
+        request(app)
+          .get('/api/v1/offices')
+          .set('token', token)
+          .end((err, res) => {
+            console.log(res);
+            expect(res.statusCode).to.equal(401);
+            expect(res.body).to.be.an('object');
+            expect(res.body.error).to.equal('User Unauthorized');
+            if (err) { return done(err); }
+            done();
+          });
+      });
+    });
 })

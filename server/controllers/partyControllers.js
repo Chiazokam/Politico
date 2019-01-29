@@ -23,7 +23,7 @@ class PartyController {
         query.createPartyQuery(requestData)
         .then((response) => {
             if (response.length > 0) {
-              const data = {
+              const data = { 
                 partyName: response[0].partyname,
                 partyAddress: response[0].partyaddress,
                 partyLogo: response[0].partylogo,
@@ -60,7 +60,7 @@ class PartyController {
           status: 200,
           data: response,
         });
-      })
+      }) 
       .catch((error) => {
         return res.status(500).send({
           status: 500,

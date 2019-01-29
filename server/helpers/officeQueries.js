@@ -18,6 +18,10 @@ class OfficeQueries {
     checkOfficeExistence(officeName) {
       return db.any('SELECT * FROM offices WHERE officename = $1', [officeName]);
     }
+
+    getAllOfficesQuery() {
+      return db.any('SELECT * FROM offices');
+    }
 }
 
 export default OfficeQueries;

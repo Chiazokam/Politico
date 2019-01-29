@@ -7,6 +7,7 @@ import { UserValidators, verifyToken, ThirdPartyValidators, PartyValidators, Off
 import { UserController, PartyController, OfficeController } from '../controllers';
 
 const router = express.Router();
+
 const validateUser = new UserValidators();
 const validateAddress = new ThirdPartyValidators();
 const validatePartyInput = new PartyValidators();
@@ -51,4 +52,7 @@ router.get('/api/v1/parties', verifyToken,
                               validateUser.isUserAdmin,
                               party.getAllParties);
 
+router.get('/api/v1/offices', verifyToken,
+                              validateUser.isUserAdmin,
+                              office.getAllOffices);
 export default router;

@@ -130,13 +130,14 @@ describe('POST Requests', () => {
       });
 });
 
-/*
+
 describe ('GET Requests', () => {
 
   describe ('GET /api/v1/offices', () => {
     it('should get all offices', (done) => {
       request(app)
         .get('/api/v1/offices')
+        .set('token', token)
         .end((err, res) => {
           expect(res.statusCode).to.equal(200);
           expect(res.body).to.be.an('object');
@@ -147,7 +148,8 @@ describe ('GET Requests', () => {
         });
     });
   });
-
+});
+    /*
   describe ('GET /api/v1/offices/:id', () => {
     it('should get one office', (done) => {
       request(app)
