@@ -11,8 +11,8 @@ class Office {
     createOffice(office) {
       const newOffice = {
         id: this.offices.length + 1,
-        officeName: office.officeName,
-        officeType: office.officeType,
+        name: office.name,
+        type: office.type,
       };
       this.offices.push(newOffice);
       return (newOffice);
@@ -20,7 +20,7 @@ class Office {
 
     doesOfficeExist(office, officeArray) { // where office is a string
       const officeLowerCase = office.toLowerCase();
-      const foundOffice = officeArray.find(officeObj => officeObj.officeName === officeLowerCase);
+      const foundOffice = officeArray.find(officeObj => officeObj.name === officeLowerCase);
       return foundOffice;
     }
 
@@ -41,3 +41,4 @@ class Office {
   }
 
   export default Office;
+  

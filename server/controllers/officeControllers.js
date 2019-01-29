@@ -9,14 +9,14 @@ const officeObject = new Office();
 
 class OfficeController {
   createNewOffice(req, res) {
-    let { officeName, officeType } = req.body;
-    officeName = officeName.toLowerCase();
+    let { name, type } = req.body;
+    name = name.toLowerCase();
     const offices = officeObject.offices;
-    const foundOffice = officeObject.doesOfficeExist(officeName, offices);
+    const foundOffice = officeObject.doesOfficeExist(name, offices);
     if (!foundOffice) {
         let data = {
-            officeName: officeName.trim(),
-            officeType: officeType.trim(),
+            name: name.trim(),
+            type: type.trim(),
           };
           data = officeObject.createOffice(data);
           if (data) {
@@ -30,8 +30,8 @@ class OfficeController {
                 error: 'Office not created',
             });
     }
-    return res.status(400).send({
-        status: 400,
+    return res.status(403).send({
+        status: 403,
         error: 'Office Already Exists',
     });
   }

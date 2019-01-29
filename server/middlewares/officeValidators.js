@@ -14,14 +14,14 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 class OfficeValidators {
     isOfficeFieldEmpty(req, res, next) {
-        const { officeName, officeType } = req.body;
+        const { name, type } = req.body;
         const errors = {};
-        if (!officeName || !officeName.trim() || !officeType || !officeType.trim()) {
-          if (!officeName || !officeName.trim()) {
-            errors.officeName = 'Improper office Name format';
+        if (!name || !name.trim() || !type || !type.trim()) {
+          if (!name || !name.trim()) {
+            errors.name = 'Improper office Name format';
           }
-          if (!officeType || !officeType.trim()) {
-            errors.officeType = 'Improper office Type format';
+          if (!type || !type.trim()) {
+            errors.type = 'Improper office Type format';
           }
           if (errors) {
             return res.status(400).send({
@@ -34,10 +34,11 @@ class OfficeValidators {
       }
 
       isOfficeTypeValid(req, res, next) {
-          let { officeType } = req.body;
-          officeType = officeType.toLowerCase();
-          const officeTypeArray = ['federal', 'legislative', 'state', 'local government'];
-          const foundType = officeTypeArray.find(type => type === officeType.trim());
+          let { type } = req.body;
+          type = type.toLowerCase();
+          const typeArray = ['federal', 'legislative', 'state', 'local government'];
+          const foundType = typeArray.find(officeType => officeType === type.trim());
+          console.log(foundType)
           if (foundType !== undefined) {
               next();
           } else {

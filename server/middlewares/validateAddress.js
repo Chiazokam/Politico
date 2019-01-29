@@ -16,18 +16,18 @@ dotenv.load();
 
 class ThirdPartyValidators {
     isAddressValid(req, res, next) {
-        let { partyAddress } = req.body;
-        partyAddress = partyAddress.trim();
+        let { hqAddress } = req.body;
+        hqAddress = hqAddress.trim();
         const googleMapsClient = require('@google/maps').createClient({
             key: process.env.GOOGLE_API_KEY,
             Promise,
           });
           googleMapsClient.places({
-              query: partyAddress,
+              query: hqAddress,
           })
             .asPromise()
             .then((response) => {
-                if (response.json.results) {
+                if (response.json.results.length > 0) {
                     req.partyAddr = response.json.results[0].formatted_address;
                     next();
                 } else {

@@ -11,19 +11,19 @@ class Party {
   createParty(party) {
     const newParty = {
       id: this.parties.length + 1,
-      partyName: party.partyName,
-      partyAddress: party.partyAddress,
-      partyLogo: party.partyLogo,
+      name: party.name,
+      hqAddress: party.hqAddress,
+      logoUrl: party.logoUrl,
     };
     this.parties.push(newParty);
     return (newParty);
   }
 
   doesPartyExist(party, parties) { // party is the request object
-   const { partyName, partyAddress, partyLogo } = party;
-   const foundName = parties.find(partyObj => partyObj.partyName === partyName);
-   const foundAddress = parties.find(partyObj => partyObj.partyAddress === partyAddress);
-   const foundLogo = parties.find(partyObj => partyObj.partyLogo === partyLogo);
+   const { name, hqAddress, logoUrl } = party;
+   const foundName = parties.find(partyObj => partyObj.name === name);
+   const foundAddress = parties.find(partyObj => partyObj.hqAddress === hqAddress);
+   const foundLogo = parties.find(partyObj => partyObj.logoUrl === logoUrl);
    const foundObject = {
      foundName,
      foundAddress,
@@ -49,7 +49,7 @@ class Party {
 
   updateParty(id, name) {
     const { foundParty, foundPartyIndex } = this.findOneParty(id);
-    this.parties[foundPartyIndex].partyName = name;
+    this.parties[foundPartyIndex].name = name;
     return foundParty;
   }
 

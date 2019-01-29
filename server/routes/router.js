@@ -9,6 +9,7 @@ import { PartyController, OfficeController } from '../controllers';
 const router = express.Router();
 const validatePartyInput = new PartyValidators();
 const validateOfficeInput = new OfficeValidators();
+
 const party = new PartyController();
 const office = new OfficeController();
 const validateAddress = new ThirdPartyValidators();
@@ -20,6 +21,7 @@ router.get('/', (req, res) => res.status(200).send({
 router.post('/api/v1/parties', validatePartyInput.isPartyFieldEmpty,
                                 validatePartyInput.isPartyNameString,
                                 validatePartyInput.isLogoUrlValid,
+                                validatePartyInput.isPartyInputInteger,
                                 validateAddress.isAddressValid,
                                 party.createNewParty);
 

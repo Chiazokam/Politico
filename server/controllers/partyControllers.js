@@ -9,12 +9,12 @@ const partyObject = new Party();
 
 class PartyController {
   createNewParty(req, res) {
-    const { partyName, partyLogo } = req.body;
+    const { name, logoUrl } = req.body;
     const formattedAddr = req.partyAddr;
     const requestData = {
-      partyName: partyName.trim(),
-      partyAddress: formattedAddr,
-      partyLogo: partyLogo.trim(),
+      name: name.trim(),
+      hqAddress: formattedAddr,
+      logoUrl: logoUrl.trim(),
     };
 
     const parties = partyObject.parties;
@@ -33,8 +33,8 @@ class PartyController {
         error: 'Party not created',
       });
     }
-    return res.status(400).send({
-      status: 400,
+    return res.status(403).send({
+      status: 403,
       error: 'Party Name, Address or Logo Already Exists',
     });
   }
@@ -54,8 +54,8 @@ class PartyController {
   }
 
   getOneParty(req, res) {
-    const partyId = req.params.id;
-    const { foundParty } = partyObject.findOneParty(partyId);
+    const id = req.params.id;
+    const { foundParty } = partyObject.findOneParty(id);
     if (foundParty) {
       return res.status(200).send({
         status: 200,
@@ -69,11 +69,11 @@ class PartyController {
   }
 
   editParty(req, res) {
-    const partyId = req.params.id;
-    const { partyName } = req.body;
-    const { foundParty } = partyObject.findOneParty(partyId);
+    const id = req.params.id;
+    const { name } = req.body;
+    const { foundParty } = partyObject.findOneParty(id);
     if (foundParty) {
-      const newParty = partyObject.updateParty(partyId, partyName);
+      const newParty = partyObject.updateParty(id, name);
       return res.status(201).send({
         status: 201,
         data: [newParty],
@@ -86,14 +86,14 @@ class PartyController {
   }
 
   deleteParty(req, res) {
-    const partyId = req.params.id;
-    const { foundParty } = partyObject.findOneParty(partyId);
+    const id = req.params.id;
+    const { foundParty } = partyObject.findOneParty(id);
     if (foundParty) {
-      const deletedParty = partyObject.deleteParty(partyId);
+      const deletedParty = partyObject.deleteParty(id);
       return res.status(200).send({
         status: 200,
         data: [{
-          message: `Successfully deleted '${deletedParty.partyName}'`,
+          message: `Successfully deleted '${deletedParty.name}'`,
         }],
       });
     }
