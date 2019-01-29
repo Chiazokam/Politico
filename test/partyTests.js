@@ -343,9 +343,7 @@ describe ('GET Requests', () => {
         });
     });
   });
-});
-   /*
-  
+}); 
 
 describe ('PATCH Requests', () => {
 
@@ -353,11 +351,12 @@ describe ('PATCH Requests', () => {
     it('should edit the name of a party', (done) => {
       request(app)
         .patch('/api/v1/parties/1/name')
+        .set('token', token)
         .send({
           name: 'Democratic Congress',
         })
         .end((err, res) => {
-          expect(res.statusCode).to.equal(201);
+          expect(res.statusCode).to.equal(200);
           expect(res.body).to.be.an('object');
           expect(res.body.data).to.be.an('array');
           expect(res.body.data[0]).to.be.an('object');
@@ -371,14 +370,15 @@ describe ('PATCH Requests', () => {
   describe ('PATCH /api/v1/parties/:id/name', () => {
     it('should attempt to edit a non-existing party', (done) => {
       request(app)
-        .patch('/api/v1/parties/3/name')
+        .patch('/api/v1/parties/8/name')
+        .set('token', token)
         .send({
           name: 'Democratic Congress',
         })
         .end((err, res) => {
           expect(res.statusCode).to.equal(404);
           expect(res.body).to.be.an('object');
-          expect(res.body.error).to.equal('Cannot Edit a Non-Existing Party');
+          expect(res.body.error).to.equal('Party Not Found');
           if (err) { return done(err); }
           done();
         });
@@ -386,6 +386,7 @@ describe ('PATCH Requests', () => {
 });
 });
 
+/*
 describe ('DELETE Requests', () => {
 
   describe ('DELETE /api/v1/parties/:id', () => {

@@ -22,6 +22,7 @@ class OfficeController {
         .then((response) => {
             if (response.length > 0) {
               const data = {
+                id: response[0].id,
                 name: response[0].name,
                 type: response[0].type,
               };
@@ -66,7 +67,7 @@ class OfficeController {
     }
 
     getOneOffice(req, res) {
-      const id = req.params.id;
+      const { id } = req.params;
       query.getOneOfficeQuery(id)
       .then((response) => {
         if (response.length === 0) {
@@ -76,6 +77,7 @@ class OfficeController {
           });
         }
         const data = {
+          id: response[0].id,
           name: response[0].name,
           type: response[0].type,
         };

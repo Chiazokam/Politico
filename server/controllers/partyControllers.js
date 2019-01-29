@@ -23,7 +23,8 @@ class PartyController {
         query.createPartyQuery(requestData)
         .then((response) => {
             if (response.length > 0) {
-              const data = { 
+              const data = {
+                id: response[0].id,
                 name: response[0].name,
                 hqAddress: response[0].hqaddress,
                 logoUrl: response[0].logourl,
@@ -80,6 +81,7 @@ class PartyController {
           });
         }
         const data = {
+          id: response[0].id,
           name: response[0].name,
           hqAddress: response[0].hqaddress,
           logoUrl: response[0].logourl,
@@ -88,6 +90,35 @@ class PartyController {
           status: 200,
           data: [data],
         });
+      })
+      .catch((error) => {
+        return res.status(500).send({
+          status: 500,
+          error: error.message,
+        });
+      })
+    }
+
+    editParty(req, res) {
+      const { id } = req.params;
+      const { name } = req.body;
+      query.getOnePartyQuery(id)
+      .then((response) => {
+        if (response.length === 0) {
+          return res.status(404).send({
+            status: 404,
+            error: 'Party Not Found',
+          });
+        }
+        const data = {
+          id: response[0].id,
+          name,
+        };
+        query.updatePartyName(id, name)
+          return res.status(200).send({
+            status: 200,
+            data: [data],
+          });
       })
       .catch((error) => {
         return res.status(500).send({

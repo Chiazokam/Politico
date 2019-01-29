@@ -27,6 +27,10 @@ class PartyQueries {
     getOnePartyQuery(id) {
       return db.any('SELECT * FROM parties WHERE id = $1 ', [id]);
     }
+
+    updatePartyName(id, name) {
+      return db.any('UPDATE parties SET name = $1 WHERE id = $2', [name, id]);
+    }
 }
 
 export default PartyQueries;
