@@ -117,4 +117,19 @@ describe('GET Requests', () => {
           });
       });
     });
+
+    describe ('GET /api/v1/parties/1', () => {
+      it('should get one party without admin rights', (done) => {
+        request(app)
+          .get('/api/v1/parties/1')
+          .set('token', token)
+          .end((err, res) => {
+            expect(res.statusCode).to.equal(401);
+            expect(res.body).to.be.an('object');
+            expect(res.body.error).to.equal('User Unauthorized');
+            if (err) { return done(err); }
+            done();
+          });
+      });
+    });
 });

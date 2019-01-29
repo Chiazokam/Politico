@@ -38,7 +38,7 @@ router.post('/api/v1/parties', verifyToken,
                                validatePartyInput.isPartyNameString,
                                validatePartyInput.isLogoUrlValid,
                                validatePartyInput.doesPartyExist,
-                               validatePartyInput.isPartyInputInteger,
+                               validatePartyInput.isAddressAnInteger,
                                validateAddress.isAddressValid,
                                
                                party.createParty);
@@ -59,4 +59,8 @@ router.get('/api/v1/parties', verifyToken,
 router.get('/api/v1/offices', verifyToken,
                               validateUser.isUserAdmin,
                               office.getAllOffices);
+
+router.get('/api/v1/parties/:id', verifyToken,
+                              validateUser.isUserAdmin,
+                              party.getOneParty);
 export default router;
