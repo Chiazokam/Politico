@@ -22,6 +22,10 @@ class OfficeQueries {
     getAllOfficesQuery() {
       return db.any('SELECT * FROM offices');
     }
+
+    getOneOfficeQuery(id) {
+      return db.any('SELECT * FROM offices WHERE id = $1 ', [id]);
+    }
 }
 
 export default OfficeQueries;

@@ -64,6 +64,33 @@ class OfficeController {
         });
       });
     }
+
+    getOneOffice(req, res) {
+      const id = req.params.id;
+      query.getOneOfficeQuery(id)
+      .then((response) => {
+        if (response.length === 0) {
+          return res.status(404).send({
+            status: 404,
+            error: 'Office Not Found',
+          });
+        }
+        const data = {
+          name: response[0].name,
+          type: response[0].type,
+        };
+        return res.status(200).send({
+          status: 200,
+          data: [data],
+        });
+      })
+      .catch((error) => {
+        return res.status(500).send({
+          status: 500,
+          error: error.message,
+        });
+      })
+    }
 }
 
 export default OfficeController;

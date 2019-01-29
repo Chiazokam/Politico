@@ -148,12 +148,12 @@ describe ('GET Requests', () => {
         });
     });
   });
-});
-    /*
+ 
   describe ('GET /api/v1/offices/:id', () => {
     it('should get one office', (done) => {
       request(app)
         .get('/api/v1/offices/1')
+        .set('token', token)
         .end((err, res) => {
           expect(res.statusCode).to.equal(200);
           expect(res.body).to.be.an('object');
@@ -169,6 +169,7 @@ describe ('GET Requests', () => {
     it('should get a non-existing office', (done) => {
       request(app)
         .get('/api/v1/offices/3')
+        .set('token', token)
         .end((err, res) => {
           expect(res.statusCode).to.equal(404);
           expect(res.body).to.be.an('object');
@@ -179,5 +180,3 @@ describe ('GET Requests', () => {
     });
   });
 });
-
-*/

@@ -63,4 +63,8 @@ router.get('/api/v1/offices', verifyToken,
 router.get('/api/v1/parties/:id', verifyToken,
                               validateUser.isUserAdmin,
                               party.getOneParty);
+
+router.get('/api/v1/offices/:id', verifyToken,
+                              validateUser.isUserAdmin,
+                              office.getOneOffice);
 export default router;
