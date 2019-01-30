@@ -3,8 +3,8 @@
 /* eslint-disable indent */
 
 import express from 'express';
-import { UserValidators, verifyToken, ThirdPartyValidators, PartyValidators, OfficeValidators, CandidateValidators } from '../middlewares';
-import { UserController, PartyController, OfficeController, CandidateController } from '../controllers';
+import { UserValidators, verifyToken, ThirdPartyValidators, PartyValidators, OfficeValidators, CandidateValidators, VoteValidators } from '../middlewares';
+import { UserController, PartyController, OfficeController, CandidateController, VoteController } from '../controllers';
 
 const router = express.Router();
 
@@ -13,11 +13,13 @@ const validateAddress = new ThirdPartyValidators();
 const validatePartyInput = new PartyValidators();
 const validateOfficeInput = new OfficeValidators();
 const validateCandidate = new CandidateValidators();
+const validateVote = new VoteValidators();
 
 const user = new UserController();
 const party = new PartyController();
 const office = new OfficeController();
 const candidate = new CandidateController();
+const vote = new VoteController();
 
 router.get('/', (req, res) => res.status(200).send({
   message: 'Welcome to Politico',
@@ -82,4 +84,13 @@ router.post('/api/v1/offices/:id/register', verifyToken,
                                             validateCandidate.doesOfficeIdExist,
                                             validateCandidate.doesPartyIdExist,
                                             candidate.createCandidate);
+
+router.post('/api/v1/votes', verifyToken,
+                             validateVote.isVoteInputInteger,
+                             validateVote.isVoteInputValid,
+                             validateVote.doesVoterExistForOffice,
+                             validateVote.doesUserIdExist,
+                             validateVote.doesOfficeIdExist,
+                             validateVote.doesCandidateIdExist,
+                             vote.creatVote);
 export default router;

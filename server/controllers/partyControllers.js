@@ -130,7 +130,6 @@ class PartyController {
 
     deleteParty(req, res) {
       const { id } = req.params;
-      const { name } = req.body;
       query.getOnePartyQuery(id)
       .then((response) => {
         if (response.length === 0) {

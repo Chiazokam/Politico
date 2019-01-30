@@ -4,7 +4,7 @@
   "description": "A voting app",
   "main": "app.js",
   "scripts": {
-    "test": "nyc mocha test/ --compilers js:babel-core/register --timeout 10000 --exit && nyc report --reporter=text-lcov | coveralls",
+    "test": "nyc mocha test/ --compilers js:babel-core/register --timeout 20000 --exit && nyc report --reporter=text-lcov | coveralls",
     "test:dev": "npm run start:table && npm run test",
     "build": "babel server --out-dir build/server",
     "createTable": "node build/server/models/createTables.js",

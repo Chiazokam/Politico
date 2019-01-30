@@ -4,25 +4,26 @@
 /* eslint-disable class-methods-use-this */
 
 import dotenv from 'dotenv';
-import { CandidateQueries } from '../helpers';
+import { VoteQueries } from '../helpers';
 
-const query = new CandidateQueries();
+const query = new VoteQueries();
 
 dotenv.load();
 
-class CandidateController {
-    createCandidate(req, res) {
-        const userId = req.params.id;
-        const { office, party } = req.body;
-        query.createCandidateQuery(office, party, userId)
+class VoteController {
+    creatVote(req, res) {
+        const { id: voter } = req.userData;
+        const { candidate, office } = req.body;
+        query.createVoteQuery(candidate, office, voter)
         .then((response) => {
             if (response.length > 0) {
                 return res.status(201).send({
                     status: 201,
                     data: [{
                         id: response[0].id,
+                        candidate,
                         office,
-                        userId,
+                        voter,
                     }],
                 });
             }
@@ -36,4 +37,4 @@ class CandidateController {
     }
 }
 
-export default CandidateController;
+export default VoteController;
