@@ -80,66 +80,34 @@ describe('POST Requests', () => {
         });
       });
 
-});
-
-describe('GET Requests', () => {
-
-     /* ***************************GET ALL PARTIES******************************* */
-
-    describe ('GET /api/v1/parties', () => {
-        it('should get all parties without admin rights', (done) => {
+      describe ('POST /api/v1/offices/id/register', () => {
+        it('should attempt to create a candidate without admin rights', (done) => {
           request(app)
-            .get('/api/v1/parties')
+            .post('/api/v1/offices/1/register')
             .set('token', token)
+            .send({
+              name: 'Chief Justice',
+              type: 'Legislative',
+            })
             .end((err, res) => {
               expect(res.statusCode).to.equal(401);
               expect(res.body).to.be.an('object');
               expect(res.body.error).to.equal('User Unauthorized');
-              if (err) { return done(err); }
-              done();
+            if (err) { return done(err); }
+            done();
             });
         });
       });
+});
 
-    /* ***************************GET ALL OFFICES******************************* */
 
-    describe ('GET /api/v1/offices', () => {
-      it('should get all offices without admin rights', (done) => {
-        request(app)
-          .get('/api/v1/offices')
-          .set('token', token)
-          .end((err, res) => {
-            expect(res.statusCode).to.equal(401);
-            expect(res.body).to.be.an('object');
-            expect(res.body.error).to.equal('User Unauthorized');
-            if (err) { return done(err); }
-            done();
-          });
-      });
-    });
+  /* ***************************EDIT PARTY******************************* */
 
-      /* ***************************GET ONE PARTY******************************* */
-    describe ('GET /api/v1/parties/1', () => {
-      it('should get one party without admin rights', (done) => {
-        request(app)
-          .get('/api/v1/parties/1')
-          .set('token', token)
-          .end((err, res) => {
-            expect(res.statusCode).to.equal(401);
-            expect(res.body).to.be.an('object');
-            expect(res.body.error).to.equal('User Unauthorized');
-            if (err) { return done(err); }
-            done();
-          });
-      });
-    });
-
-/* ***************************GET ONE OFFICE******************************* */
-
-  describe ('GET /api/v1/offices/1', () => {
-    it('should get one office without admin rights', (done) => {
+describe ('PATCH Requests', () => {
+  describe ('GET /api/v1/parties/1', () => {
+    it('should edit a party without admin rights', (done) => {
       request(app)
-        .get('/api/v1/offices/1')
+        .patch('/api/v1/parties/1/name')
         .set('token', token)
         .end((err, res) => {
           expect(res.statusCode).to.equal(401);
@@ -150,38 +118,23 @@ describe('GET Requests', () => {
         });
     });
   });
-
-  /* ***************************EDIT PARTY******************************* */
-
-describe ('GET /api/v1/parties/1', () => {
-  it('should edit a party without admin rights', (done) => {
-    request(app)
-      .get('/api/v1/parties/1')
-      .set('token', token)
-      .end((err, res) => {
-        expect(res.statusCode).to.equal(401);
-        expect(res.body).to.be.an('object');
-        expect(res.body.error).to.equal('User Unauthorized');
-        if (err) { return done(err); }
-        done();
-      });
-  });
 });
 
 /* ***************************DELETE PARTY******************************* */
 
-describe ('GET /api/v1/parties/1', () => {
-  it('should edit a party without admin rights', (done) => {
-    request(app)
-      .get('/api/v1/parties/1')
-      .set('token', token)
-      .end((err, res) => {
-        expect(res.statusCode).to.equal(401);
-        expect(res.body).to.be.an('object');
-        expect(res.body.error).to.equal('User Unauthorized');
-        if (err) { return done(err); }
-        done();
-      });
+describe ('DELETE Requests', () => {
+  describe ('GET /api/v1/parties/1', () => {
+    it('should edit a party without admin rights', (done) => {
+      request(app)
+        .delete('/api/v1/parties/1')
+        .set('token', token)
+        .end((err, res) => {
+          expect(res.statusCode).to.equal(401);
+          expect(res.body).to.be.an('object');
+          expect(res.body.error).to.equal('User Unauthorized');
+          if (err) { return done(err); }
+          done();
+        });
+    });
   });
-});
 });

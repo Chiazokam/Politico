@@ -21,7 +21,7 @@ class UserQueries {
   }
 
   checkUserExistence(email, phone, passportUrl) {
-    return db.any('SELECT * FROM users WHERE email = $1 OR phone = $2 OR passportUrl = $3', [email.trim(), phone.trim(), passportUrl.trim()]);
+    return db.any('SELECT * FROM users WHERE email = $1 OR phone = $2 OR passporturl = $3', [email.trim(), phone.trim(), passportUrl.trim()]);
   }
 
   isUserRegisteredQuery(email, hash) {

@@ -63,7 +63,7 @@ describe('POST Requests', () => {
               type: 'State',
             })
             .end((err, res) => {
-              expect(res.statusCode).to.equal(400);
+              expect(res.statusCode).to.equal(409);
               expect(res.body).to.be.an('object');
               expect(res.body.error).to.equal('Office Already Exists');
             if (err) { return done(err); }

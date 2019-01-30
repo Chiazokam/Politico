@@ -4,5 +4,6 @@
 import UserController from './userControllers';
 import PartyController from './partyControllers';
 import OfficeController from './officeControllers';
+import CandidateController from './candidateControllers';
 
-export { UserController, PartyController, OfficeController };
+export { UserController, PartyController, OfficeController, CandidateController };

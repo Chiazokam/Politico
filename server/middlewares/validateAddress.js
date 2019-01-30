@@ -27,7 +27,7 @@ class ThirdPartyValidators {
           })
             .asPromise()
             .then((response) => {
-                if (response.json.results) {
+                if (response.json.results.length > 0) {
                     req.partyAddr = response.json.results[0].formatted_address;
                     next();
                 } else {
@@ -37,10 +37,10 @@ class ThirdPartyValidators {
                     });
                 }
             })
-            .catch(() => {
-                return res.status(400).send({
-                    status: 400,
-                    error: 'Put In a Correct Address Please',
+            .catch((error) => {
+                return res.status(500).send({
+                    status: 500,
+                    error: error.message,
                 });
             });
     }

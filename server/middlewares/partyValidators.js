@@ -12,7 +12,6 @@ class PartyValidators {
   isPartyFieldEmpty(req, res, next) {
     const { name, hqAddress, logoUrl } = req.body;
     const errors = {};
-    if (!name || !name.trim() || !hqAddress || !hqAddress.trim() || !logoUrl || !logoUrl.trim()) {
       if (!name || !name.trim()) {
         errors.name = 'Improper party Name format';
       }
@@ -22,25 +21,34 @@ class PartyValidators {
       if (!logoUrl || !logoUrl.trim()) {
         errors.logoUrl = 'Improper party Logo format';
       }
-      if (errors) {
+      if (errors.name || errors.hqAddress || errors.logoUrl) {
         return res.status(400).send({
           status: 400,
           error: errors,
         });
       }
-    }
     next();
   }
 
-  isAddressAnInteger(req, res, next) {
-    const { hqAddress } = req.body;
-    if ( isNaN(parseFloat(hqAddress))) {
-      return next();
+  isPartyInputInteger(req, res, next) {
+    const { name, hqAddress, logoUrl } = req.body;
+    const errors = {};
+    if (typeof (name) === 'number') {
+      errors.name = 'Name cannot be an Integer';
     }
-    return res.status(400).send({
-      status: 400,
-      error: 'Address cannot be an integer',
-    });
+    if (typeof (hqAddress) === 'number') {
+      errors.hqAddress = 'Address cannot be an Integer';
+    }
+    if (typeof (logoUrl) === 'number') {
+      errors.logoUrl = 'Logo Url cannot be an Integer';
+    }
+    if (errors.name || errors.hqAddress || errors.logoUrl) {
+      return res.status(400).send({
+        status: 400,
+        error: errors,
+      });
+    }
+  next();
   }
 
   isPartyNameString(req, res, next) {
@@ -76,8 +84,8 @@ class PartyValidators {
     query.checkPartyExistence(name, logoUrl)
     .then((response) => {
       if (response.length > 0) {
-        res.status(400).send({
-            status: 400,
+        res.status(409).send({
+            status: 409,
             error: 'Party Name or Logo already exists',
         });
         } else {

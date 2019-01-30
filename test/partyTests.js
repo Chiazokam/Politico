@@ -33,7 +33,7 @@ describe('POST Requests', () => {
 
   /* ******************************TEST FOR EMPTY PARTIES TABLE**************************** */
 
-  describe ('GET /api/v1/parties', () => {
+  /*describe ('GET /api/v1/parties', () => {
     it('should not find parties in db', (done) => {
       request(app)
         .get('/api/v1/parties')
@@ -46,7 +46,7 @@ describe('POST Requests', () => {
         done();
         });
     });
-  });
+  });*/
 
     describe ('POST /api/v1/parties', () => {
       it('should create a new party', (done) => {
@@ -121,9 +121,69 @@ describe('POST Requests', () => {
             logoUrl: 'www.logo.com/url.jpg',
           })
           .end((err, res) => {
-            expect(res.statusCode).to.equal(400);
+            expect(res.statusCode).to.equal(409);
             expect(res.body).to.be.an('object');
             expect(res.body.error).to.equal('Party Name or Logo already exists');
+          if (err) { return done(err); }
+          done();
+          });
+      });
+    });
+
+    describe ('POST /api/v1/parties', () => {
+      it('should test the party name for integers', (done) => {
+        request(app)
+          .post('/api/v1/parties')
+          .set('token', token)
+          .send({
+            name: 4,
+            hqAddress: 'Folawiyo Bankole Street',
+            logoUrl: 'www.logo.com/url.jpg',
+          })
+          .end((err, res) => {
+            expect(res.statusCode).to.equal(400);
+            expect(res.body).to.be.an('object');
+            expect(res.body.error.name).to.equal('Name cannot be an Integer');
+          if (err) { return done(err); }
+          done();
+          });
+      });
+    });
+
+    describe ('POST /api/v1/parties', () => {
+      it('should test the party address for integers', (done) => {
+        request(app)
+          .post('/api/v1/parties')
+          .set('token', token)
+          .send({
+            name: 'New Party',
+            hqAddress: 9,
+            logoUrl: 'www.logo.com/url.jpg',
+          })
+          .end((err, res) => {
+            expect(res.statusCode).to.equal(400);
+            expect(res.body).to.be.an('object');
+            expect(res.body.error.hqAddress).to.equal('Address cannot be an Integer');
+          if (err) { return done(err); }
+          done();
+          });
+      });
+    });
+
+    describe ('POST /api/v1/parties', () => {
+      it('should test the party address for integers', (done) => {
+        request(app)
+          .post('/api/v1/parties')
+          .set('token', token)
+          .send({
+            name: 'New Party',
+            hqAddress: 'Folawiyo Bankole Street',
+            logoUrl: 889,
+          })
+          .end((err, res) => {
+            expect(res.statusCode).to.equal(400);
+            expect(res.body).to.be.an('object');
+            expect(res.body.error.logoUrl).to.equal('Logo Url cannot be an Integer');
           if (err) { return done(err); }
           done();
           });
@@ -164,26 +224,6 @@ describe('POST Requests', () => {
               expect(res.statusCode).to.equal(400);
               expect(res.body).to.be.an('object');
               expect(res.body.error.hqAddress).to.equal('Improper party Address format');
-            if (err) { return done(err); }
-            done();
-            });
-        });
-      });
-
-      describe ('POST /api/v1/parties', () => {
-        it('should test if address is an integer', (done) => {
-          request(app)
-            .post('/api/v1/parties')
-            .set('token', token)
-            .send({
-              name: 'Dope party',
-              hqAddress: '12',
-              logoUrl: 'www.dope.com/url.jpg',
-            })
-            .end((err, res) => {
-              expect(res.statusCode).to.equal(400);
-              expect(res.body).to.be.an('object');
-              expect(res.body.error).to.equal('Address cannot be an integer');
             if (err) { return done(err); }
             done();
             });
@@ -284,9 +324,9 @@ describe('POST Requests', () => {
               logoUrl: 'www.logogood.com/url.jpg',
             })
             .end((err, res) => {
-              expect(res.statusCode).to.equal(400);
+              expect(res.statusCode).to.equal(404);
               expect(res.body).to.be.an('object');
-              expect(res.body.error).to.equal('Put In a Correct Address Please');
+              expect(res.body.error).to.equal('Address Not Found');
             if (err) { return done(err); }
             done();
             });

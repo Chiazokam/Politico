@@ -104,23 +104,37 @@ class UserValidators {
     }
 
     doesUserExist(req, res, next) {
-        const { email, phone, passportUrl } = req.body;
-        query.checkUserExistence(email, phone, passportUrl)
-        .then((data) => {
-            if (data.length > 0) {
-            res.status(400).send({
-                status: 400,
-                error: 'User already exists',
-            });
-            } else {
-            next();
+      const { email, phone, passportUrl } = req.body;
+      query.checkUserExistence(email, phone, passportUrl)
+      .then((response) => {
+          if (response.length > 0) {
+            const data = {
+              email: response[0].email,
+              phone: response[0].phone,
+              passportUrl: response[0].passporturl,
+            };
+            const errors = {};
+            if (data.email === email) {
+              errors.email = 'Email Already Exists';
             }
-        })
-        .catch((err) => {
-            res.status(500).send({
-                error: err.message,
+            if (data.phone === phone) {
+              errors.phone = 'Phone Number Already Exists';
+            }
+            if (data.passportUrl === passportUrl) {
+              errors.passportUrl = 'Passport Url Already Exists';
+            }
+            return res.status(409).send({
+              status: 409,
+              error: errors,
             });
-        });
+          }
+          next();
+      })
+      .catch((err) => {
+          res.status(500).send({
+              error: err.message,
+          });
+      });
     }
 
     isUserAdmin(req, res, next) {

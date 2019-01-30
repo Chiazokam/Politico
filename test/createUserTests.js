@@ -39,7 +39,7 @@ describe('POST Requests', () => {
     });
 
     describe ('POST /api/v1/auth/signup', () => {
-      it('should attempt to recreate an existing user', (done) => {
+      it('should catch an existing email', (done) => {
         request(app)
           .post('/api/v1/auth/signup')
           .send({
@@ -47,14 +47,60 @@ describe('POST Requests', () => {
             lastname: 'Mabel',
             othername: 'Cory',
             email: 'dan@mabel.com',
+            phone: '+234-70321119466',
+            passportUrl: 'www.passpdanort.jpeg',
+            password: 'lilian',
+          })
+          .end((err, res) => {
+            expect(res.statusCode).to.equal(409);
+            expect(res.body).to.be.an('object');
+            expect(res.body.error.email).to.equal('Email Already Exists');
+          if (err) { return done(err); }
+          done();
+          });
+      });
+    });
+
+    describe ('POST /api/v1/auth/signup', () => {
+      it('should catch an existing phone number', (done) => {
+        request(app)
+          .post('/api/v1/auth/signup')
+          .send({
+            firstname: 'Dan',
+            lastname: 'Mabel',
+            othername: 'Cory',
+            email: 'dannyboy@mabel.com',
             phone: '+234-7032789466',
+            passportUrl: 'www.passportdanny.jpeg',
+            password: 'lilian',
+          })
+          .end((err, res) => {
+            expect(res.statusCode).to.equal(409);
+            expect(res.body).to.be.an('object');
+            expect(res.body.error.phone).to.equal('Phone Number Already Exists');
+          if (err) { return done(err); }
+          done();
+          });
+      });
+    });
+
+    describe ('POST /api/v1/auth/signup', () => {
+      it('should catch an existing passport Url', (done) => {
+        request(app)
+          .post('/api/v1/auth/signup')
+          .send({
+            firstname: 'Dan',
+            lastname: 'Mabel',
+            othername: 'Cory',
+            email: 'dannnywilson@mabel.com',
+            phone: '+234-7030145789466',
             passportUrl: 'www.passport.jpeg',
             password: 'lilian',
           })
           .end((err, res) => {
-            expect(res.statusCode).to.equal(400);
+            expect(res.statusCode).to.equal(409);
             expect(res.body).to.be.an('object');
-            expect(res.body.error).to.equal('User already exists');
+            expect(res.body.error.passportUrl).to.equal('Passport Url Already Exists');
           if (err) { return done(err); }
           done();
           });

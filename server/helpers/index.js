@@ -5,5 +5,6 @@
 import UserQueries from './userQueries';
 import PartyQueries from './partyQueries';
 import OfficeQueries from './officeQueries';
+import CandidateQueries from './candidateQueries';
 
-export { UserQueries, PartyQueries, OfficeQueries };
+export { UserQueries, PartyQueries, OfficeQueries, CandidateQueries };
