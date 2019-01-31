@@ -3,7 +3,7 @@
 /* eslint-disable consistent-return */
 /* eslint-disable indent */
 
-/*import chai, { expect } from 'chai';
+import chai, { expect } from 'chai';
 import request from 'supertest';
 import app from '../server/app';
 
@@ -104,7 +104,7 @@ describe('POST Requests', () => {
             .set('token', adminToken)
             .send({
               office: '1',
-              party: '1',
+              party: '3',
             })
             .end((err, res) => {
               expect(res.statusCode).to.equal(201);
@@ -124,10 +124,9 @@ describe('POST Requests', () => {
             .set('token', token)
             .send({
               office: '1',
-              candidate: '1',
+              candidate: '2',
             })
             .end((err, res) => {
-                console.log(res)
               expect(res.statusCode).to.equal(201);
               expect(res.body).to.be.an('object');
               expect(res.body.data).to.be.an('array');
@@ -158,25 +157,6 @@ describe('POST Requests', () => {
       });
 
       describe ('POST /api/v1/votes', () => {
-        it('should vote a non-existent candidate', (done) => {
-          request(app)
-            .post('/api/v1/votes')
-            .set('token', token)
-            .send({
-              office: '1',
-              candidate: '15',
-            })
-            .end((err, res) => {
-                expect(res.statusCode).to.equal(404);
-                expect(res.body).to.be.an('object');
-                expect(res.body.error).to.equal('Candidate Not Found');
-            if (err) { return done(err); }
-            done();
-            });
-        });
-      });
-
-      describe ('POST /api/v1/votes', () => {
         it('should vote with office as integer', (done) => {
           request(app)
             .post('/api/v1/votes')
@@ -198,7 +178,7 @@ describe('POST Requests', () => {
       describe ('POST /api/v1/offices/id/register', () => {
         it('should vote with candidate as integer', (done) => {
           request(app)
-            .post('/api/v1/offices/2/register')
+            .post('/api/v1/votes')
             .set('token', token)
             .send({
               office: '1',
@@ -259,7 +239,7 @@ describe('POST Requests', () => {
             .set('token', token)
             .send({
               office: '1',
-              party: '1',
+              candidate: '1',
             })
             .end((err, res) => {
                 expect(res.statusCode).to.equal(409);
@@ -270,5 +250,4 @@ describe('POST Requests', () => {
             });
         });
       });
-}); 
-*/
+});

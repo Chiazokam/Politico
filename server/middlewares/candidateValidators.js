@@ -90,6 +90,7 @@ class CandidateValidators {
 
     isCandidateInputInteger(req, res, next) {
         const { office, party } = req.body;
+        const user = req.params.id;
         const errors = {};
         if (typeof (office) === 'number') {
           errors.office = 'Office cannot be an Integer';
@@ -97,7 +98,11 @@ class CandidateValidators {
         if (typeof (party) === 'number') {
           errors.party = 'Party cannot be an Integer';
         }
-        if (errors.office || errors.party) {
+
+        if (typeof (user) === 'number') {
+            errors.params = 'Parameter cannot be an Integer';
+          }
+        if (errors.office || errors.party || errors.params) {
           return res.status(400).send({
             status: 400,
             error: errors,
@@ -143,6 +148,42 @@ class CandidateValidators {
             });
         })
     }
+
+    doesPartyExistForOffice(req, res, next) {
+        const { office, party } = req.body;
+        query.doesPartyExistForOfficeQuery(office, party)
+        .then((response) => {
+            if (response.length > 0) {
+                return res.status(409).send({
+                    status: 409,
+                    error: 'You cannot have two candidates for one office',
+                });
+            }
+            next();
+        })
+        .catch((error) => {
+            return res.status(500).send({
+                status: 500,
+                error: error.message,
+            });
+        })
+    }
+
+    isParamsInteger(req, res, next) {
+        const params = req.params.id;
+        const errors = {};
+        if (isNaN(params)) {
+            errors.params = 'Parameter must be an Integer';
+          }
+        if (errors.params) {
+          return res.status(400).send({
+            status: 400,
+            error: errors,
+          });
+        }
+      next();
+    }
+
 }
 
 export default CandidateValidators;

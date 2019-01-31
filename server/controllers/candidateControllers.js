@@ -20,9 +20,8 @@ class CandidateController {
                 return res.status(201).send({
                     status: 201,
                     data: [{
-                        id: response[0].id,
                         office,
-                        userId,
+                        user: userId,
                     }],
                 });
             }

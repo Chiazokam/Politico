@@ -3,8 +3,22 @@
 /* eslint-disable indent */
 
 import express from 'express';
-import { UserValidators, verifyToken, ThirdPartyValidators, PartyValidators, OfficeValidators, CandidateValidators, VoteValidators } from '../middlewares';
-import { UserController, PartyController, OfficeController, CandidateController, VoteController } from '../controllers';
+
+import { UserValidators,
+         verifyToken,
+         ThirdPartyValidators,
+         PartyValidators,
+         OfficeValidators,
+         CandidateValidators,
+         VoteValidators,
+         ResultValidators } from '../middlewares';
+
+import { UserController,
+         PartyController,
+         OfficeController,
+         CandidateController,
+         VoteController,
+         ResultController } from '../controllers';
 
 const router = express.Router();
 
@@ -14,25 +28,29 @@ const validatePartyInput = new PartyValidators();
 const validateOfficeInput = new OfficeValidators();
 const validateCandidate = new CandidateValidators();
 const validateVote = new VoteValidators();
+const validateResult = new ResultValidators();
 
 const user = new UserController();
 const party = new PartyController();
 const office = new OfficeController();
 const candidate = new CandidateController();
 const vote = new VoteController();
+const result = new ResultController();
 
 router.get('/', (req, res) => res.status(200).send({
   message: 'Welcome to Politico',
 }));
 
-router.post('/api/v1/auth/signup', validateUser.isUserFieldEmpty,
+router.post('/api/v1/auth/signup', validateUser.isSignUpInputInteger,
+                                    validateUser.isUserFieldEmpty,
                                     validateUser.isEmailValid,
                                     validateUser.isPhoneValid,
                                     validateUser.isPassportUrlValid,
                                     validateUser.doesUserExist,
                                     user.createUser);
 
-router.post('/api/v1/auth/login', validateUser.isUserLoginFieldEmpty,
+router.post('/api/v1/auth/login', validateUser.isLoginInputInteger,
+                                  validateUser.isUserLoginFieldEmpty,
                                   validateUser.isEmailValid,
                                   user.loginUser);
 
@@ -61,21 +79,26 @@ router.get('/api/v1/parties', verifyToken,
 router.get('/api/v1/offices', verifyToken,
                               office.getAllOffices);
 
-router.get('/api/v1/parties/:id', verifyToken,
+router.get('/api/v1/parties/:id', validateCandidate.isParamsInteger,
+                              verifyToken,
                               party.getOneParty);
 
-router.get('/api/v1/offices/:id', verifyToken,
+router.get('/api/v1/offices/:id', validateCandidate.isParamsInteger,
+                              verifyToken,
                               office.getOneOffice);
 
-router.patch('/api/v1/parties/:id/name', verifyToken,
+router.patch('/api/v1/parties/:id/name', validateCandidate.isParamsInteger,
+                                       verifyToken,
                                        validateUser.isUserAdmin,
                                        party.editParty);
 
-router.delete('/api/v1/parties/:id', verifyToken,
+router.delete('/api/v1/parties/:id', validateCandidate.isParamsInteger,
+                                    verifyToken,
                                     validateUser.isUserAdmin,
                                     party.deleteParty);
 
-router.post('/api/v1/offices/:id/register', verifyToken,
+router.post('/api/v1/offices/:id/register', validateCandidate.isParamsInteger,
+                                            verifyToken,
                                             validateUser.isUserAdmin,
                                             validateCandidate.isCandidateInputInteger,
                                             validateCandidate.isCandidateInputValid,
@@ -83,6 +106,7 @@ router.post('/api/v1/offices/:id/register', verifyToken,
                                             validateCandidate.doesCandidateExist,
                                             validateCandidate.doesOfficeIdExist,
                                             validateCandidate.doesPartyIdExist,
+                                            validateCandidate.doesPartyExistForOffice,
                                             candidate.createCandidate);
 
 router.post('/api/v1/votes', verifyToken,
@@ -92,5 +116,9 @@ router.post('/api/v1/votes', verifyToken,
                              validateVote.doesUserIdExist,
                              validateVote.doesOfficeIdExist,
                              validateVote.doesCandidateIdExist,
-                             vote.creatVote);
+                             vote.createVote);
+
+router.get('/api/v1/office/:office/result', validateResult.isParamsInteger,
+                                              verifyToken,
+                                              result.getResults);
 export default router;

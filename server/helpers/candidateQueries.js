@@ -31,6 +31,10 @@ class CandidateQueries {
     doesCandidateExistQuery(id) {
         return db.any('SELECT * FROM candidates WHERE userid = $1', [id]);
     }
+
+    doesPartyExistForOfficeQuery(office, party) {
+      return db.any('SELECT * FROM candidates WHERE office = $1 AND party = $2', [office, party]);
+  }
 }
 
 export default CandidateQueries;
