@@ -1,69 +1,98 @@
 /* eslint-disable linebreak-style */
-/* eslint-disable eol-last */
-/* eslint-disable class-methods-use-this */
+/* eslint-disable consistent-return */
 /* eslint-disable indent */
+/* eslint-disable class-methods-use-this */
 
-import { Office } from '../helpers';
+import dotenv from 'dotenv';
+import { OfficeQueries } from '../helpers';
 
-const officeObject = new Office();
+const query = new OfficeQueries();
+
+dotenv.load();
 
 class OfficeController {
-  createNewOffice(req, res) {
-    let { name, type } = req.body;
-    name = name.toLowerCase();
-    const offices = officeObject.offices;
-    const foundOffice = officeObject.doesOfficeExist(name, offices);
-    if (!foundOffice) {
-        let data = {
+  createOffice(req, res) {
+        const { name, type } = req.body;
+        const requestData = {
             name: name.trim(),
             type: type.trim(),
-          };
-          data = officeObject.createOffice(data);
-          if (data) {
-            return res.status(201).send({
+        };
+      
+        query.createOfficeQuery(requestData)
+        .then((response) => {
+            if (response.length > 0) {
+              const data = {
+                id: response[0].id,
+                name: response[0].name,
+                type: response[0].type,
+              };
+              return res.status(201).send({
                 status: 201,
                 data: [data],
-            });
-          }
-            return res.status(400).send({
+              });
+              }
+              return res.status(400).send({
                 status: 400,
-                error: 'Office not created',
+                error: 'Office Not Created',
+              });
+          })
+          .catch((error) => {
+            return res.status(500).send({
+              status: 500,
+              error: error.message,
             });
-    }
-    return res.status(403).send({
-        status: 403,
-        error: 'Office Already Exists',
-    });
+          })
   }
 
-  getAllOffices(req, res) {
-    const data = officeObject.findAllOffices();
-    if (data) {
-      return res.status(200).send({
-        status: 200,
-        data,
+    getAllOffices(req, res) {
+      query.getAllOfficesQuery()
+      .then((response) => {
+        if (response.length < 1) {
+          return res.status(404).send({
+            status: 404,
+            error: 'No Offices Found',
+          });
+        }
+        return res.status(200).send({
+          status: 200,
+          data: response,
+        });
+      })
+      .catch((error) => {
+        return res.status(500).send({
+          status: 500,
+          error: error.message,
+        });
       });
     }
-    return res.status(404).send({
-      status: 404,
-      error: 'Cannot Get Offices',
-      });
-  }
 
-  getOneOffice(req, res) {
-    const officeId = req.params.id;
-    const { foundOffice } = officeObject.findOneOffice(officeId);
-    if (foundOffice) {
-      return res.status(200).send({
-        status: 200,
-        data: [foundOffice],
-      });
+    getOneOffice(req, res) {
+      const { id } = req.params;
+      query.getOneOfficeQuery(id)
+      .then((response) => {
+        if (response.length === 0) {
+          return res.status(404).send({
+            status: 404,
+            error: 'Office Not Found',
+          });
+        }
+        const data = {
+          id: response[0].id,
+          name: response[0].name,
+          type: response[0].type,
+        };
+        return res.status(200).send({
+          status: 200,
+          data: [data],
+        });
+      })
+      .catch((error) => {
+        return res.status(500).send({
+          status: 500,
+          error: error.message,
+        });
+      })
     }
-    return res.status(404).send({
-      status: 404,
-      error: 'Office Not Found',
-    });
-  }
 }
 
 export default OfficeController;

@@ -4,41 +4,35 @@
 /* eslint-disable consistent-return */
 /* eslint-disable indent */
 
-import express from 'express';
-import bodyParser from 'body-parser';
-import { Office } from '../helpers';
+import { OfficeQueries } from '../helpers';
 
+const query = new OfficeQueries();
 
-const app = express();
-app.use(bodyParser.urlencoded({ extended: true }));
 
 class OfficeValidators {
     isOfficeFieldEmpty(req, res, next) {
         const { name, type } = req.body;
         const errors = {};
-        if (!name || !name.trim() || !type || !type.trim()) {
           if (!name || !name.trim()) {
             errors.name = 'Improper office Name format';
           }
           if (!type || !type.trim()) {
             errors.type = 'Improper office Type format';
           }
-          if (errors) {
+          if (errors.name || errors.type) {
             return res.status(400).send({
               status: 400,
               error: errors,
             });
           }
-        }
         next();
       }
 
       isOfficeTypeValid(req, res, next) {
           let { type } = req.body;
           type = type.toLowerCase();
-          const typeArray = ['federal', 'legislative', 'state', 'local government'];
-          const foundType = typeArray.find(officeType => officeType === type.trim());
-          console.log(foundType)
+          const officeTypeArray = ['federal', 'legislative', 'state', 'local government'];
+          const foundType = officeTypeArray.find(officeType => officeType === type.trim());
           if (foundType !== undefined) {
               next();
           } else {
@@ -47,6 +41,47 @@ class OfficeValidators {
                 error: 'Office Type Incorrect',
             });
           } 
+      }
+
+      isOfficeInputInteger(req, res, next) {
+        const { name, type } = req.body;
+        const errors = {};
+        if (typeof (name) === 'number') {
+          errors.name = 'Name cannot be an Integer';
+        }
+        if (typeof (type) === 'number') {
+          errors.type = 'Office Type cannot be an Integer';
+        }
+        if (errors.name || errors.type) {
+          return res.status(400).send({
+            status: 400,
+            error: errors,
+          });
+        }
+      next();
+      }
+
+      doesOfficeExist(req, res, next) {
+        let { name } = req.body;
+        name = name.trim();
+    
+        query.checkOfficeExistence(name)
+        .then((response) => {
+          if (response.length > 0) {
+            res.status(409).send({
+                status: 409,
+                error: 'Office Already Exists',
+            });
+            } else {
+            next();
+          }
+        })
+        .catch((error) => {
+          return res.status(500).send({
+            status: 500,
+            error: error.message,
+          });
+        })
       }
 }
 

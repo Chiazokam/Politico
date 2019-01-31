@@ -7,12 +7,52 @@ import chai, { expect } from 'chai';
 import request from 'supertest';
 import app from '../server/app';
 
+let token;
+
 describe('POST Requests', () => {
+
+  describe ('POST /api/v1/auth/login', () => {
+    it('should sign in a user', (done) => {
+      request(app)
+        .post('/api/v1/auth/login')
+        .send({
+          email: 'chiazokamecheta@gmail.com',
+          password: 'root',
+        })
+        .end((err, res) => {
+          expect(res.statusCode).to.equal(200);
+          expect(res.body).to.be.an('object');
+          expect(res.body.data).to.be.an('array');
+          expect(res.body.data[0]).to.be.an('object');
+          token = res.body.data[0].token;
+        if (err) { return done(err); }
+        done();
+        });
+    });
+  });
+
+  /* ******************************TEST FOR EMPTY PARTIES TABLE**************************** */
+
+  /*describe ('GET /api/v1/parties', () => {
+    it('should not find parties in db', (done) => {
+      request(app)
+        .get('/api/v1/parties')
+        .set('token', token)
+        .end((err, res) => {
+          expect(res.statusCode).to.equal(404);
+          expect(res.body).to.be.an('object');
+          expect(res.body.error).to.equal('No Parties Found');
+        if (err) { return done(err); }
+        done();
+        });
+    });
+  });*/
 
     describe ('POST /api/v1/parties', () => {
       it('should create a new party', (done) => {
         request(app)
           .post('/api/v1/parties')
+          .set('token', token)
           .send({
             name: 'People Congress',
             hqAddress: 'Folawiyo Bankole Street',
@@ -31,18 +71,119 @@ describe('POST Requests', () => {
     });
 
     describe ('POST /api/v1/parties', () => {
+      it('should attempt to create a party with a wrong token', (done) => {
+        request(app)
+          .post('/api/v1/parties')
+          .set('token', '253533637722hxhchfhdfhs')
+          .send({
+            name: 'Developed People',
+            hqAddress: 'Surulere',
+            logoUrl: 'www.logodeveloped.jpg',
+          })
+          .end((err, res) => {
+            expect(res.statusCode).to.equal(401);
+            expect(res.body).to.be.an('object');
+            expect(res.body.error).to.equal('user unauthenticated');
+          if (err) { return done(err); }
+          done();
+          });
+      });
+    });
+
+    describe ('POST /api/v1/parties', () => {
+      it('should attempt to create a party without a wrong token', (done) => {
+        request(app)
+          .post('/api/v1/parties')
+          .send({
+            name: 'Developed People',
+            hqAddress: 'Surulere',
+            logoUrl: 'www.logodeveloped.jpg',
+          })
+          .end((err, res) => {
+            expect(res.statusCode).to.equal(401);
+            expect(res.body).to.be.an('object');
+            expect(res.body.error).to.equal('token not provided');
+          if (err) { return done(err); }
+          done();
+          });
+      });
+    });
+
+    
+   describe ('POST /api/v1/parties', () => {
       it('should attempt to create an existing party', (done) => {
         request(app)
           .post('/api/v1/parties')
+          .set('token', token)
           .send({
             name: 'People Congress',
             hqAddress: 'Folawiyo Bankole Street',
             logoUrl: 'www.logo.com/url.jpg',
           })
           .end((err, res) => {
-            expect(res.statusCode).to.equal(403);
+            expect(res.statusCode).to.equal(409);
             expect(res.body).to.be.an('object');
-            expect(res.body.error).to.equal('Party Name, Address or Logo Already Exists');
+            expect(res.body.error).to.equal('Party Name or Logo already exists');
+          if (err) { return done(err); }
+          done();
+          });
+      });
+    });
+
+    describe ('POST /api/v1/parties', () => {
+      it('should test the party name for integers', (done) => {
+        request(app)
+          .post('/api/v1/parties')
+          .set('token', token)
+          .send({
+            name: 4,
+            hqAddress: 'Folawiyo Bankole Street',
+            logoUrl: 'www.logo.com/url.jpg',
+          })
+          .end((err, res) => {
+            expect(res.statusCode).to.equal(400);
+            expect(res.body).to.be.an('object');
+            expect(res.body.error.name).to.equal('Name cannot be an Integer');
+          if (err) { return done(err); }
+          done();
+          });
+      });
+    });
+
+    describe ('POST /api/v1/parties', () => {
+      it('should test the party address for integers', (done) => {
+        request(app)
+          .post('/api/v1/parties')
+          .set('token', token)
+          .send({
+            name: 'New Party',
+            hqAddress: 9,
+            logoUrl: 'www.logo.com/url.jpg',
+          })
+          .end((err, res) => {
+            expect(res.statusCode).to.equal(400);
+            expect(res.body).to.be.an('object');
+            expect(res.body.error.hqAddress).to.equal('Address cannot be an Integer');
+          if (err) { return done(err); }
+          done();
+          });
+      });
+    });
+
+    describe ('POST /api/v1/parties', () => {
+      it('should test the party address for integers', (done) => {
+        request(app)
+          .post('/api/v1/parties')
+          .set('token', token)
+          .send({
+            name: 'New Party',
+            hqAddress: 'Folawiyo Bankole Street',
+            logoUrl: 889,
+          })
+          .end((err, res) => {
+            expect(res.statusCode).to.equal(400);
+            expect(res.body).to.be.an('object');
+            expect(res.body.error.logoUrl).to.equal('Logo Url cannot be an Integer');
           if (err) { return done(err); }
           done();
           });
@@ -53,6 +194,7 @@ describe('POST Requests', () => {
         it('should test for wrong party Name format', (done) => {
           request(app)
             .post('/api/v1/parties')
+            .set('token', token)
             .send({
               name: '   ',
               hqAddress: 'Folawiyo Bankole Street',
@@ -69,28 +211,10 @@ describe('POST Requests', () => {
       });
 
       describe ('POST /api/v1/parties', () => {
-        it('should test if input is a number', (done) => {
-          request(app)
-            .post('/api/v1/parties')
-            .send({
-              name: 'Democratic People',
-              hqAddress: '12',
-              logoUrl: 'www.logo.com/url.jpg',
-            })
-            .end((err, res) => {
-              expect(res.statusCode).to.equal(400);
-              expect(res.body).to.be.an('object');
-              expect(res.body.error).to.equal('Address cannot be an integer');
-            if (err) { return done(err); }
-            done();
-            });
-        });
-      });
-
-      describe ('POST /api/v1/parties', () => {
         it('should test for wrong party Address format', (done) => {
           request(app)
             .post('/api/v1/parties')
+            .set('token', token)
             .send({
               name: 'People Congress',
               hqAddress: '   ',
@@ -110,6 +234,7 @@ describe('POST Requests', () => {
         it('should test for wrong party Logo format', (done) => {
           request(app)
             .post('/api/v1/parties')
+            .set('token', token)
             .send({
               name: 'People Congress',
               hqAddress: 'Folawiyo Bankole Street',
@@ -129,6 +254,7 @@ describe('POST Requests', () => {
         it('should check if party Name is a string', (done) => {
           request(app)
             .post('/api/v1/parties')
+            .set('token', token)
             .send({
               name: 'People Congress 999',
               hqAddress: 'Folawiyo Bankole Street',
@@ -137,7 +263,7 @@ describe('POST Requests', () => {
             .end((err, res) => {
                 expect(res.statusCode).to.equal(400);
                 expect(res.body).to.be.an('object');
-                expect(res.body.error).to.equal('Party Name must be a string');
+                expect(res.body.error).to.equal('Wrong Party Name format');
             if (err) { return done(err); }
             done();
             });
@@ -148,6 +274,7 @@ describe('POST Requests', () => {
         it('should check if image format is wrong', (done) => {
           request(app)
             .post('/api/v1/parties')
+            .set('token', token)
             .send({
               name: 'People Congress',
               hqAddress: 'Folawiyo Bankole Street',
@@ -167,6 +294,7 @@ describe('POST Requests', () => {
         it('should test all input for wrong format', (done) => {
           request(app)
             .post('/api/v1/parties')
+            .set('token', token)
             .send({
               name: '   ',
               hqAddress: ' ',
@@ -189,10 +317,11 @@ describe('POST Requests', () => {
         it('should test for a wrong address', (done) => {
           request(app)
             .post('/api/v1/parties')
+            .set('token', token)
             .send({
-              name: 'People Congress',
+              name: 'Good People',
               hqAddress: 'Bode Thomas',
-              logoUrl: 'www.logo.com/url.jpg',
+              logoUrl: 'www.logogood.com/url.jpg',
             })
             .end((err, res) => {
               expect(res.statusCode).to.equal(404);
@@ -203,7 +332,6 @@ describe('POST Requests', () => {
             });
         });
       });
-});
 
 
 describe ('GET Requests', () => {
@@ -212,6 +340,7 @@ describe ('GET Requests', () => {
     it('should get all parties', (done) => {
       request(app)
         .get('/api/v1/parties')
+        .set('token', token)
         .end((err, res) => {
           expect(res.statusCode).to.equal(200);
           expect(res.body).to.be.an('object');
@@ -222,11 +351,13 @@ describe ('GET Requests', () => {
         });
     });
   });
-
+});
+ 
   describe ('GET /api/v1/parties/:id', () => {
     it('should get one party', (done) => {
       request(app)
         .get('/api/v1/parties/1')
+        .set('token', token)
         .end((err, res) => {
           expect(res.statusCode).to.equal(200);
           expect(res.body).to.be.an('object');
@@ -241,7 +372,8 @@ describe ('GET Requests', () => {
   describe ('GET /api/v1/parties/:id', () => {
     it('should get a non-existing party', (done) => {
       request(app)
-        .get('/api/v1/parties/3')
+        .get('/api/v1/parties/5')
+        .set('token', token)
         .end((err, res) => {
           expect(res.statusCode).to.equal(404);
           expect(res.body).to.be.an('object');
@@ -251,7 +383,7 @@ describe ('GET Requests', () => {
         });
     });
   });
-});
+}); 
 
 describe ('PATCH Requests', () => {
 
@@ -259,11 +391,12 @@ describe ('PATCH Requests', () => {
     it('should edit the name of a party', (done) => {
       request(app)
         .patch('/api/v1/parties/1/name')
+        .set('token', token)
         .send({
           name: 'Democratic Congress',
         })
         .end((err, res) => {
-          expect(res.statusCode).to.equal(201);
+          expect(res.statusCode).to.equal(200);
           expect(res.body).to.be.an('object');
           expect(res.body.data).to.be.an('array');
           expect(res.body.data[0]).to.be.an('object');
@@ -277,14 +410,15 @@ describe ('PATCH Requests', () => {
   describe ('PATCH /api/v1/parties/:id/name', () => {
     it('should attempt to edit a non-existing party', (done) => {
       request(app)
-        .patch('/api/v1/parties/3/name')
+        .patch('/api/v1/parties/8/name')
+        .set('token', token)
         .send({
           name: 'Democratic Congress',
         })
         .end((err, res) => {
           expect(res.statusCode).to.equal(404);
           expect(res.body).to.be.an('object');
-          expect(res.body.error).to.equal('Cannot Edit a Non-Existing Party');
+          expect(res.body.error).to.equal('Party Not Found');
           if (err) { return done(err); }
           done();
         });
@@ -292,18 +426,20 @@ describe ('PATCH Requests', () => {
 });
 });
 
+
 describe ('DELETE Requests', () => {
 
   describe ('DELETE /api/v1/parties/:id', () => {
     it('should delete a party', (done) => {
       request(app)
         .delete('/api/v1/parties/1')
+        .set('token', token)
         .end((err, res) => {
           expect(res.statusCode).to.equal(200);
           expect(res.body).to.be.an('object');
           expect(res.body.data).to.be.an('array');
           expect(res.body.data[0]).to.be.an('object');
-          expect(res.body.data[0].message).to.equal("Successfully deleted 'Democratic Congress'");
+          expect(res.body.data[0].message).to.equal('Party Successfully deleted');
           if (err) { return done(err); }
           done();
         });
@@ -313,14 +449,15 @@ describe ('DELETE Requests', () => {
   describe ('DELETE /api/v1/parties/:id', () => {
     it('should attempt to delete a non-existing party', (done) => {
       request(app)
-        .delete('/api/v1/parties/3')
+        .delete('/api/v1/parties/8')
+        .set('token', token)
         .end((err, res) => {
           expect(res.statusCode).to.equal(404);
           expect(res.body).to.be.an('object');
-          expect(res.body.error).to.equal('Party Does Not Exist');
+          expect(res.body.error).to.equal('Party Not Found');
           if (err) { return done(err); }
           done();
         });
     });
 });
-});
+}); 

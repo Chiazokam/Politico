@@ -1,107 +1,158 @@
 /* eslint-disable linebreak-style */
-/* eslint-disable eol-last */
-/* eslint-disable class-methods-use-this */
+/* eslint-disable consistent-return */
 /* eslint-disable indent */
+/* eslint-disable class-methods-use-this */
 
-import { Party } from '../helpers';
+import dotenv from 'dotenv';
+import { PartyQueries } from '../helpers';
 
-const partyObject = new Party();
+const query = new PartyQueries();
+
+dotenv.load();
 
 class PartyController {
-  createNewParty(req, res) {
-    const { name, logoUrl } = req.body;
-    const formattedAddr = req.partyAddr;
-    const requestData = {
-      name: name.trim(),
-      hqAddress: formattedAddr,
-      logoUrl: logoUrl.trim(),
-    };
-
-    const parties = partyObject.parties;
-    const foundParty = partyObject.doesPartyExist(requestData, parties);
-    const { foundName, foundAddress, foundLogo } = foundParty;
-    if (!foundName || !foundAddress || !foundLogo) {
-      const data = partyObject.createParty(requestData);
-      if (data) {
-        return res.status(201).send({
-            status: 201,
-            data: [data],
+    createParty(req, res) {
+        const { name, logoUrl } = req.body;
+        const formattedAddr = req.partyAddr;
+        const requestData = {
+            name: name.trim(),
+            hqAddress: formattedAddr,
+            logoUrl: logoUrl.trim(),
+          };
+        
+        query.createPartyQuery(requestData)
+        .then((response) => {
+            if (response.length > 0) {
+              const data = {
+                id: response[0].id,
+                name: response[0].name,
+                hqAddress: response[0].hqaddress,
+                logoUrl: response[0].logourl,
+                createdOn: response[0].createdon,
+              };
+              return res.status(201).send({
+                status: 201,
+                data: [data],
+              });
+              }
+              return res.status(400).send({
+                status: 400,
+                error: 'Party Not Created',
+              });
+          })
+        .catch((error) => {
+          return res.status(500).send({
+            status: 500,
+            error: error.message,
+          });
         });
-      }
-      return res.status(400).send({
-        status: 400,
-        error: 'Party not created',
-      });
     }
-    return res.status(403).send({
-      status: 403,
-      error: 'Party Name, Address or Logo Already Exists',
-    });
-  }
 
-  getAllParties(req, res) {
-    const data = partyObject.findAllParties();
-    if (data) {
-      return res.status(200).send({
-        status: 200,
-        data,
+    getAllParties(req, res) {
+      query.getAllPartiesQuery()
+      .then((response) => {
+        if (response.length < 1) {
+          return res.status(404).send({
+            status: 404,
+            error: 'No Parties Found',
+          });
+        }
+        return res.status(200).send({
+          status: 200,
+          data: response,
+        });
+      }) 
+      .catch((error) => {
+        return res.status(500).send({
+          status: 500,
+          error: error.message,
+        });
       });
     }
-    return res.status(404).send({
-      status: 404,
-      error: 'Cannot Get Parties',
-      });
-  }
 
-  getOneParty(req, res) {
-    const id = req.params.id;
-    const { foundParty } = partyObject.findOneParty(id);
-    if (foundParty) {
-      return res.status(200).send({
-        status: 200,
-        data: [foundParty],
-      });
+    getOneParty(req, res) {
+      const id = req.params.id;
+      query.getOnePartyQuery(id)
+      .then((response) => {
+        if (response.length === 0) {
+          return res.status(404).send({
+            status: 404,
+            error: 'Party Not Found',
+          });
+        }
+        const data = {
+          id: response[0].id,
+          name: response[0].name,
+          hqAddress: response[0].hqaddress,
+          logoUrl: response[0].logourl,
+        };
+        return res.status(200).send({
+          status: 200,
+          data: [data],
+        });
+      })
+      .catch((error) => {
+        return res.status(500).send({
+          status: 500,
+          error: error.message,
+        });
+      })
     }
-    return res.status(404).send({
-      status: 404,
-      error: 'Party Not Found',
-    });
-  }
 
-  editParty(req, res) {
-    const id = req.params.id;
-    const { name } = req.body;
-    const { foundParty } = partyObject.findOneParty(id);
-    if (foundParty) {
-      const newParty = partyObject.updateParty(id, name);
-      return res.status(201).send({
-        status: 201,
-        data: [newParty],
-      });
+    editParty(req, res) {
+      const { id } = req.params;
+      const { name } = req.body;
+      query.getOnePartyQuery(id)
+      .then((response) => {
+        if (response.length === 0) {
+          return res.status(404).send({
+            status: 404,
+            error: 'Party Not Found',
+          });
+        }
+        const data = {
+          id: response[0].id,
+          name,
+        };
+        query.updatePartyNameQuery(id, name)
+          return res.status(200).send({
+            status: 200,
+            data: [data],
+          });
+      })
+      .catch((error) => {
+        return res.status(500).send({
+          status: 500,
+          error: error.message,
+        });
+      })
     }
-    return res.status(404).send({
-      status: 404,
-      error: 'Cannot Edit a Non-Existing Party',
-    });
-  }
 
-  deleteParty(req, res) {
-    const id = req.params.id;
-    const { foundParty } = partyObject.findOneParty(id);
-    if (foundParty) {
-      const deletedParty = partyObject.deleteParty(id);
-      return res.status(200).send({
-        status: 200,
-        data: [{
-          message: `Successfully deleted '${deletedParty.name}'`,
-        }],
-      });
+    deleteParty(req, res) {
+      const { id } = req.params;
+      query.getOnePartyQuery(id)
+      .then((response) => {
+        if (response.length === 0) {
+          return res.status(404).send({
+            status: 404,
+            error: 'Party Not Found',
+          });
+        }
+        query.deletePartyQuery(id);
+        return res.status(200).send({
+          status: 200,
+          data: [{
+            message: 'Party Successfully deleted',
+          }],
+        });
+      })
+      .catch((error) => {
+        return res.status(500).send({
+          status: 500,
+          error: error.message,
+        });
+      })
     }
-    return res.status(404).send({
-      status: 404,
-      error: 'Party Does Not Exist',
-    });
-  }
 }
 
 export default PartyController;
