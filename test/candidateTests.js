@@ -19,7 +19,7 @@ describe('POST Requests', () => {
               password: 'root',
             })
             .end((err, res) => {
-              console.log(res.error)
+              console.log(res)
               expect(res.statusCode).to.equal(200);
               expect(res.body).to.be.an('object');
               expect(res.body.data).to.be.an('array');
