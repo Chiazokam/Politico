@@ -82,7 +82,7 @@ class OfficeValidators {
             error: error.message,
           });
         })
-      } 
+      }
 }
 
 export default OfficeValidators;

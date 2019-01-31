@@ -47,6 +47,58 @@ class UserValidators {
           next();
     }
 
+    isSignUpInputInteger(req, res, next) {
+      const { firstname, lastname, othername, email, phone, passportUrl, password } = req.body;
+      const errors = {};
+      if (typeof (firstname) === 'number') {
+        errors.firstname = 'First Name cannot be an Integer';
+      }
+      if (typeof (lastname) === 'number') {
+        errors.lastname = 'Last Name cannot be an Integer';
+      }
+      if (typeof (othername) === 'number') {
+        errors.othername = 'Other Name cannot be an Integer';
+      }
+      if (typeof (email) === 'number') {
+        errors.email = 'Email cannot be an Integer';
+      }
+      if (typeof (phone) === 'number') {
+        errors.phone = 'Phone Number cannot be an Integer';
+      }
+      if (typeof (passportUrl) === 'number') {
+        errors.passportUrl = 'Passport Url cannot be an Integer';
+      }
+      if (typeof (password) === 'number') {
+        errors.password = 'Password cannot be an Integer';
+      }
+      if (errors.firstname || errors.lastname || errors.othername
+        || errors.email || errors.phone || errors.passportUrl || errors.password) {
+        return res.status(400).send({
+          status: 400,
+          error: errors,
+        });
+      }
+    next();
+    }
+
+    isLoginInputInteger(req, res, next) {
+      const { email, password } = req.body;
+      const errors = {};
+      if (typeof (email) === 'number') {
+        errors.email = 'Email cannot be an Integer';
+      }
+      if (typeof (password) === 'number') {
+        errors.password = 'Password cannot be an Integer';
+      }
+      if (errors.email || errors.password) {
+        return res.status(400).send({
+          status: 400,
+          error: errors,
+        });
+      }
+    next();
+    }
+
     isUserLoginFieldEmpty(req, res, next) {
       const { email, password } = req.body;
       const errors = {};

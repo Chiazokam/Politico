@@ -11,7 +11,7 @@ const query = new VoteQueries();
 dotenv.load();
 
 class VoteController {
-    creatVote(req, res) {
+    createVote(req, res) {
         const { id: voter } = req.userData;
         const { candidate, office } = req.body;
         query.createVoteQuery(candidate, office, voter)
@@ -20,7 +20,6 @@ class VoteController {
                 return res.status(201).send({
                     status: 201,
                     data: [{
-                        id: response[0].id,
                         candidate,
                         office,
                         voter,
@@ -33,7 +32,7 @@ class VoteController {
                 status: 500,
                 error: error.message,
             });
-        })
+        });
     }
 }
 

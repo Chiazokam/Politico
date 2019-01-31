@@ -66,6 +66,6 @@ INSERT INTO users(firstname,
                       passportUrl,
                       password,
                       isAdmin)
-          VALUES('Chiazokam', 'Echeta', 'Chioma' , 'chiazokamecheta@gmail.com', '07032425466', 'www.passport/chiazokam.com', '$2b$10$LAkfreG/ayNEne9.cnJnp.HnvjsJzraz/uN.Mcv4XIKzQxY.W6/fW', true);
+          VALUES('Chiazokam', 'Echeta', 'Chioma' , 'chiazokamecheta@gmail.com', '07032425466', 'www.passport/chiazokam.com', '$2b$10$LAkfreG/ayNEne9.cnJnp.HnvjsJzraz/uN.Mcv4XIKzQxY.W6/fW');
     COMMIT
     

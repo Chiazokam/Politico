@@ -11,6 +11,7 @@ import UserValidators from './userValidators';
 import verifyToken from './verifytoken';
 import CandidateValidators from './candidateValidators';
 import VoteValidators from './voteValidators';
+import ResultValidators from './resultValidators';
 
 
 export { PartyValidators,
@@ -19,4 +20,5 @@ export { PartyValidators,
          UserValidators,
          verifyToken,
          CandidateValidators,
-         VoteValidators };
+         VoteValidators,
+         ResultValidators };
