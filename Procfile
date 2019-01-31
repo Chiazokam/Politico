@@ -1,1 +1,1 @@
-web: node build/server/app.js
+web: npm run heroku-build

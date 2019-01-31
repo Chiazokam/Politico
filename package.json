@@ -11,7 +11,8 @@
     "dropTable": "node build/server/models/dropTables.js",
     "start:table": "npm run build && npm run dropTable && npm run createTable",
     "start:dev": "npm run build && babel-watch server/app.js",
-    "heroku-postbuild": "npm run build"
+    "heroku-postbuild": "npm run build",
+    "heroku-build": "npm run build && npm run createTable"
   },
   "repository": {
     "type": "git",
