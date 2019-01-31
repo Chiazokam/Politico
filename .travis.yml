@@ -13,3 +13,4 @@ cache:
   - node_modules
 before_script:
   - psql -f ./server/db.sql -U postgres
+  
