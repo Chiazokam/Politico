@@ -5,7 +5,7 @@
 
 import pg from 'pg-promise';
 import dotenv from 'dotenv';
-import config from '../config/config'
+import config from '../config/config';
 
 dotenv.config();
 
