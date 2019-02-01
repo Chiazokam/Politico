@@ -5,7 +5,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import swaggerUI from 'swagger-ui-express';
-import apiDocs from '../docs.json';
+import apiDocs from '../apiDocs.json';
 import router from './routes/router';
 
 
