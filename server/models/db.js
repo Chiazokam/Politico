@@ -5,18 +5,14 @@
 
 import pg from 'pg-promise';
 import dotenv from 'dotenv';
+import config from '../config/config';
 
 dotenv.config();
 
-const config = {
-  host: process.env.HOST,
-  port: process.env.DB_PORT,
-  user: process.env.USER,
-  password: process.env.PASSWORD,
-  database: process.env.DATABASE,
-};
+const env = process.env.NODE_ENV;
 
-const connectionString = process.env.DATABASE_URL || config;
+
+const connectionString = config[env].database;
 const pgProm = pg();
 
 const db = pgProm(connectionString);

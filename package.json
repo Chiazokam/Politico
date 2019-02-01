@@ -5,12 +5,13 @@
   "main": "app.js",
   "scripts": {
     "test": "nyc mocha test/ --compilers js:babel-core/register --timeout 20000 --exit && nyc report --reporter=text-lcov | coveralls",
-    "test:dev": "npm run start:table && npm run test",
+    "test:dev": "cross-env NODE_ENV=test npm run start:table && cross-env NODE_ENV=test npm run test",
     "build": "babel server --out-dir build/server",
     "createTable": "node build/server/models/createTables.js",
     "dropTable": "node build/server/models/dropTables.js",
     "start:table": "npm run build && npm run dropTable && npm run createTable",
-    "start:dev": "npm run build && babel-watch server/app.js",
+    "start:dev": "cross-env NODE_ENV=dev npm run build && cross-env NODE_ENV=dev babel-watch server/app.js",
+    "start:heroku": "npm run start:dev && npm run createTable",
     "heroku-postbuild": "npm run build"
   },
   "repository": {
@@ -25,19 +26,20 @@
   "homepage": "https://github.com/Chiazokam/Politico#readme",
   "dependencies": {
     "@google/maps": "^0.5.5",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
     "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
     "babel-watch": "^2.0.8",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
+    "cross-env": "^5.2.0",
     "dotenv": "^6.2.0",
     "express": "^4.16.4",
     "jsonwebtoken": "^8.4.0",
     "pg-promise": "^8.5.5"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.3",
-    "babel-preset-env": "^1.7.0",
     "chai": "^4.2.0",
     "coveralls": "^3.0.2",
     "eslint": "^5.12.1",
