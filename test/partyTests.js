@@ -31,23 +31,6 @@ describe('POST Requests', () => {
     });
   });
 
-  /* ******************************TEST FOR EMPTY PARTIES TABLE**************************** */
-
-  /*describe ('GET /api/v1/parties', () => {
-    it('should not find parties in db', (done) => {
-      request(app)
-        .get('/api/v1/parties')
-        .set('token', token)
-        .end((err, res) => {
-          expect(res.statusCode).to.equal(404);
-          expect(res.body).to.be.an('object');
-          expect(res.body.error).to.equal('No Parties Found');
-        if (err) { return done(err); }
-        done();
-        });
-    });
-  });*/
-
     describe ('POST /api/v1/parties', () => {
       it('should create a new party', (done) => {
         request(app)

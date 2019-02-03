@@ -10,11 +10,29 @@ const query = new VoteQueries();
 
 
 class VoteValidators {
+    isVoteFieldEmpty(req, res, next) {
+        const { office, candidate } = req.body;
+        const errors = {};
+          if (!office || !office.trim()) {
+            errors.office = 'Improper Office format';
+          }
+          if (!candidate || !candidate.trim()) {
+            errors.candidate = 'Improper Candidate format';
+          }
+          if (errors.office || errors.candidate) {
+            return res.status(400).send({
+              status: 400,
+              error: errors,
+            });
+          }
+        next();
+      }
+
     doesUserIdExist(req, res, next) {
         const { id: userId } = req.userData;
         query.doesUserIdExistQuery(userId)
         .then((response) => {
-            if(response <= 0) {
+            if (response <= 0) {
                 return res.status(404).send({
                     status: 404,
                     error: 'User Not Found',

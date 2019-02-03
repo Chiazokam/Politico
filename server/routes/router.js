@@ -11,14 +11,16 @@ import { UserValidators,
          OfficeValidators,
          CandidateValidators,
          VoteValidators,
-         ResultValidators } from '../middlewares';
+         ResultValidators,
+         PetitionValidators } from '../middlewares';
 
 import { UserController,
          PartyController,
          OfficeController,
          CandidateController,
          VoteController,
-         ResultController } from '../controllers';
+         ResultController,
+         PetitionController } from '../controllers';
 
 const router = express.Router();
 
@@ -29,6 +31,7 @@ const validateOfficeInput = new OfficeValidators();
 const validateCandidate = new CandidateValidators();
 const validateVote = new VoteValidators();
 const validateResult = new ResultValidators();
+const validatePetition = new PetitionValidators();
 
 const user = new UserController();
 const party = new PartyController();
@@ -36,6 +39,7 @@ const office = new OfficeController();
 const candidate = new CandidateController();
 const vote = new VoteController();
 const result = new ResultController();
+const petition = new PetitionController();
 
 router.get('/', (req, res) => res.status(200).send({
   message: 'Welcome to Politico',
@@ -111,6 +115,7 @@ router.post('/api/v1/offices/:id/register', validateCandidate.isParamsInteger,
 
 router.post('/api/v1/votes', verifyToken,
                              validateVote.isVoteInputInteger,
+                             validateVote.isVoteFieldEmpty,
                              validateVote.isVoteInputValid,
                              validateVote.doesVoterExistForOffice,
                              validateVote.doesUserIdExist,
@@ -121,4 +126,11 @@ router.post('/api/v1/votes', verifyToken,
 router.get('/api/v1/office/:office/result', validateResult.isParamsInteger,
                                               verifyToken,
                                               result.getResults);
+
+router.post('/api/v1/petitions', verifyToken,
+                                 validatePetition.isPetitionInputInteger,
+                                 validatePetition.isPetitionFieldEmpty,
+                                 validatePetition.isPetitionOfficeValid,
+                                 validatePetition.doesOfficeExist,
+                                 petition.createPetition);
 export default router;

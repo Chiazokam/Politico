@@ -10,7 +10,6 @@ const query = new ResultQueries();
 
 
 class ResultValidators {
-
     isParamsInteger(req, res, next) {
         const params = Number(req.params.office);
         const errors = {};
