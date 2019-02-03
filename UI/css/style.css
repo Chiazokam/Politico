@@ -843,7 +843,7 @@ form{
 
     #main-signin{
         width: 90%;
-        margin: 25px auto;
+        margin: 120px auto;
         height: auto;
        }
 
@@ -990,7 +990,7 @@ form{
     
     #create-office{
         height: 58vh;
-        margin: 25px auto;
+        margin: 100px auto;
         width: 80%;
     }
 }
@@ -1054,16 +1054,38 @@ form{
     border: 1px solid #99173C;
     }
 
-    /*@media(max-width:1440px){
+    @media(min-width: 768px) and (max-width: 1024px){
         #create-office{
             border-radius: 4px;
-            width: 45%;
+            width: 90%;
             height: auto;
             text-align: center;
             border: 1px solid #2E2633;
             box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
             background-color: #2E2633;
             color: #DCE9BE;
-            margin: 210px auto;
+            margin: 300px auto;
            }
-    }*/
+
+        #main-signin{
+            width: 90%;
+            margin: 250px auto;
+            height: auto;
+           }
+
+           /*---------ABOUT PAGE-----------*/
+        #main-about{
+            width: 90%;
+            margin: 100px auto;
+        }
+
+        #main-signup{
+            width: 90%;
+            margin: 150px auto;
+        }
+
+        #candidate{
+            margin: 300px auto;
+           }
+    
+    }
