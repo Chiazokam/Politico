@@ -5,14 +5,14 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import swaggerUI from 'swagger-ui-express';
-import docs from '../docs.json';
+import apiDocs from '../apiDocs.json';
 import router from './routes/router';
 
 
 const app = express();
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use('/docs', swaggerUI.serve, swaggerUI.setup(docs));
+app.use('/docs', swaggerUI.serve, swaggerUI.setup(apiDocs));
 
 app.use(router);
 
