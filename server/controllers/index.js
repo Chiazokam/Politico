@@ -10,10 +10,12 @@ import OfficeController from './officeControllers';
 import CandidateController from './candidateControllers';
 import VoteController from './voteControllers';
 import ResultController from './resultControllers';
+import PetitionController from './petitionControllers';
 
 export { UserController,
          PartyController,
          OfficeController,
          CandidateController,
          VoteController,
-         ResultController };
+         ResultController,
+        PetitionController };

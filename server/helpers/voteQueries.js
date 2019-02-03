@@ -16,7 +16,7 @@ class VoteQueries {
       }
 
     doesCandidateIdExistQuery(candidate) {
-        return db.any('SELECT id FROM users WHERE id = $1', [candidate]);
+        return db.any('SELECT id FROM candidates WHERE id = $1', [candidate]);
       }
 
     createVoteQuery(candidate, office, voter) {
