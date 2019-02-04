@@ -21,7 +21,7 @@ describe('POST Requests', () => {
             lastname: 'Mabel',
             othername: 'Cory',
             email: 'dan@mabel.com',
-            phone: '+234-7032789466',
+            phone: '07032789466',
             passportUrl: 'www.passport.jpeg',
             password: 'lilian',
           })
@@ -47,7 +47,7 @@ describe('POST Requests', () => {
             lastname: 'Mabel',
             othername: 'Cory',
             email: 'dan@mabel.com',
-            phone: '+234-70321119466',
+            phone: '070321119466',
             passportUrl: 'www.passpdanort.jpeg',
             password: 'lilian',
           })
@@ -70,7 +70,7 @@ describe('POST Requests', () => {
             lastname: 'Mabel',
             othername: 'Cory',
             email: 'dannyboy@mabel.com',
-            phone: '+234-7032789466',
+            phone: '07032789466',
             passportUrl: 'www.passportdanny.jpeg',
             password: 'lilian',
           })
@@ -93,7 +93,7 @@ describe('POST Requests', () => {
             lastname: 'Mabel',
             othername: 'Cory',
             email: 'dannnywilson@mabel.com',
-            phone: '+234-7030145789466',
+            phone: '030145789466',
             passportUrl: 'www.passport.jpeg',
             password: 'lilian',
           })
@@ -116,7 +116,7 @@ describe('POST Requests', () => {
             lastname: 'Mabel',
             othername: 'Cory',
             email: 'dan@mabel.com',
-            phone: '+234-7032789466',
+            phone: '07032789466',
             passportUrl: 'www.passport.jpeg',
             password: 'lilian',
           })
@@ -139,7 +139,7 @@ describe('POST Requests', () => {
             lastname: '    ',
             othername: 'Cory',
             email: 'dan@mabel.com',
-            phone: '+234-7032789466',
+            phone: '07032789466',
             passportUrl: 'www.passport.jpeg',
             password: 'lilian',
           })
@@ -162,7 +162,7 @@ describe('POST Requests', () => {
             lastname: 'Cory',
             othername: '  ',
             email: 'dan@mabel.com',
-            phone: '+234-7032789466',
+            phone: '07032789466',
             passportUrl: 'www.passport.jpeg',
             password: 'lilian',
           })
@@ -185,7 +185,7 @@ describe('POST Requests', () => {
             lastname: 'Mabel',
             othername: 'Cory',
             email: '   ',
-            phone: '+234-7032789466',
+            phone: '07032789466',
             passportUrl: 'www.passport.jpeg',
             password: 'lilian',
           })
@@ -231,7 +231,7 @@ describe('POST Requests', () => {
             lastname: 'Mabel',
             othername: 'Cory',
             email: 'dan@mabel.com',
-            phone: '+234-9034567234',
+            phone: '09034567234',
             passportUrl: '    ',
             password: 'lilian',
           })
@@ -254,7 +254,7 @@ describe('POST Requests', () => {
             lastname: 'Mabel',
             othername: 'Cory',
             email: 'dan@mabel.com',
-            phone: '+234-9034567234',
+            phone: '09034567234',
             passportUrl: 'www.passport.jpg',
             password: '     ',
           })
@@ -269,7 +269,7 @@ describe('POST Requests', () => {
     });
 
     describe ('POST /api/v1/auth/signup', () => {
-      it('should test for an empty password field', (done) => {
+      it('should test for a wrong email format', (done) => {
         request(app)
           .post('/api/v1/auth/signup')
           .send({
@@ -277,11 +277,12 @@ describe('POST Requests', () => {
             lastname: 'Mabel',
             othername: 'Cory',
             email: 'danmabel.com',
-            phone: '+234-9034567234',
+            phone: '09034567234',
             passportUrl: 'www.passport.jpg',
             password: 'lilian',
           })
           .end((err, res) => {
+            console.log(res.error)
             expect(res.statusCode).to.equal(400);
               expect(res.body).to.be.an('object');
               expect(res.body.error.email).to.equal('Wrong email format');
@@ -324,11 +325,12 @@ describe('POST Requests', () => {
             lastname: 'Mabel',
             othername: 'Cory',
             email: 'dan@mabel.com',
-            phone: '+234-7032567234',
+            phone: '07032567234',
             passportUrl: 'www.passport.pdf',
             password: 'lilian',
           })
           .end((err, res) => {
+            console.log(res.error)
             expect(res.statusCode).to.equal(400);
               expect(res.body).to.be.an('object');
               expect(res.body.error.passportUrl).to.equal('Wrong Image format');
