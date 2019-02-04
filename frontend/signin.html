@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width">
+            <title>Politico</title>
+            <link rel="stylesheet" href="css/style.css"/>
+            <link href="https://fonts.googleapis.com/css?family=Sarabun" rel="stylesheet">
+        </head>
+        <body>
+            <header>
+                <div class="container">
+                    <div class="brandname">
+                        <h1><a class="brandname-h1" href="index.html">Politico</a></h1> 
+                    </div>
+                    <div class="menu-ham">
+                        <div class="hamburger"></div>
+                        <div class="hamburger"></div>
+                        <div class="hamburger"></div>
+                    </div>
+                    <nav class="nav-menu">
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="signup.html">Sign up</a></li>
+                            <li class="active"><a href="signin.html">Sign in</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </header>
+
+            <section>
+                    <div class="page-strip form-strip">
+                    </div>
+
+                    <div id="main-signin">
+                            <div class="container">
+                                    <div class="modal">
+                                            <div class="forgotPassword-modal">
+                                                <p>We will send you an email</p>
+                                                <div class="form-field forgotPassword">
+                                                    <input type="email" name="email" placeholder="Email" required>
+                                                </div>
+                                                <button type="button" class="btn btn-cancel-modal">Cancel</button>
+                                                <button type="button" class="btn btn-submit-modal"><a href="signin.html">Send</a></button>
+                                            </div>
+                                        </div>
+                                    <p class="form-text">Sign In</p>
+                                    <form action="./User/userProfile.html" method="get">
+                    
+                                            <div class="form-field">
+                                                <input type="email" name="email" placeholder="Email Address" required>
+                                            </div>
+                                            <div class="form-field password-field">
+                                                <input type="password" id="input-password" placeholder="Password" required>
+                                            </div>
+                                            <p id="forgotPass">Forgot Password?</p>
+                                            <button type="submit" class="btn btn-colored btn-signin btn-dark"><a href="">Submit</a></button>
+                                    </form>
+                                </div>
+                    </div>
+                  
+            </section>
+            <footer>
+                <div class="container">
+                    <p>P<span class="brandname-span">olitico</span>, copyright &copy; 2019</p>
+                </div>
+            </footer>
+        <script src="scripts/main.js"></script>
+        <script src="scripts/signin.js"></script>
+        </body>
+    </html>
+        
