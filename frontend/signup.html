@@ -36,31 +36,37 @@
                     <div id="main-signup">
                             <div class="container">
                                     <p class="form-text">Sign Up</p>
-                                    <form action="signin.html" method="get">
-                    
+                                    <form id="signup">
                                             <div class="form-field">
-                                                <input type="text" name="firstname" placeholder="First Name" required>
+                                                <div id="error-fname"></div>
+                                                <input type="text" id="firstname" placeholder="First Name" required>
                                             </div>
                                             <div class="form-field">
-                                                <input type="text" name="lastname" placeholder="Last Name" required>
+                                                <div id="error-lname"></div>
+                                                <input type="text" id="lastname" placeholder="Last Name" required>
                                             </div>
                                             <div class="form-field">
-                                                <input type="text" name="othername" placeholder="Other Name" required>
+                                                <div id="error-oname"></div>
+                                                <input type="text" id="othername" placeholder="Other Name" required>
                                             </div>
                                             <div class="form-field">
-                                                <input type="email" name="email" placeholder="Email Address" required>
+                                                <div id="error-email"></div>
+                                                <input type="email" id="email" placeholder="Email Address" required>
                                             </div>
                                             <div class="form-field">
-                                                <input type="number" name="phone" placeholder="Phone Number" required>
+                                                <div id="error-phone"></div>
+                                                <input type="number" id="phone" placeholder="Phone Number" required>
                                             </div>
                                             <div class="form-field">
-                                                <input type="text" name="passportURL" placeholder="Passport URL" required>
+                                                <div id="error-passport"></div>
+                                                <input type="text" id="passportUrl" placeholder="Passport URL" required>
                                             </div>
                                             <div class="form-field">
-                                                <input type="password" placeholder="Password" required>
+                                                <div id="error-password"></div>
+                                                <input type="password" id="password" placeholder="Password" required>
                                             </div>
                                             
-                                            <button type="submit" class="btn btn-colored btn-signup btn-dark">Submit</button>
+                                            <input type="submit" class="btn btn-colored btn-signup btn-dark">
                                     </form>
                                 </div>
                     </div>
@@ -72,6 +78,7 @@
                 </div>
             </footer>
         <script src="scripts/main.js"></script>
+        <script src="scripts/fetch/signup.js"></script>
         </body>
     </html>
         

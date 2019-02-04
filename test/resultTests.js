@@ -60,7 +60,6 @@ describe ('GET Requests', () => {
         .get('/api/v1/office/4/result')
         .set('token', token)
         .end((err, res) => {
-          console.log(res.error)
             expect(res.statusCode).to.equal(404);
             expect(res.body).to.be.an('object');
             expect(res.body.error).to.equal('No Results for this office Found');

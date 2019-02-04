@@ -7,6 +7,12 @@ body{
     background-color: #f5f6fa;
 }
 
+#divError{
+    color: #d10606;
+    font-size: 14px;
+    padding-bottom: 5px;
+  }
+
  /*Global*/
 .container{
     width: 80%;
