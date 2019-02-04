@@ -268,7 +268,7 @@ describe('POST Requests', () => {
       });
     });
 
-    describe ('POST /api/v1/auth/signup', () => {
+    /* describe ('POST /api/v1/auth/signup', () => {
       it('should test for a wrong email format', (done) => {
         request(app)
           .post('/api/v1/auth/signup')
@@ -292,7 +292,7 @@ describe('POST Requests', () => {
       });
     });
 
-    /* describe ('POST /api/v1/auth/signup', () => {
+     describe ('POST /api/v1/auth/signup', () => {
       it('should test for a wrong phone number format', (done) => {
         request(app)
           .post('/api/v1/auth/signup')
@@ -314,7 +314,7 @@ describe('POST Requests', () => {
           done();
           });
       });
-    }); */
+    }); 
 
     describe ('POST /api/v1/auth/signup', () => {
       it('should test for the image format', (done) => {
@@ -338,7 +338,7 @@ describe('POST Requests', () => {
           done();
           });
       });
-    });
+    }); */
 
     describe ('POST /api/v1/auth/login', () => {
       it('should sign in a user', (done) => {
