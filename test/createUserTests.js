@@ -317,7 +317,7 @@ describe('POST Requests', () => {
     }); */
 
     describe ('POST /api/v1/auth/signup', () => {
-      it('should test for an empty password field', (done) => {
+      it('should test for the image format', (done) => {
         request(app)
           .post('/api/v1/auth/signup')
           .send({
