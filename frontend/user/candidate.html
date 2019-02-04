@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width">
+            <title>Politico</title>
+            <link rel="stylesheet" href="../css/style.css"/>
+            <link href="https://fonts.googleapis.com/css?family=Sarabun" rel="stylesheet">
+        </head>
+        <body>
+            <header>
+                <div class="container">
+                    <div class="brandname">
+                        <h1><a class="brandname-h1" href="../index.html">Politico</a></h1> 
+                    </div>
+                    <div class="menu-ham">
+                        <div class="hamburger"></div>
+                        <div class="hamburger"></div>
+                        <div class="hamburger"></div>
+                    </div>
+                    <nav class="nav-menu">
+                        <ul>
+                            <li><a href="userProfile.html">Back</a></li>
+                            <li class="reset-password"><a>Reset Password</a></li>
+                            <li class="create-petition"><a>Create A Petition</a></li>
+                            <li><a href="../index.html">Logout</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </header>
+
+            <section>
+                    <div class="page-strip form-strip">
+                            
+                    </div>
+
+                    <div id="candidate">
+                            <div class="container">
+                                    <div class="modal-reset">
+                                    <div class="resetPassword-modal">
+                                        <p>Reset Password</p>
+                                        <div class="form-field resetPassword">
+                                            <input type="password" name="oldPassword" placeholder="Old Password" required>
+                                        </div>
+                                        <div class="form-field resetPassword">
+                                            <input type="password" name="newPassword" placeholder="New Password" required>
+                                        </div>
+                                        <div class="form-field resetPassword">
+                                            <input type="password" name="confirmNewPassword" placeholder="Confirm New Password" required>
+                                        </div>
+                                        <button type="button" class="btn btn-cancel-modal">Cancel</button>
+                                        <button type="button" class="btn btn-submit-modal"><a href="userProfile.html">Send</a></button>
+                                    </div>
+                                </div>
+
+                                <div class="modal-petition">
+                                    <div class="createPetition-modal">
+                                        <p>Create Petition</p>
+                                        <div class="form-field createPetition">
+                                            <select name="" id="">
+                                                <option value="">Select An Office</option>
+                                                <option value="">Office of the Preseident</option>
+                                                <option value="">Office of the Lagos State Governor</option>
+                                                <option value="">Office of the Chief Justice</option>
+                                                <option value="">Office of Aro LGA Chairman</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-field createPetition">
+                                            <textarea rows="8" class="petition-textarea" required></textarea>
+                                        </div>
+                                        <button type="button" class="btn btn-cancel-modal cancel-petition">Cancel</button>
+                                        <button type="button" class="btn btn-submit-modal"><a href="candidate.html">Send</a></button>
+                                    </div>
+                                </div>
+                                    <p class="form-text">Become a Candidate</p>
+                                    <form action="/register" method="post">
+                    
+                                            <div class="form-field">
+                                                <select name="" id="">
+                                                <option value="">Select An Office</option>
+                                                <option value="">Office of the Preseident</option>
+                                                <option value="">Office of the Lagos State Governor</option>
+                                                <option value="">Office of the Chief Justice</option>
+                                                <option value="">Office of Aro LGA Chairman</option>
+                                            </select>
+                                            </div>
+                                            <div class="form-field">
+                                                <select name="" id="">
+                                                <option value="">Select Party</option>
+                                                <option value="">PSP</option>
+                                                <option value="">AC</option>
+                                                <option value="">PC</option>
+                                                <option value="">ADP</option>
+                                            </select>
+                                            </div>
+                                            <button type="button" class="btn btn-colored btn-signin btn-dark"><a href="./User/userProfile.html">Submit</a></button>
+                                    </form>
+                                </div>
+                    </div>
+                  
+            </section>
+            <footer>
+                <div class="container">
+                    <p>P<span class="brandname-span">olitico</span>, copyright &copy; 2019</p>
+                </div>
+            </footer>
+            <script src="../scripts/main.js"></script>
+            <script src="../scripts/user.js"></script>
+            <script src="../scripts/candidate.js"></script>
+        </body>
+    </html>
+        
