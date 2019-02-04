@@ -21,6 +21,10 @@ function addDynamicDiv(innerHTMLString, errorDiv, divId) {
     errorDiv.style.visibility = 'visible';
   }
 
+function doesInputHaveInteger(input) {
+    return /\d/.test(input);
+}
+
 
 function signUp(e) {
     e.preventDefault();
@@ -54,16 +58,28 @@ function signUp(e) {
     })
     .then((res) => res.json())
     .then((response) => {
-        const { error, data } = response;
+        const { error } = response;
+        if (doesInputHaveInteger(firstname) === true) {
+            const message = 'Improper firstname format';
+            addDynamicDiv(message, fnameError, 'divError');
+        }
+        if (doesInputHaveInteger(lastname) === true) {
+            const message = 'Improper lastname format';
+            addDynamicDiv(message, lnameError, 'divError');
+        }
+        if (doesInputHaveInteger(othername) === true) {
+            const message = 'Improper othername format';
+            addDynamicDiv(message, onameError, 'divError');
+        }
         if (error) {
             if (error.firstname) {
-                addDynamicDiv(error.email, fnameError, 'divError');
+                addDynamicDiv(error.firstname, fnameError, 'divError');
             }
             if (error.lastname) {
                 addDynamicDiv(error.lastname, lnameError, 'divError');
             }
             if (error.othername) {
-                addDynamicDiv(error.other, onameError, 'divError');
+                addDynamicDiv(error.othername, onameError, 'divError');
             }
             if (error.email) {
                 addDynamicDiv(error.email, emailError, 'divError');

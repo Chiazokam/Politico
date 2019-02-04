@@ -126,7 +126,7 @@ class UserValidators {
         } else {
           return res.status(400).send({
             status: 400,
-            error: 'Wrong email format',
+            error: { email: 'Wrong email format' },
           });
         }
       }
@@ -138,7 +138,7 @@ class UserValidators {
         } else {
             return res.status(400).send({
               status: 400,
-              error: 'Wrong phone number format',
+              error: { phone: 'Wrong phone number format' },
             });
           }
     }
@@ -150,7 +150,7 @@ class UserValidators {
         } else {
           return res.status(400).send({
             status: 400,
-            error: 'Wrong Image format',
+            error: { passportUrl: 'Wrong Image format' },
           });
         }
     }

@@ -48,7 +48,7 @@ router.get('/', (req, res) => res.status(200).send({
 router.post('/api/v1/auth/signup', validateUser.isSignUpInputInteger,
                                     validateUser.isUserFieldEmpty,
                                     validateUser.isEmailValid,
-                                    // validateUser.isPhoneValid,
+                                    validateUser.isPhoneValid,
                                     validateUser.isPassportUrlValid,
                                     validateUser.doesUserExist,
                                     user.createUser);
