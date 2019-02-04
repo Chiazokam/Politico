@@ -21,7 +21,7 @@ describe('POST Requests', () => {
             lastname: 'Mabel',
             othername: 'Cory',
             email: 'dan@mabel.com',
-            phone: '07032789466',
+            phone: '+234-7032789466',
             passportUrl: 'www.passport.jpeg',
             password: 'lilian',
           })
@@ -47,7 +47,7 @@ describe('POST Requests', () => {
             lastname: 'Mabel',
             othername: 'Cory',
             email: 'dan@mabel.com',
-            phone: '070321119466',
+            phone: '+234-7032784566',
             passportUrl: 'www.passpdanort.jpeg',
             password: 'lilian',
           })
@@ -70,7 +70,7 @@ describe('POST Requests', () => {
             lastname: 'Mabel',
             othername: 'Cory',
             email: 'dannyboy@mabel.com',
-            phone: '07032789466',
+            phone: '+234-7032789466',
             passportUrl: 'www.passportdanny.jpeg',
             password: 'lilian',
           })
@@ -93,7 +93,7 @@ describe('POST Requests', () => {
             lastname: 'Mabel',
             othername: 'Cory',
             email: 'dannnywilson@mabel.com',
-            phone: '030145789466',
+            phone: '+234-7011789466',
             passportUrl: 'www.passport.jpeg',
             password: 'lilian',
           })
@@ -116,7 +116,7 @@ describe('POST Requests', () => {
             lastname: 'Mabel',
             othername: 'Cory',
             email: 'dan@mabel.com',
-            phone: '07032789466',
+            phone: '+234-7032789466',
             passportUrl: 'www.passport.jpeg',
             password: 'lilian',
           })
@@ -139,7 +139,7 @@ describe('POST Requests', () => {
             lastname: '    ',
             othername: 'Cory',
             email: 'dan@mabel.com',
-            phone: '07032789466',
+            phone: '+234-7032789466',
             passportUrl: 'www.passport.jpeg',
             password: 'lilian',
           })
@@ -162,7 +162,7 @@ describe('POST Requests', () => {
             lastname: 'Cory',
             othername: '  ',
             email: 'dan@mabel.com',
-            phone: '07032789466',
+            phone: '+234-7032789466',
             passportUrl: 'www.passport.jpeg',
             password: 'lilian',
           })
@@ -185,7 +185,7 @@ describe('POST Requests', () => {
             lastname: 'Mabel',
             othername: 'Cory',
             email: '   ',
-            phone: '07032789466',
+            phone: '+234-7032789466',
             passportUrl: 'www.passport.jpeg',
             password: 'lilian',
           })
@@ -231,7 +231,7 @@ describe('POST Requests', () => {
             lastname: 'Mabel',
             othername: 'Cory',
             email: 'dan@mabel.com',
-            phone: '09034567234',
+            phone: '+234-7032789466',
             passportUrl: '    ',
             password: 'lilian',
           })
@@ -254,7 +254,7 @@ describe('POST Requests', () => {
             lastname: 'Mabel',
             othername: 'Cory',
             email: 'dan@mabel.com',
-            phone: '09034567234',
+            phone: '+234-7032789466',
             passportUrl: 'www.passport.jpg',
             password: '     ',
           })
@@ -277,7 +277,7 @@ describe('POST Requests', () => {
             lastname: 'Mabel',
             othername: 'Cory',
             email: 'danmabel.com',
-            phone: '09034567234',
+            phone: '+234-7032789466',
             passportUrl: 'www.passport.jpg',
             password: 'lilian',
           })
@@ -325,7 +325,7 @@ describe('POST Requests', () => {
             lastname: 'Mabel',
             othername: 'Cory',
             email: 'dan@mabel.com',
-            phone: '07032567234',
+            phone: '+234-7032789466',
             passportUrl: 'www.passport.pdf',
             password: 'lilian',
           })
