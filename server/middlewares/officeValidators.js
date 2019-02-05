@@ -28,6 +28,17 @@ class OfficeValidators {
         next();
       }
 
+      isOfficeNameString(req, res, next) {
+        const { name } = req.body;
+        if (/\d/.test(name) === true) {
+          return res.status(400).send({
+            status: 400,
+            error: { name: 'Office Name Invalid' },
+        });
+        }
+        next();
+      }
+
       isOfficeTypeValid(req, res, next) {
           let { type } = req.body;
           type = type.toLowerCase();
@@ -38,7 +49,7 @@ class OfficeValidators {
           } else {
             return res.status(400).send({
                 status: 400,
-                error: 'Office Type Incorrect',
+                error: { type: 'Office Type Incorrect' },
             });
           } 
       }
@@ -70,7 +81,7 @@ class OfficeValidators {
           if (response.length > 0) {
             res.status(409).send({
                 status: 409,
-                error: 'Office Already Exists',
+                error: { message: 'Office Already Exists' },
             });
             } else {
             next();

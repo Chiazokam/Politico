@@ -65,7 +65,7 @@ describe('POST Requests', () => {
             .end((err, res) => {
               expect(res.statusCode).to.equal(409);
               expect(res.body).to.be.an('object');
-              expect(res.body.error).to.equal('Office Already Exists');
+              expect(res.body.error.message).to.equal('Office Already Exists');
             if (err) { return done(err); }
             done();
             });
@@ -85,6 +85,25 @@ describe('POST Requests', () => {
               expect(res.statusCode).to.equal(400);
               expect(res.body).to.be.an('object');
               expect(res.body.error.name).to.equal('Improper office Name format');
+            if (err) { return done(err); }
+            done();
+            });
+        });
+      });
+
+      describe ('POST /api/v1/offices', () => {
+        it('should check for integers in the name input', (done) => {
+          request(app)
+            .post('/api/v1/offices')
+            .set('token', token)
+            .send({
+              name: '7528873',
+              type: 'State',
+            })
+            .end((err, res) => {
+              expect(res.statusCode).to.equal(400);
+              expect(res.body).to.be.an('object');
+              expect(res.body.error.name).to.equal('Office Name Invalid');
             if (err) { return done(err); }
             done();
             });
@@ -122,7 +141,7 @@ describe('POST Requests', () => {
             .end((err, res) => {
               expect(res.statusCode).to.equal(400);
               expect(res.body).to.be.an('object');
-              expect(res.body.error).to.equal('Office Type Incorrect');
+              expect(res.body.error.type).to.equal('Office Type Incorrect');
             if (err) { return done(err); }
             done();
             });

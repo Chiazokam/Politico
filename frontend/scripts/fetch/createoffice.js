@@ -6,20 +6,18 @@
 const token = localStorage.getItem('token');
 
 const nameError = document.getElementById('error-name');
-const logoError = document.getElementById('error-logo');
-const addressError = document.getElementById('error-address');
+const typeError = document.getElementById('error-type');
 const otherErrors = document.getElementById('error');
 
-document.getElementById('create-party').addEventListener('submit', createParty);
+document.getElementById('createOffice').addEventListener('submit', createOffice);
 
-  function createParty(e) {
+  function createOffice(e) {
     e.preventDefault();
     const name = document.getElementById('name').value;
-    const logoUrl = document.getElementById('logo').value;
-    const hqAddress = document.getElementById('address').value;
+    const type = document.getElementById('type').value;
     
 
-    fetch(`${urlInUse}/parties`, {
+    fetch(`${urlInUse}/offices`, {
         method: 'POST',
         mode: 'cors',
         headers: {
@@ -30,8 +28,7 @@ document.getElementById('create-party').addEventListener('submit', createParty);
         body: JSON.stringify(
             {
               name,
-              logoUrl,
-              hqAddress,
+              type,
             },
             ),
     })
@@ -42,19 +39,15 @@ document.getElementById('create-party').addEventListener('submit', createParty);
             if (error.name) {
                 addDynamicDiv(error.name, nameError, 'divError');
             }
-            if (error.logoUrl) {
-                addDynamicDiv(error.logoUrl, logoError, 'divError');
-            }
-            if (error.hqAddress) {
-                addDynamicDiv(error.hqAddress, addressError, 'divError');
+            if (error.type) {
+                addDynamicDiv(error.type, typeError, 'divError');
             }
             if (error.message) {
                 addDynamicDiv(error.message, otherErrors, 'divError');
             }
         } else {
-            addDynamicDiv('Party Created Successfully', otherErrors, 'divSuccess');
-            setTimeout(redirect('createParty.html'), 500000);
-
+            addDynamicDiv('Office Created Successfully', otherErrors, 'divSuccess');
+            setTimeout(redirect('createOffice.html'), 500000);
         }
     })
     .catch((error) => console.log(error))

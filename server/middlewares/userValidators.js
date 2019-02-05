@@ -47,6 +47,27 @@ class UserValidators {
           next();
     }
 
+    isSignUpNameString(req, res, next) {
+      const { firstname, lastname, othername } = req.body;
+      const errors = {};
+      if (/\d/.test(firstname) === true) {
+        errors.firstname = 'Invalid firstname';
+      }
+      if (/\d/.test(lastname) === true) {
+        errors.lastname = 'Invalid lastname';
+      }
+      if (/\d/.test(othername) === true) {
+        errors.othername = 'Invalid othername';
+      }
+      if (errors.firstname || errors.lastname || errors.othername) {
+        return res.status(400).send({
+          status: 400,
+          error: errors,
+        });
+      }
+      next();
+    }
+
     isSignUpInputInteger(req, res, next) {
       const { firstname, lastname, othername, email, phone, passportUrl, password } = req.body;
       const errors = {};
