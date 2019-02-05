@@ -35,21 +35,23 @@
                     <div id="create-office">
                             <div class="container">
                                     <p class="form-text">Create Office</p>
-                                    <form action="createOffice.html" method="get">
-                    
+                                    <form id="createOffice">
+                                            <div id="error"></div>
                                             <div class="form-field">
-                                                <input type="text" name="officeName" placeholder="Office Name" required>
+                                                <div id="error-name"></div>
+                                                <input type="text" id="name" placeholder="Office Name">
                                             </div>
                                             <div class="form-field">
-                                                <select name="office">
+                                                <div id="error-type"></div>
+                                                <select id="type">
                                                     <option>Select Office Type</option>
-                                                    <option value="">Federal</option>
-                                                    <option value="">Legislative</option>
-                                                    <option value="">State</option>
-                                                    <option value="">Local Government</option>
+                                                    <option value="federal">Federal</option>
+                                                    <option value="legislative">Legislative</option>
+                                                    <option value="state">State</option>
+                                                    <option value="local government">Local Government</option>
                                                 </select>
                                             </div>
-                                            <button type="submit" class="btn btn-colored btn-signin btn-dark">Submit</button>
+                                            <input type="submit" class="btn btn-colored btn-signin btn-dark"></input>
                                     </form>
                                 </div>
                     </div>
@@ -62,6 +64,8 @@
             </footer>
         <script src="../scripts/main.js"></script>
         <script src="../scripts/user.js"></script>
+        <script src="../scripts/fetch/helpers.js"></script>
+        <script src="../scripts/fetch/createoffice.js"></script>
         </body>
     </html>
         

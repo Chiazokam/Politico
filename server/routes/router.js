@@ -47,6 +47,7 @@ router.get('/', (req, res) => res.status(200).send({
 
 router.post('/api/v1/auth/signup', validateUser.isSignUpInputInteger,
                                     validateUser.isUserFieldEmpty,
+                                    validateUser.isSignUpNameString,
                                     validateUser.isEmailValid,
                                     validateUser.isPhoneValid,
                                     validateUser.isPassportUrlValid,
@@ -71,6 +72,7 @@ router.post('/api/v1/parties', verifyToken,
                                
 router.post('/api/v1/offices', verifyToken,
                                validateUser.isUserAdmin,
+                               validateOfficeInput.isOfficeNameString,
                                validateOfficeInput.isOfficeInputInteger,
                                validateOfficeInput.isOfficeFieldEmpty,
                                validateOfficeInput.isOfficeTypeValid,

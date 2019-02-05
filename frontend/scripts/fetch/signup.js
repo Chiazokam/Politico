@@ -46,18 +46,6 @@ function signUp(e) {
     .then((res) => res.json())
     .then((response) => {
         const { error, data } = response;
-        if (doesInputHaveInteger(firstname) === true) {
-            const message = 'Improper firstname format';
-            addDynamicDiv(message, fnameError, 'divError');
-        }
-        if (doesInputHaveInteger(lastname) === true) {
-            const message = 'Improper lastname format';
-            addDynamicDiv(message, lnameError, 'divError');
-        }
-        if (doesInputHaveInteger(othername) === true) {
-            const message = 'Improper othername format';
-            addDynamicDiv(message, onameError, 'divError');
-        }
         if (error) {
             if (error.firstname) {
                 addDynamicDiv(error.firstname, fnameError, 'divError');
