@@ -58,7 +58,7 @@ class PartyValidators {
     } else {
       return res.status(400).send({
         status: 400,
-        error: 'Wrong Party Name format',
+        error: { name: 'Wrong Party Name format' },
       });
     }
   }
@@ -71,7 +71,7 @@ class PartyValidators {
     } else {
       return res.status(400).send({
         status: 400,
-        error: 'Wrong Image format',
+        error: { logoUrl: 'Wrong Image format' },
       });
     }
   }
@@ -86,7 +86,7 @@ class PartyValidators {
       if (response.length > 0) {
         res.status(409).send({
             status: 409,
-            error: 'Party Name or Logo already exists',
+            error: { message: 'Party Name or Logo already exists' },
         });
         } else {
         next();

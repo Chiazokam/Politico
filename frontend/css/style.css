@@ -13,6 +13,16 @@ body{
     padding-bottom: 5px;
   }
 
+#divSuccess{
+    color: green;
+    font-size: 14px;
+    padding-bottom: 5px;
+  }
+
+.logout{
+    cursor: pointer;
+}
+
  /*Global*/
 .container{
     width: 80%;

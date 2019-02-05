@@ -106,7 +106,7 @@ describe('POST Requests', () => {
           .end((err, res) => {
             expect(res.statusCode).to.equal(409);
             expect(res.body).to.be.an('object');
-            expect(res.body.error).to.equal('Party Name or Logo already exists');
+            expect(res.body.error.message).to.equal('Party Name or Logo already exists');
           if (err) { return done(err); }
           done();
           });
@@ -246,7 +246,7 @@ describe('POST Requests', () => {
             .end((err, res) => {
                 expect(res.statusCode).to.equal(400);
                 expect(res.body).to.be.an('object');
-                expect(res.body.error).to.equal('Wrong Party Name format');
+                expect(res.body.error.name).to.equal('Wrong Party Name format');
             if (err) { return done(err); }
             done();
             });
@@ -266,7 +266,7 @@ describe('POST Requests', () => {
             .end((err, res) => {
                 expect(res.statusCode).to.equal(400);
                 expect(res.body).to.be.an('object');
-                expect(res.body.error).to.equal('Wrong Image format');
+                expect(res.body.error.logoUrl).to.equal('Wrong Image format');
             if (err) { return done(err); }
             done();
             });
@@ -309,7 +309,7 @@ describe('POST Requests', () => {
             .end((err, res) => {
               expect(res.statusCode).to.equal(404);
               expect(res.body).to.be.an('object');
-              expect(res.body.error).to.equal('Address Not Found');
+              expect(res.body.error.hqAddress).to.equal('Address Not Found');
             if (err) { return done(err); }
             done();
             });

@@ -13,19 +13,6 @@ const passwordError = document.getElementById('error-password');
 
 document.getElementById('signup').addEventListener('submit', signUp);
 
-function addDynamicDiv(innerHTMLString, errorDiv, divId) {
-    const newDiv = document.createElement('div');
-    newDiv.id = divId;
-    newDiv.innerHTML = innerHTMLString;
-    errorDiv.appendChild(newDiv);
-    errorDiv.style.visibility = 'visible';
-  }
-
-function doesInputHaveInteger(input) {
-    return /\d/.test(input);
-}
-
-
 function signUp(e) {
     e.preventDefault();
     const firstname = document.getElementById('firstname').value;
@@ -37,7 +24,7 @@ function signUp(e) {
     const password = document.getElementById('password').value;
     
 
-    fetch('http://localhost:3000/api/v1/auth/signup', {
+    fetch(`${urlInUse}/auth/signup`, {
         method: 'POST',
         mode: 'cors',
         headers: {
@@ -58,7 +45,7 @@ function signUp(e) {
     })
     .then((res) => res.json())
     .then((response) => {
-        const { error } = response;
+        const { error, data } = response;
         if (doesInputHaveInteger(firstname) === true) {
             const message = 'Improper firstname format';
             addDynamicDiv(message, fnameError, 'divError');

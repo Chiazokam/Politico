@@ -200,7 +200,7 @@ class UserValidators {
         if (user.isAdmin === false) {
           return res.status(401).send({
             status: 401,
-            error: 'User Unauthorized',
+            error: { message: 'User Unauthorized' },
           });
         }
         next();

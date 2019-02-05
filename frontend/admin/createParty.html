@@ -35,18 +35,21 @@
                     <div id="main-signin">
                             <div class="container">
                                     <p class="form-text">Create Party</p>
-                                    <form action="createParty.html" method="get">
-                    
+                                    <form id="create-party">
+                                            <div id="error"></div>
                                             <div class="form-field">
-                                                <input type="text" name="partyName" placeholder="Party Name" required>
+                                                <div id="error-name"></div>
+                                                <input type="text" id="name" placeholder="Party Name">
                                             </div>
                                             <div class="form-field">
-                                                <input type="url" placeholder="Logo Url" required>
+                                                <div id="error-logo"></div>
+                                                <input type="text" id="logo" placeholder="Logo Url">
                                             </div>
                                             <div class="form-field">
-                                                <textarea rows="4" placeholder="Party Head Quarters" required></textarea>
+                                                <div id="error-address"></div>
+                                                <textarea rows="4" id="address" placeholder="Party Head Quarters"></textarea>
                                             </div>
-                                            <button type="submit" class="btn btn-colored btn-signin btn-dark">Submit</button>
+                                            <input type="submit" class="btn btn-colored btn-signin btn-dark"></input>
                                     </form>
                                 </div>
                     </div>
@@ -59,6 +62,8 @@
             </footer>
         <script src="../scripts/main.js"></script>
         <script src="../scripts/user.js"></script>
+        <script src="../scripts/fetch/helpers.js"></script>
+        <script src="../scripts/fetch/createparty.js"></script>
         </body>
     </html>
         

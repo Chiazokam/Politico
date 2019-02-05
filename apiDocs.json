@@ -41,14 +41,8 @@
           "default" : {
             "description" : "Auto generated using Swagger Inspector"
           }
-        },
-        "servers" : [ {
-          "url" : "https://politico-voting-app.herokuapp.com"
-        } ]
-      },
-      "servers" : [ {
-        "url" : "https://politico-voting-app.herokuapp.com"
-      } ]
+        }
+      }
     },
     "/" : {
       "get" : {
@@ -65,14 +59,8 @@
               }
             }
           }
-        },
-        "servers" : [ {
-          "url" : "https://politico-voting-app.herokuapp.com"
-        } ]
-      },
-      "servers" : [ {
-        "url" : "https://politico-voting-app.herokuapp.com"
-      } ]
+        }
+      }
     },
     "/api/v1/auth/login" : {
       "post" : {
@@ -103,14 +91,8 @@
               }
             }
           }
-        },
-        "servers" : [ {
-          "url" : "https://politico-voting-app.herokuapp.com"
-        } ]
-      },
-      "servers" : [ {
-        "url" : "https://politico-voting-app.herokuapp.com"
-      } ]
+        }
+      }
     },
     "/api/v1/parties" : {
       "get" : {
@@ -138,10 +120,7 @@
               }
             }
           }
-        },
-        "servers" : [ {
-          "url" : "https://politico-voting-app.herokuapp.com"
-        } ]
+        }
       },
       "post" : {
         "description" : "Creates a party with admin rights",
@@ -183,10 +162,7 @@
             }
           }
         }
-      },
-      "servers" : [ {
-        "url" : "https://politico-voting-app.herokuapp.com"
-      } ]
+      }
     },
     "/api/v1/offices" : {
       "get" : {
@@ -209,15 +185,11 @@
               "application/json; charset=utf-8" : {
                 "schema" : {
                   "type" : "string"
-                },
-                "examples" : { }
+                }
               }
             }
           }
-        },
-        "servers" : [ {
-          "url" : "https://politico-voting-app.herokuapp.com"
-        } ]
+        }
       },
       "post" : {
         "description" : "Creates an office with admin rights",
@@ -259,10 +231,7 @@
             }
           }
         }
-      },
-      "servers" : [ {
-        "url" : "https://politico-voting-app.herokuapp.com"
-      } ]
+      }
     },
     "/api/v1/offices/6/register" : {
       "post" : {
@@ -304,14 +273,8 @@
               }
             }
           }
-        },
-        "servers" : [ {
-          "url" : "https://politico-voting-app.herokuapp.com"
-        } ]
-      },
-      "servers" : [ {
-        "url" : "https://politico-voting-app.herokuapp.com"
-      } ]
+        }
+      }
     },
     "/api/v1/votes" : {
       "post" : {
@@ -353,14 +316,8 @@
               }
             }
           }
-        },
-        "servers" : [ {
-          "url" : "https://politico-voting-app.herokuapp.com"
-        } ]
-      },
-      "servers" : [ {
-        "url" : "https://politico-voting-app.herokuapp.com"
-      } ]
+        }
+      }
     },
     "/api/v1/office/1/result" : {
       "get" : {
@@ -388,14 +345,8 @@
               }
             }
           }
-        },
-        "servers" : [ {
-          "url" : "https://politico-voting-app.herokuapp.com"
-        } ]
-      },
-      "servers" : [ {
-        "url" : "https://politico-voting-app.herokuapp.com"
-      } ]
+        }
+      }
     },
     "/api/v1/parties/1" : {
       "get" : {
@@ -450,14 +401,8 @@
               }
             }
           }
-        },
-        "servers" : [ {
-          "url" : "https://politico-voting-app.herokuapp.com"
-        } ]
-      },
-      "servers" : [ {
-        "url" : "https://politico-voting-app.herokuapp.com"
-      } ]
+        }
+      }
     },
     "/api/v1/offices/1" : {
       "get" : {
@@ -485,14 +430,8 @@
               }
             }
           }
-        },
-        "servers" : [ {
-          "url" : "https://politico-voting-app.herokuapp.com"
-        } ]
-      },
-      "servers" : [ {
-        "url" : "https://politico-voting-app.herokuapp.com"
-      } ]
+        }
+      }
     },
     "/api/v1/parties/1/name" : {
       "patch" : {
@@ -534,14 +473,8 @@
               }
             }
           }
-        },
-        "servers" : [ {
-          "url" : "https://politico-voting-app.herokuapp.com"
-        } ]
-      },
-      "servers" : [ {
-        "url" : "https://politico-voting-app.herokuapp.com"
-      } ]
+        }
+      }
     }
   },
   "components" : {

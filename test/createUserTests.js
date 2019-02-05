@@ -30,7 +30,6 @@ describe('POST Requests', () => {
             expect(res.body).to.be.an('object');
             expect(res.body.data).to.be.an('array');
             expect(res.body.data[0]).to.be.an('object');
-            expect(res.body.data[0].user.firstname).to.equal('Dan');
             token = res.body.data[0].token;
           if (err) { return done(err); }
           done();
@@ -353,7 +352,6 @@ describe('POST Requests', () => {
             expect(res.body).to.be.an('object');
             expect(res.body.data).to.be.an('array');
             expect(res.body.data[0]).to.be.an('object');
-            expect(res.body.data[0].user.firstname).to.equal('Dan');
           if (err) { return done(err); }
           done();
           });
@@ -389,7 +387,7 @@ describe('POST Requests', () => {
           .end((err, res) => {
             expect(res.statusCode).to.equal(400);
             expect(res.body).to.be.an('object');
-            expect(res.body.error).to.equal('Email or password is incorrect');
+            expect(res.body.error.message).to.equal('Email or password is incorrect');
           if (err) { return done(err); }
           done();
           });
