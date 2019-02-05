@@ -7,6 +7,12 @@ body{
     background-color: #f5f6fa;
 }
 
+#divError{
+    color: #d10606;
+    font-size: 14px;
+    padding-bottom: 5px;
+  }
+
  /*Global*/
 .container{
     width: 80%;
@@ -78,7 +84,7 @@ header a{
     background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80);
     background-repeat: no-repeat;
     background-size: cover;
-    height: 70vh;
+    height: 80vh;
     text-align: center;
     color: #DCE9BE;
     padding-top: 4%;
@@ -147,6 +153,9 @@ header a{
 }
 
 /*---------------------------ABOUT PAGE---------------------------------*/
+.fix-height{
+    height: 110vh;
+}
 
 .page-strip{
     background-color: #99173C;
@@ -192,7 +201,7 @@ header a{
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
     background-color: #2E2633;
     color: #DCE9BE;
-    margin: 25px auto;
+    margin: 10% auto;
    }
 
    #main-about{
@@ -308,7 +317,7 @@ form{
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
     background-color: #2E2633;
     color: #DCE9BE;
-    margin: 60px auto;
+    margin: 10% auto;
    }
 
    #candidate{
@@ -320,7 +329,7 @@ form{
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
     background-color: #2E2633;
     color: #DCE9BE;
-    margin: 80px auto;
+    margin: 10% auto;
    }
 
 #main-signin p{
@@ -403,7 +412,7 @@ form{
 #main-profile, .main-admin-profile{
     height: auto;
     text-align: center;
-    margin: 60px 80px;
+    margin: 10% 80px;
     color: #DCE9BE;
    }
 
@@ -670,7 +679,7 @@ form{
   }
 /*---------------------------ADMIN PROFILE---------------------------------*/
 #admin-profile{
-    height: 80vh;
+   /* height: 80vh; */
 }
 
 .createPetition select, .createPetition textarea{
@@ -738,7 +747,7 @@ form{
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
     background-color: #2E2633;
     color: #DCE9BE;
-    margin: 80px auto;
+    margin: 10% auto;
    }
 /*---------------------------MEDIA QUERIES---------------------------------*/
 

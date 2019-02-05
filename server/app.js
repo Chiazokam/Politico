@@ -4,10 +4,10 @@
 
 import express from 'express';
 import bodyParser from 'body-parser';
+import cors from 'cors';
 import swaggerUI from 'swagger-ui-express';
 import apiDocs from '../apiDocs.json';
 import router from './routes/router';
-import cors from 'cors';
 
 
 const app = express();

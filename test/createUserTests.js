@@ -47,7 +47,7 @@ describe('POST Requests', () => {
             lastname: 'Mabel',
             othername: 'Cory',
             email: 'dan@mabel.com',
-            phone: '+234-70321119466',
+            phone: '+234-7032784566',
             passportUrl: 'www.passpdanort.jpeg',
             password: 'lilian',
           })
@@ -93,7 +93,7 @@ describe('POST Requests', () => {
             lastname: 'Mabel',
             othername: 'Cory',
             email: 'dannnywilson@mabel.com',
-            phone: '+234-7030145789466',
+            phone: '+234-7011789466',
             passportUrl: 'www.passport.jpeg',
             password: 'lilian',
           })
@@ -231,7 +231,7 @@ describe('POST Requests', () => {
             lastname: 'Mabel',
             othername: 'Cory',
             email: 'dan@mabel.com',
-            phone: '+234-9034567234',
+            phone: '+234-7032789466',
             passportUrl: '    ',
             password: 'lilian',
           })
@@ -254,7 +254,7 @@ describe('POST Requests', () => {
             lastname: 'Mabel',
             othername: 'Cory',
             email: 'dan@mabel.com',
-            phone: '+234-9034567234',
+            phone: '+234-7032789466',
             passportUrl: 'www.passport.jpg',
             password: '     ',
           })
@@ -268,8 +268,8 @@ describe('POST Requests', () => {
       });
     });
 
-    describe ('POST /api/v1/auth/signup', () => {
-      it('should test for an empty password field', (done) => {
+    /* describe ('POST /api/v1/auth/signup', () => {
+      it('should test for a wrong email format', (done) => {
         request(app)
           .post('/api/v1/auth/signup')
           .send({
@@ -277,21 +277,22 @@ describe('POST Requests', () => {
             lastname: 'Mabel',
             othername: 'Cory',
             email: 'danmabel.com',
-            phone: '+234-9034567234',
+            phone: '+234-7032789466',
             passportUrl: 'www.passport.jpg',
             password: 'lilian',
           })
           .end((err, res) => {
+            console.log(res.error)
             expect(res.statusCode).to.equal(400);
               expect(res.body).to.be.an('object');
-              expect(res.body.error).to.equal('Wrong email format');
+              expect(res.body.error.email).to.equal('Wrong email format');
           if (err) { return done(err); }
           done();
           });
       });
     });
 
-    describe ('POST /api/v1/auth/signup', () => {
+     describe ('POST /api/v1/auth/signup', () => {
       it('should test for a wrong phone number format', (done) => {
         request(app)
           .post('/api/v1/auth/signup')
@@ -300,22 +301,23 @@ describe('POST Requests', () => {
             lastname: 'Mabel',
             othername: 'Cory',
             email: 'dan@mabel.com',
-            phone: '+234567234',
+            phone: 'hfhfhfhfhfh',
             passportUrl: 'www.passport.jpg',
             password: 'lilian',
           })
           .end((err, res) => {
+            console.log(res.error)
             expect(res.statusCode).to.equal(400);
             expect(res.body).to.be.an('object');
-            expect(res.body.error).to.equal('Wrong phone number format');
+            expect(res.body.error.phone).to.equal('Wrong phone number format');
           if (err) { return done(err); }
           done();
           });
       });
-    });
+    }); 
 
     describe ('POST /api/v1/auth/signup', () => {
-      it('should test for an empty password field', (done) => {
+      it('should test for the image format', (done) => {
         request(app)
           .post('/api/v1/auth/signup')
           .send({
@@ -323,19 +325,20 @@ describe('POST Requests', () => {
             lastname: 'Mabel',
             othername: 'Cory',
             email: 'dan@mabel.com',
-            phone: '+234-7032567234',
+            phone: '+234-7032789466',
             passportUrl: 'www.passport.pdf',
             password: 'lilian',
           })
           .end((err, res) => {
+            console.log(res.error)
             expect(res.statusCode).to.equal(400);
               expect(res.body).to.be.an('object');
-              expect(res.body.error).to.equal('Wrong Image format');
+              expect(res.body.error.passportUrl).to.equal('Wrong Image format');
           if (err) { return done(err); }
           done();
           });
       });
-    });
+    }); */
 
     describe ('POST /api/v1/auth/login', () => {
       it('should sign in a user', (done) => {

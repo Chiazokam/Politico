@@ -43,7 +43,6 @@ class UserController {
                     email: userResponse[0].email,
                     phone: userResponse[0].phone,
                     passportUrl: userResponse[0].passportUrl,
-                    isAdmin: userResponse[0].isAdmin,
                 };
                 const token = jwt.sign(data, process.env.SECRET_KEY, { expiresIn: '2d' });
                 return res.status(201).send({
