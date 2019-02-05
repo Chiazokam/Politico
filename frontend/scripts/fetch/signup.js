@@ -24,7 +24,7 @@ function signUp(e) {
     const password = document.getElementById('password').value;
     
 
-    fetch('http://localhost:3000/api/v1/auth/signup', {
+    fetch(`${urlInUse}/auth/signup`, {
         method: 'POST',
         mode: 'cors',
         headers: {
@@ -46,7 +46,6 @@ function signUp(e) {
     .then((res) => res.json())
     .then((response) => {
         const { error, data } = response;
-        console.log(data)
         if (doesInputHaveInteger(firstname) === true) {
             const message = 'Improper firstname format';
             addDynamicDiv(message, fnameError, 'divError');

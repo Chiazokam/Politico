@@ -15,7 +15,7 @@ document.getElementById('signin').addEventListener('submit', signIn);
     const password = document.getElementById('password').value;
     
 
-    fetch('http://localhost:3000/api/v1/auth/login', {
+    fetch(`${urlInUse}/auth/login`, {
         method: 'POST',
         mode: 'cors',
         headers: {
