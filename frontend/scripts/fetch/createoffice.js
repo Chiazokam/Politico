@@ -8,12 +8,8 @@ const token = localStorage.getItem('token');
 const nameError = document.getElementById('error-name');
 const typeError = document.getElementById('error-type');
 const otherErrors = document.getElementById('error');
-<<<<<<< HEAD
 const input = document.querySelector('input');
 const select = document.querySelector('select');
-=======
->>>>>>> 002ef1789d656d0805a8a4584b57028a61b9c86e
-
 document.getElementById('createOffice').addEventListener('submit', createOffice);
 
   function createOffice(e) {
