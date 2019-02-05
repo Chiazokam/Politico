@@ -26,7 +26,7 @@ fetch(`${urlInUse}/parties`, {
             <div class="party-logo"><img src="${party.logourl}"></div> 
         </div> 
         `
-        document.getElementById('output').innerHTML = output;
+        document.querySelector('.output').innerHTML = output;
     })
 })
 .catch((error) => console.log(error))

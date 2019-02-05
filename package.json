@@ -6,12 +6,13 @@
   "scripts": {
     "test": "nyc mocha test/ --compilers js:babel-core/register --timeout 20000 --exit && nyc report --reporter=text-lcov | coveralls",
     "test:dev": "cross-env NODE_ENV=test npm run start:table && cross-env NODE_ENV=test npm run test",
-    "build": "babel server --out-dir build/",
+    "build": "babel server --out-dir build/server",
     "createTable": "node build/server/models/createTables.js",
     "dropTable": "node build/server/models/dropTables.js",
     "start:table": "npm run build && npm run dropTable && npm run createTable",
     "start:dev": "cross-env NODE_ENV=dev npm run build && cross-env NODE_ENV=dev babel-watch server/app.js",
-    "start:heroku": "npm run start:dev && npm run createTable",
+    "start": "cross-env NODE_ENV=dev npm run build && cross-env NODE_ENV=dev babel-watch build/app.js",
+    "start:heroku": "npm run start && npm run createTable",
     "heroku-postbuild": "npm run build"
   },
   "repository": {
