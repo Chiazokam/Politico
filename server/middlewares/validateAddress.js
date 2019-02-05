@@ -33,7 +33,7 @@ class ThirdPartyValidators {
                 } else {
                     return res.status(404).send({
                         status: 404,
-                        error: 'Address Not Found',
+                        error: { hqAddress: 'Address Not Found' },
                     });
                 }
             })

@@ -3,6 +3,11 @@
 /* eslint-disable indent */
 /* eslint-disable class-methods-use-this */
 
+const localUrl = 'http://localhost:3000/api/v1';
+const herokuUrl = 'https://politico-voting-app.herokuapp.com/api/v1';
+
+const urlInUse = localUrl;
+
 document.querySelector('.logout').addEventListener('click', logOut);
 
 function logOut() {
@@ -20,4 +25,8 @@ function addDynamicDiv(innerHTMLString, errorDiv, divId) {
 
 function doesInputHaveInteger(input) {
     return /\d/.test(input);
+}
+
+function redirect(destination) {
+    window.location = destination;
 }
