@@ -54,6 +54,7 @@ document.getElementById('create-party').addEventListener('submit', createParty);
         } else {
             addDynamicDiv('Party Created Successfully', otherErrors, 'divSuccess');
             setTimeout(redirect('createParty.html'), 500000);
+
         }
     })
     .catch((error) => console.log(error))
