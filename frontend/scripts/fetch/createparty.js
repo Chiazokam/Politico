@@ -9,6 +9,8 @@ const nameError = document.getElementById('error-name');
 const logoError = document.getElementById('error-logo');
 const addressError = document.getElementById('error-address');
 const otherErrors = document.getElementById('error');
+const input = document.querySelectorAll('input');
+const textarea = document.querySelector('textarea');
 
 document.getElementById('create-party').addEventListener('submit', createParty);
 
@@ -53,8 +55,9 @@ document.getElementById('create-party').addEventListener('submit', createParty);
             }
         } else {
             addDynamicDiv('Party Created Successfully', otherErrors, 'divSuccess');
-            setTimeout(redirect('createParty.html'), 500000);
-
+            textarea.value = '';
+            input.forEach((field) => {
+                field.value = '';
         }
     })
     .catch((error) => console.log(error))

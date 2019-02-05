@@ -8,7 +8,8 @@ const token = localStorage.getItem('token');
 const nameError = document.getElementById('error-name');
 const typeError = document.getElementById('error-type');
 const otherErrors = document.getElementById('error');
-
+const input = document.querySelector('input');
+const select = document.querySelector('select');
 document.getElementById('createOffice').addEventListener('submit', createOffice);
 
   function createOffice(e) {
@@ -47,7 +48,8 @@ document.getElementById('createOffice').addEventListener('submit', createOffice)
             }
         } else {
             addDynamicDiv('Office Created Successfully', otherErrors, 'divSuccess');
-            setTimeout(redirect('createOffice.html'), 500000);
+            input.value = '';
+            select.value = 'Select Office Type';
         }
     })
     .catch((error) => console.log(error))
