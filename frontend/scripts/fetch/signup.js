@@ -13,19 +13,6 @@ const passwordError = document.getElementById('error-password');
 
 document.getElementById('signup').addEventListener('submit', signUp);
 
-function addDynamicDiv(innerHTMLString, errorDiv, divId) {
-    const newDiv = document.createElement('div');
-    newDiv.id = divId;
-    newDiv.innerHTML = innerHTMLString;
-    errorDiv.appendChild(newDiv);
-    errorDiv.style.visibility = 'visible';
-  }
-
-function doesInputHaveInteger(input) {
-    return /\d/.test(input);
-}
-
-
 function signUp(e) {
     e.preventDefault();
     const firstname = document.getElementById('firstname').value;
@@ -58,7 +45,8 @@ function signUp(e) {
     })
     .then((res) => res.json())
     .then((response) => {
-        const { error } = response;
+        const { error, data } = response;
+        console.log(data)
         if (doesInputHaveInteger(firstname) === true) {
             const message = 'Improper firstname format';
             addDynamicDiv(message, fnameError, 'divError');

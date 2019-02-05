@@ -42,7 +42,8 @@ class UserController {
                     othername: userResponse[0].othername,
                     email: userResponse[0].email,
                     phone: userResponse[0].phone,
-                    passportUrl: userResponse[0].passportUrl,
+                    passportUrl: userResponse[0].passporturl,
+                    isAdmin: userResponse[0].isadmin,
                 };
                 const token = jwt.sign(data, process.env.SECRET_KEY, { expiresIn: '2d' });
                 return res.status(201).send({
@@ -77,7 +78,7 @@ class UserController {
                 if (!bcrypt.compareSync(password, response[0].password)) {
                     return res.status(400).send({
                       status: 400,
-                      error: 'Email or password is incorrect',
+                      error: { message: 'Email or password is incorrect' },
                     });
                   }
                 const data = {
@@ -87,7 +88,8 @@ class UserController {
                     othername: response[0].othername,
                     email: response[0].email,
                     phone: response[0].phone,
-                    passportUrl: response[0].passportUrl,
+                    passportUrl: response[0].passporturl,
+                    isAdmin: response[0].isadmin,
                   };
                 const token = jwt.sign(data, process.env.SECRET_KEY, { expiresIn: '2d' });
                 return res.status(200).send({

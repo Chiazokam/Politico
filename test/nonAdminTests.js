@@ -52,7 +52,7 @@ describe('POST Requests', () => {
             .end((err, res) => {
               expect(res.statusCode).to.equal(401);
               expect(res.body).to.be.an('object');
-              expect(res.body.error).to.equal('User Unauthorized');
+              expect(res.body.error.message).to.equal('User Unauthorized');
             if (err) { return done(err); }
             done();
             });
@@ -73,7 +73,7 @@ describe('POST Requests', () => {
             .end((err, res) => {
               expect(res.statusCode).to.equal(401);
               expect(res.body).to.be.an('object');
-              expect(res.body.error).to.equal('User Unauthorized');
+              expect(res.body.error.message).to.equal('User Unauthorized');
             if (err) { return done(err); }
             done();
             });
@@ -92,7 +92,7 @@ describe('POST Requests', () => {
             .end((err, res) => {
               expect(res.statusCode).to.equal(401);
               expect(res.body).to.be.an('object');
-              expect(res.body.error).to.equal('User Unauthorized');
+              expect(res.body.error.message).to.equal('User Unauthorized');
             if (err) { return done(err); }
             done();
             });
@@ -112,7 +112,7 @@ describe ('PATCH Requests', () => {
         .end((err, res) => {
           expect(res.statusCode).to.equal(401);
           expect(res.body).to.be.an('object');
-          expect(res.body.error).to.equal('User Unauthorized');
+          expect(res.body.error.message).to.equal('User Unauthorized');
           if (err) { return done(err); }
           done();
         });
@@ -131,7 +131,7 @@ describe ('DELETE Requests', () => {
         .end((err, res) => {
           expect(res.statusCode).to.equal(401);
           expect(res.body).to.be.an('object');
-          expect(res.body.error).to.equal('User Unauthorized');
+          expect(res.body.error.message).to.equal('User Unauthorized');
           if (err) { return done(err); }
           done();
         });

@@ -46,16 +46,18 @@
                                             </div>
                                         </div>
                                     <p class="form-text">Sign In</p>
-                                    <form action="./User/userProfile.html" method="get">
-                    
+                                    <form id="signin">
+                                            <div id="error"></div>
                                             <div class="form-field">
-                                                <input type="email" name="email" placeholder="Email Address" required>
+                                                <div id="error-email"></div>
+                                                <input type="email" id="email" name="email" placeholder="Email Address">
                                             </div>
                                             <div class="form-field password-field">
-                                                <input type="password" id="input-password" placeholder="Password" required>
+                                                <div id="error-password"></div>
+                                                <input type="password" id="password" placeholder="Password">
                                             </div>
                                             <p id="forgotPass">Forgot Password?</p>
-                                            <button type="submit" class="btn btn-colored btn-signin btn-dark"><a href="">Submit</a></button>
+                                            <input type="submit" class="btn btn-colored btn-signin btn-dark"><a href=""></a></input>
                                     </form>
                                 </div>
                     </div>
@@ -68,6 +70,8 @@
             </footer>
         <script src="scripts/main.js"></script>
         <script src="scripts/signin.js"></script>
+        <script src="scripts/fetch/helpers.js"></script>
+        <script src="scripts/fetch/signin.js"></script>
         </body>
     </html>
         
