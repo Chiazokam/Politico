@@ -98,7 +98,45 @@ class PartyValidators {
         error: error.message,
       });
     })
-  } 
+  }
+  
+  isEditInputEmpty(req, res, next) {
+    const { name } = req.body;
+    const errors = {};
+      if (!name || !name.trim()) {
+        errors.name = 'Improper party Name format';
+      }
+      if (errors.name || errors.hqAddress || errors.logoUrl) {
+        return res.status(400).send({
+          status: 400,
+          error: errors,
+        });
+      }
+    next();
+  }
+
+  doesPartyNameExist(req, res, next) {
+    let { name } = req.body;
+    name = name.trim();
+
+    query.checkPartyNameExistence(name)
+    .then((response) => {
+      if (response.length > 0 ) {
+        res.status(409).send({
+            status: 409,
+            error: { name: 'Party Name already exists' },
+        });
+        } else {
+        next();
+      }
+    })
+    .catch((error) => {
+      return res.status(500).send({
+        status: 500,
+        error: error.message,
+      });
+    })
+  }
 }
 
 export default PartyValidators;

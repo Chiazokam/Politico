@@ -13,6 +13,12 @@ body{
     padding-bottom: 5px;
   }
 
+#divNewError{
+    color: #2E2633;
+    font-size: 14px;
+    padding-bottom: 5px;
+  }
+
 #divSuccess{
     color: green;
     font-size: 14px;
@@ -353,7 +359,7 @@ form{
     width: 90%;
 }
 
-.modal, .modal-reset, .modal-petition, .modal-delete{
+.modal, .modal-reset, .modal-petition, .modal-delete, .modal-edit{
     display: none;
     left: 0;
     top: 0;
@@ -368,7 +374,7 @@ form{
 .delete{
     cursor: pointer;
 }
-.modal p, .modal-reset p, .modal-petition p, .delete-modal p{
+.modal p, .modal-reset p, .modal-petition p, .delete-modal p, .edit-modal p{
     text-transform: uppercase;
     font-size: 24px;
     margin-top: 10px;
@@ -389,7 +395,7 @@ form{
     text-align: center
 }
 
-.forgotPassword input, .resetPassword input, .createPetition input{
+.forgotPassword input, .resetPassword input, .createPetition input, .modal-edit  .edit-input{
     min-width: 80%;
 }
 
@@ -399,11 +405,12 @@ form{
 
 .btn-cancel-modal{
     background-color: #2E2633;  
-    color: #DCE9BE; 
+    color: #DCE9BE;
 }
 
 .btn-submit-modal{
     background-color: #DCE9BE;
+    color: #2E2633;
 }
 
 .btn-submit-modal a{
@@ -719,6 +726,7 @@ form{
     font-weight: 100;
     text-decoration: none;
     margin-right: 10px;
+    cursor: pointer;
 }
 
 .party-main-admin .edit:hover{
@@ -744,6 +752,18 @@ form{
     background-color: #DCE9BE;
     color: #2E2633;
     border: 1px solid #99173C;
+}
+
+.modal-edit input{
+    margin: 15px;
+    height: 45px;
+    border-radius: 3px;
+    padding-left: 20px;
+    font-size: 18px;
+}
+
+form#edit-form{
+    padding-bottom: 10px;
 }
 
 /*---------------------------CREATE OFFICE---------------------------------*/

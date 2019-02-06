@@ -20,6 +20,10 @@ class PartyQueries {
       return db.any('SELECT * FROM parties WHERE name = $1 OR logoUrl = $2', [name, logoUrl]);
     }
 
+    checkPartyNameExistence(name) {
+      return db.any('SELECT * FROM parties WHERE name = $1', [name]);
+    }
+
     getAllPartiesQuery() {
       return db.any('SELECT * FROM parties');
     }
