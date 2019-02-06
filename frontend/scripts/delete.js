@@ -41,16 +41,5 @@ setTimeout(() => {
         closeEditModal.addEventListener('click', function() {
           editModal.style.display = "none";
         })
-          
-        // window.addEventListener('click', function() {
-        //     if (event.target === editModal) {
-        //         editModal.style.display = "none";
-        //       }
-        // })
-        //   window.onclick = function(event) {
-        //     if (event.target === editModal) {
-        //       editModal.style.display = "none";
-        //     }
-        //   }
           }, 1000)
     
