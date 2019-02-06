@@ -1,13 +1,23 @@
+/* eslint-disable linebreak-style */
+/* eslint-disable consistent-return */
+/* eslint-disable indent */
+/* eslint-disable class-methods-use-this */
+/* eslint-disable func-names */
+/* eslint-disable arrow-parens */
 
 setTimeout(() => {
-  let displayDeleteModal = document.querySelectorAll(".delete");
-  let deleteModal = document.querySelector(".modal-delete");
-  let closeDeleteModal = document.querySelector(".delete-btn");
-  let editModal = document.querySelector(".modal-edit");
+  const displayDeleteModal = document.querySelectorAll(".delete");
+  const deleteModal = document.querySelector(".modal-delete");
+  const closeDeleteModal = document.querySelector(".delete-btn");
+  const editModal = document.querySelector(".modal-edit");
+  const confirmDelete = document.querySelector(".confirm-delete");
     
     
-  displayDeleteModal.forEach(modal => {
-  modal.addEventListener('click', function() {
+  let id;
+
+  displayDeleteModal.forEach((modal) => {
+    modal.addEventListener('click', function(e) {
+    id = e.target.attributes.key.value;
     deleteModal.style.display = 'block'
     })
   })
@@ -24,22 +34,21 @@ setTimeout(() => {
         editModal.style.display = "none";
       }
     }
+
+    confirmDelete.addEventListener('click', () => {
+        fetch(`${urlInUse}/parties/${id}`, {
+            method: 'DELETE',
+            mode: 'cors',
+            headers: {
+                Accept: 'application/json, text/plain, */*',
+                'Content-Type': 'application/json',
+                'token': token,
+            },
+        })
+        .then((res) => res.json())
+        .then((response) => {
+            redirect('adminViewParties.html');
+        })
+    })
     }, 1000)
 
-    setTimeout(() => {
-        let displayEditModal = document.querySelectorAll(".edit");
-        let editModal = document.querySelector(".modal-edit");
-        let closeEditModal = document.querySelector(".edit-btn");
-          
-          
-        displayEditModal.forEach(modal => {
-        modal.addEventListener('click', function() {
-          editModal.style.display = 'block'
-          })
-        })
-          
-        closeEditModal.addEventListener('click', function() {
-          editModal.style.display = "none";
-        })
-          }, 1000)
-    

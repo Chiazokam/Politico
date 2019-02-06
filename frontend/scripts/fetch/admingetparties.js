@@ -3,8 +3,9 @@
 /* eslint-disable indent */
 /* eslint-disable class-methods-use-this */
 
-window.onload = () => {
+
     let token = localStorage.getItem('token');
+
 
     fetch(`${urlInUse}/parties`, {
         headers: {
@@ -32,7 +33,7 @@ window.onload = () => {
                     <p><span class="title-span">Party Name</span>: ${party.name}</p>
                         <p><span class="title-span">Head Quarters</span>: ${party.hqaddress}</p>
                             <a class="edit" onclick="editParty(${party.id})">Edit Name</a>
-                            <a class="delete">Delete</a>
+                            <a class="delete" key="${party.id}">Delete</a>
                 </div> 
                 <div class="party-logo"><img src="${party.logourl}"></div> 
             </div> 
@@ -41,9 +42,6 @@ window.onload = () => {
         });
     })
     .catch((error) => console.log(error))
-};
-
-let token = localStorage.getItem('token');
 
 
 function editParty(id) {
@@ -59,9 +57,9 @@ function editParty(id) {
         const { data } = response;
         let editOutput = ``;
         editOutput += `
-            <p>Edit Party Name</p>
+            
             <input class="edit-input" id="name" type="text" value="${data[0].name}"></input>
-            <button type="button" onclick="editName(${data[0].id})" class="btn btn-submit-modal"><a>Update</a></button>
+            <button type="button" onclick="editName(${data[0].id})" class="btn btn-cancel-modal"><a>Update</a></button>
         `;
         document.getElementById('editOutput').innerHTML = editOutput;
     })
