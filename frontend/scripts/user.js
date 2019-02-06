@@ -1,5 +1,5 @@
 
-/*let displayResetModal = document.querySelector(".reset-password");
+let displayResetModal = document.querySelector(".reset-password");
 let resetModal = document.querySelector(".modal-reset");
 let modalClose = document.querySelector(".btn-cancel-modal");
 
@@ -17,31 +17,3 @@ window.onclick = function(event) {
     resetModal.style.display = "none";
   }
 }
-*/
-
-
-setTimeout(() => {
-let displayDeleteModal = document.querySelectorAll(".delete");
-let deleteModal = document.querySelector(".modal-delete");
-let closeDeleteModal = document.querySelector(".delete-btn");
-
-
-displayDeleteModal.forEach(modal => {
-  modal.addEventListener('click', function() {
-    deleteModal.style.display = 'block'
-  })
-})
-/*displayDeleteModal.addEventListener('click', function() {
-  deleteModal.style.display = "block";
-});*/
-
-closeDeleteModal.addEventListener('click', function() {
-  deleteModal.style.display = "none";
-})
-
-window.onclick = function(event) {
-  if (event.target == deleteModal) {
-    deleteModal.style.display = "none";
-  }
-}
-}, 1000)
