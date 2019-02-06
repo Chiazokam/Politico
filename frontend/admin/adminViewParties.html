@@ -21,7 +21,7 @@
                     <nav class="nav-menu">
                         <ul>
                             <li><a href="adminProfile.html">Back</a></li>
-                            <li><a href="../index.html">Logout</a></li>
+                            <li><a class="logout">Logout</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -34,12 +34,13 @@
                                         <div class="resetPassword-modal delete-modal">
                                             <p>Are you sure you want to delete party?</p>
                                             <button type="button" class="btn btn-cancel-modal delete-btn">Cancel</button>
-                                            <button type="button" class="btn btn-submit-modal"><a>Delete</a></button>
+                                            <button type="button" class="btn btn-submit-modal confirm-delete"><a>Delete</a></button>
                                         </div>
                                     </div>
 
                                 <div class="modal-edit">
                                         <div class="resetPassword-modal edit-modal">
+                                                <p>Edit Party Name</p>
                                                 <div id="error-name"></div>
                                                     <div id="editOutput">
                                                             <!-- Display edit form -->
@@ -62,6 +63,7 @@
                 </div>
             </footer>
         <script src="../scripts/main.js"></script>
+        <script src="../scripts/edit.js"></script>
         <script src="../scripts/delete.js"></script>
         <script src="../scripts/fetch/helpers.js"></script>
         <script src="../scripts/fetch/admingetparties.js"></script>

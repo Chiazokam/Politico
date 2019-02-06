@@ -406,11 +406,13 @@ form{
 .btn-cancel-modal{
     background-color: #2E2633;  
     color: #DCE9BE;
+    cursor: pointer;
 }
 
 .btn-submit-modal{
     background-color: #DCE9BE;
     color: #2E2633;
+    cursor: pointer;
 }
 
 .btn-submit-modal a{
@@ -716,6 +718,10 @@ form{
 }
 
 /*---------------------------ADMIN VIEW PARTY---------------------------------*/
+
+.confirm-delete{
+    cursor: pointer;
+}
 
 .party-main-admin .edit{
     border: 1px solid #78e08f;
