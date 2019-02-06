@@ -396,7 +396,7 @@ describe ('PATCH Requests', () => {
         .patch('/api/v1/parties/8/name')
         .set('token', token)
         .send({
-          name: 'Democratic Congress',
+          name: 'Democratic Land',
         })
         .end((err, res) => {
           expect(res.statusCode).to.equal(404);
