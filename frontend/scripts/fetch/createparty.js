@@ -58,7 +58,8 @@ document.getElementById('create-party').addEventListener('submit', createParty);
             textarea.value = '';
             input.forEach((field) => {
                 field.value = '';
+            })
         }
     })
     .catch((error) => console.log(error))
-}
+  }

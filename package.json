@@ -11,7 +11,8 @@
     "dropTable": "node build/server/models/dropTables.js",
     "start:table": "npm run build && npm run dropTable && npm run createTable",
     "start:dev": "cross-env NODE_ENV=dev npm run build && cross-env NODE_ENV=dev babel-watch server/app.js",
-    "start:heroku": "npm run start:dev && npm run createTable",
+    "start": "cross-env NODE_ENV=dev npm run build && cross-env NODE_ENV=dev babel-watch build/app.js",
+    "start:heroku": "npm run start && npm run createTable",
     "heroku-postbuild": "npm run build"
   },
   "repository": {
