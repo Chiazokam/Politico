@@ -96,6 +96,8 @@ router.get('/api/v1/offices/:id', validateCandidate.isParamsInteger,
 router.patch('/api/v1/parties/:id/name', validateCandidate.isParamsInteger,
                                        verifyToken,
                                        validateUser.isUserAdmin,
+                                       validatePartyInput.isEditInputEmpty,
+                                       validatePartyInput.doesPartyNameExist,
                                        party.editParty);
 
 router.delete('/api/v1/parties/:id', validateCandidate.isParamsInteger,
