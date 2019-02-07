@@ -1,0 +1,344 @@
+FORMAT: 1A
+HOST: http://politico.apiblueprint.org/
+
+# Politico
+
+Politico is a voting app through which all voting processes can be carried out transparently
+
+### Sign Up a New User [POST]
+
++ Request (application/json)
+
+        {
+            "firstname": "Jane",
+            "lastname": "Madea",
+            "othername": "Frilla",
+            "email": "jane@frilla.com",
+            "phone": "+234-12345678",
+            "passportUrl": "jane.jpg",
+            "password": "frilla"
+        }
+
+
++ Response 201 (application/json)
+
+            {
+        "status": 201,
+        "data": [
+        {
+            "token": "joiKzIzNC0xMj...",
+            "user": {
+                "id": 9,
+                "firstname": "Jane",
+                "lastname": "Madea",
+                "othername": "Frilla",
+                "email": "jane@frilla.com",
+                "phone": "+234-12345678"
+            }
+        }
+    ]
+}
+
+
+### Sign in an existing User [POST]
+
++ Request (application/json)
+
+        {
+            "email": "jane@frilla.com",
+            "password": "frilla"
+        }
+
+
++ Response 201 (application/json)
+
+            {
+        "status": 200,
+        "data": [
+        {
+            "token": "xhLmNvbSIsInBob25l...",
+            "user": {
+                "id": 9,
+                "firstname": "Jane",
+                "lastname": "Madea",
+                "othername": "Frilla",
+                "email": "jane@frilla.com",
+                "phone": "+234-12345678"
+            }
+        }
+    ]
+}
+
+
+### Create A Party [POST]
+
++ Request (application/json)
+
+       {
+            "name": "Peo",
+            "hqAddress": "Ibadan",
+            "logoUrl": "jksdnfsjkdn.jpg"
+       }
+
+
++ Response 201 (application/json)
+
+            {
+        "status": 201,
+        "data": [
+        {
+            "id": 4,
+            "name": "Peo",
+            "hqAddress": "Ibadan, Nigeria",
+            "logoUrl": "jksdnfsjkdn.jpg",
+            "createdOn": "2019-02-05T07:36:29.827Z"
+        }
+    ]
+}
+
+
+### Create An Office [POST]
+
++ Request (application/json)
+
+       {
+            "name": "Peo",
+            "hqAddress": "Ibadan",
+            "logoUrl": "jksdnfsjkdn.jpg"
+       }
+
+
++ Response 201 (application/json)
+
+            {
+        "status": 201,
+        "data": [
+        {
+            "id": 4,
+            "name": "Peo",
+            "hqAddress": "Ibadan, Nigeria",
+            "logoUrl": "jksdnfsjkdn.jpg",
+            "createdOn": "2019-02-05T07:36:29.827Z"
+        }
+    ]
+}
+
+### Get All Parties [GET]
+
++ Response 200 (application/json)
+
+    + Headers
+           
+             token
+            
+    + Body
+    
+    
+            [
+                {
+                    "status": 200,
+                    "data": [
+                        {
+                            "id": 2,
+                            "name": "Dominion Party",
+                            "hqaddress": "1 St James's Market, St. James's, London SW1Y 4AH, UK",
+                            "logourl": "www.dp.jpg",
+                            "createdon": "2019-02-01T02:45:00.320Z"
+                        },
+                        {
+                            "id": 3,
+                            "name": "Good Party",
+                            "hqaddress": "Gbagada, Lagos, Nigeria",
+                            "logourl": "gp.jpg",
+                            "createdon": "2019-02-01T03:23:40.536Z"
+                        }
+                    ]
+                }
+            ]
+
+
+### Get All Offices [GET]
+
++ Response 200 (application/json)
+
+    + Headers
+           
+             token
+            
+    + Body
+    
+    
+            [
+                {
+                    "status": 200,
+                    "data": [
+                        {
+                            "id": 1,
+                            "name": "Chief Don",
+                            "type": "Federal",
+                            "createdon": "2019-02-01T02:34:53.387Z"
+                        },
+                        {
+                            "id": 2,
+                            "name": "Legal Chief",
+                            "type": "Legislative",
+                            "createdon": "2019-02-01T02:35:49.463Z"
+                        }
+                    ]
+                }
+            ]
+            
+### Get One Office [GET]
+
++ Response 200 (application/json)
+
+    + Headers
+           
+             token
+            
+    + Body
+    
+    
+            [
+                {
+                    "status": 200,
+                    "data": [
+                        {
+                            "id": 2,
+                            "name": "Dominion Party",
+                            "hqaddress": "1 St James's Market, St. James's, London SW1Y 4AH, UK",
+                            "logourl": "www.dp.jpg",
+                            "createdon": "2019-02-01T02:45:00.320Z"
+                        }
+                    ]
+                }
+            ]
+            
+### Edit the Party Name [PATCH]
+
++ Request (application/json)
+
+       {
+            "name": "Peoples Party"
+       }
+
+
++ Response 200 (application/json)
+
+            {
+        "status": 200,
+        "data": [
+        {
+            "id": 4,
+            "name": "Peoples Party"
+        }
+    ]
+}
+
+
+### Delete the Party [DELETE]
+
++ Response 200 (application/json)
+
+            {
+        "status": 200,
+        "data": [
+        {
+            "message": "Party Successfully deleted"
+        }
+    ]
+}
+
+### Create A Candidate [POST]
+
++ Request (application/json)
+
+        {
+          "office": "2",
+          "party": "26"
+        }
+
+
++ Response 201 (application/json)
+
+            {
+        "status": 201,
+        "data": [
+            {
+                "office": "3",
+                "user": "5"
+            }
+    ]
+}
+
+### Vote A Candidate [POST]
+
++ Request (application/json)
+
+        {
+        "candidate" : "2",
+        "office": "2"
+        }
+
+
++ Response 201 (application/json)
+
+        {
+            "status": 201,
+            "data": [
+                {
+                    "candidate": "2",
+                    "office": "2",
+                    "voter": 1
+                }
+            ]
+        }
+
+
+### Get Results [GET]
+
++ Response 200 (application/json)
+
+    + Headers
+           
+             token
+            
+    + Body
+    
+    
+            [
+                {
+                    "status": 200,
+                    "data": [
+                        {
+                            "office": 2,
+                            "candidate": 2,
+                            "results": "1"
+                        }
+                    ]
+                }
+            ]
+            
+### Create A Petition [POST]
+
++ Request (application/json)
+
+        {
+            "office":"2",
+            "text": "The Election was rigged",
+            "evidence": "obi.jpg"
+        }
+
+
++ Response 201 (application/json)
+
+        {
+            "status": 201,
+            "data": [
+                {
+                    "id": 1,
+                    "office": 2,
+                    "evidence": "obi.jpg"
+                }
+            ]
+        }
