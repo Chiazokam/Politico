@@ -5,6 +5,8 @@ HOST: http://politico.apiblueprint.org/
 
 Politico is a voting app through which all voting processes can be carried out transparently
 
+## User Sign Up [/auth/signup]
+
 ### Sign Up a New User [POST]
 
 + Request (application/json)
@@ -36,9 +38,10 @@ Politico is a voting app through which all voting processes can be carried out t
                 "phone": "+234-12345678"
             }
         }
-    ]
-}
+        ]
+        }
 
+## Sign In User [/auth/login]
 
 ### Sign in an existing User [POST]
 
@@ -66,19 +69,20 @@ Politico is a voting app through which all voting processes can be carried out t
                 "phone": "+234-12345678"
             }
         }
-    ]
-}
+            ]
+        }
 
+## Create party [/parties]
 
 ### Create A Party [POST]
 
 + Request (application/json)
 
-       {
+            {
             "name": "Peo",
             "hqAddress": "Ibadan",
             "logoUrl": "jksdnfsjkdn.jpg"
-       }
+            }
 
 
 + Response 201 (application/json)
@@ -93,19 +97,20 @@ Politico is a voting app through which all voting processes can be carried out t
             "logoUrl": "jksdnfsjkdn.jpg",
             "createdOn": "2019-02-05T07:36:29.827Z"
         }
-    ]
-}
+            ]
+        }
 
+## Create Office [/offices]
 
 ### Create An Office [POST]
 
 + Request (application/json)
 
-       {
+            {
             "name": "Peo",
             "hqAddress": "Ibadan",
             "logoUrl": "jksdnfsjkdn.jpg"
-       }
+            }
 
 
 + Response 201 (application/json)
@@ -120,8 +125,8 @@ Politico is a voting app through which all voting processes can be carried out t
             "logoUrl": "jksdnfsjkdn.jpg",
             "createdOn": "2019-02-05T07:36:29.827Z"
         }
-    ]
-}
+            ]
+        }
 
 ### Get All Parties [GET]
 
@@ -129,7 +134,7 @@ Politico is a voting app through which all voting processes can be carried out t
 
     + Headers
            
-             token
+             token: "token"
             
     + Body
     
@@ -163,7 +168,7 @@ Politico is a voting app through which all voting processes can be carried out t
 
     + Headers
            
-             token
+             token: "token"
             
     + Body
     
@@ -187,14 +192,19 @@ Politico is a voting app through which all voting processes can be carried out t
                     ]
                 }
             ]
+ 
+ 
             
-### Get One Office [GET]
+## Get one party [/parties/:id]
+
+            
+### Get One Party [GET]
 
 + Response 200 (application/json)
 
     + Headers
            
-             token
+             token: "token"
             
     + Body
     
@@ -213,14 +223,16 @@ Politico is a voting app through which all voting processes can be carried out t
                     ]
                 }
             ]
-            
+
+## Edit Party Name [/parties/:id/name]     
+
 ### Edit the Party Name [PATCH]
 
 + Request (application/json)
 
-       {
+            {
             "name": "Peoples Party"
-       }
+            }
 
 
 + Response 200 (application/json)
@@ -232,9 +244,10 @@ Politico is a voting app through which all voting processes can be carried out t
             "id": 4,
             "name": "Peoples Party"
         }
-    ]
-}
+            ]
+        }
 
+## Delete Party [/parties/:id]
 
 ### Delete the Party [DELETE]
 
@@ -246,8 +259,10 @@ Politico is a voting app through which all voting processes can be carried out t
         {
             "message": "Party Successfully deleted"
         }
-    ]
-}
+            ]
+        }
+        
+## Create Candidate [/offices/:id/register]
 
 ### Create A Candidate [POST]
 
@@ -268,8 +283,9 @@ Politico is a voting app through which all voting processes can be carried out t
                 "office": "3",
                 "user": "5"
             }
-    ]
-}
+            ]
+        }
+## Vote Candidate [/votes]
 
 ### Vote A Candidate [POST]
 
@@ -294,6 +310,7 @@ Politico is a voting app through which all voting processes can be carried out t
             ]
         }
 
+## Get Results [/office/:id/result]
 
 ### Get Results [GET]
 
@@ -301,7 +318,7 @@ Politico is a voting app through which all voting processes can be carried out t
 
     + Headers
            
-             token
+             token: "token"
             
     + Body
     
@@ -318,7 +335,10 @@ Politico is a voting app through which all voting processes can be carried out t
                     ]
                 }
             ]
-            
+
+   
+## Create Petition [/petitions]
+
 ### Create A Petition [POST]
 
 + Request (application/json)
