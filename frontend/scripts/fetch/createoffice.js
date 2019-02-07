@@ -14,8 +14,11 @@ document.getElementById('createOffice').addEventListener('submit', createOffice)
 
   function createOffice(e) {
     e.preventDefault();
-    const name = document.getElementById('name').value;
-    const type = document.getElementById('type').value;
+    const nameInput = document.getElementById('name');
+    const typeInput = document.getElementById('type');
+
+    const name = nameInput.value;
+    const type = typeInput.value;
     
 
     fetch(`${urlInUse}/offices`, {
@@ -38,12 +41,17 @@ document.getElementById('createOffice').addEventListener('submit', createOffice)
         const { error, data } = response;
         if (error) {
             if (error.name) {
+                clearErrorDiv(nameError);
+                clearErrorOnFocus(nameInput, nameError);
                 addDynamicDiv(error.name, nameError, 'divError');
             }
             if (error.type) {
+                clearErrorDiv(typeError);
+                clearErrorOnFocus(typeInput, typeError);
                 addDynamicDiv(error.type, typeError, 'divError');
             }
             if (error.message) {
+                clearErrorDiv(otherErrors);
                 addDynamicDiv(error.message, otherErrors, 'divError');
             }
         } else {

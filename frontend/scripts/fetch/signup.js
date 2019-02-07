@@ -15,13 +15,21 @@ document.getElementById('signup').addEventListener('submit', signUp);
 
 function signUp(e) {
     e.preventDefault();
-    const firstname = document.getElementById('firstname').value;
-    const lastname = document.getElementById('lastname').value;
-    const othername = document.getElementById('othername').value;
-    const email = document.getElementById('email').value;
-    const phone = document.getElementById('phone').value;
-    const passportUrl = document.getElementById('passportUrl').value;
-    const password = document.getElementById('password').value;
+    const firstnameInput = document.getElementById('firstname');
+    const lastnameInput = document.getElementById('lastname');
+    const othernameInput = document.getElementById('othername');
+    const emailInput = document.getElementById('email');
+    const phoneInput = document.getElementById('phone');
+    const passportUrlInput = document.getElementById('passportUrl');
+    const passwordInput = document.getElementById('password');
+
+    const firstname = firstnameInput.value;
+    const lastname = lastnameInput.value;
+    const othername = othernameInput.value;
+    const email = emailInput.value;
+    const phone = phoneInput.value;
+    const passportUrl = passportUrlInput.value;
+    const password = passwordInput.value;
     
 
     fetch(`${urlInUse}/auth/signup`, {
@@ -45,27 +53,41 @@ function signUp(e) {
     })
     .then((res) => res.json())
     .then((response) => {
-        const { error, data } = response;
+        const { error } = response;
         if (error) {
             if (error.firstname) {
+                clearErrorDiv(fnameError);
+                clearErrorOnFocus(firstnameInput, fnameError);
                 addDynamicDiv(error.firstname, fnameError, 'divError');
             }
             if (error.lastname) {
+                clearErrorDiv(lnameError);
+                clearErrorOnFocus(lastnameInput, lnameError);
                 addDynamicDiv(error.lastname, lnameError, 'divError');
             }
             if (error.othername) {
+                clearErrorDiv(onameError);
+                clearErrorOnFocus(othernameInput, onameError);
                 addDynamicDiv(error.othername, onameError, 'divError');
             }
             if (error.email) {
+                clearErrorDiv(emailError);
+                clearErrorOnFocus(emailInput, emailError);
                 addDynamicDiv(error.email, emailError, 'divError');
             }
             if (error.phone) {
+                clearErrorDiv(phoneError);
+                clearErrorOnFocus(phoneInput, phoneError);
                 addDynamicDiv(error.phone, phoneError, 'divError');
             }
             if (error.passportUrl) {
+                clearErrorDiv(passportError);
+                clearErrorOnFocus(passportUrlInput, passportError);
                 addDynamicDiv(error.passportUrl, passportError, 'divError');
             }
             if (error.password) {
+                clearErrorDiv(passwordError);
+                clearErrorOnFocus(passwordInput, passwordError);
                 addDynamicDiv(error.password, passwordError, 'divError');
             }
         } else {
