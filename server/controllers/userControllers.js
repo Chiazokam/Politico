@@ -44,7 +44,15 @@ class UserController {
                     status: 201,
                     data: [{
                         token,
-                        user: data,
+                        user: {
+                            id: userResponse[0].id,
+                            firstname,
+                            lastname,
+                            othername,
+                            email,
+                            phone,
+                            passportUrl,
+                        },
                     }],
                 });
             }
@@ -84,7 +92,15 @@ class UserController {
                     status: 200,
                     data: [{
                       token,
-                      user: data,
+                      user: {
+                        id: response[0].id,
+                        firstname: response[0].firstname,
+                        lastname: response[0].lastname,
+                        othername: response[0].othername,
+                        email: response[0].email,
+                        phone: response[0].phone,
+                        passportUrl: response[0].passporturl,
+                      },
                     }],
                   });
             }

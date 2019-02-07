@@ -41,9 +41,6 @@ const vote = new VoteController();
 const result = new ResultController();
 const petition = new PetitionController();
 
-router.get('/', (req, res) => res.status(200).send({
-  message: 'Welcome to Politico',
-}));
 
 router.post('/api/v1/auth/signup', validateUser.isSignUpInputInteger,
                                     validateUser.isUserFieldEmpty,
@@ -137,4 +134,8 @@ router.post('/api/v1/petitions', verifyToken,
                                  validatePetition.isPetitionOfficeValid,
                                  validatePetition.doesOfficeExist,
                                  petition.createPetition);
+
+router.get('/api/v1/candidates/:office', validateResult.isParamsInteger,
+                                         verifyToken,
+                                         candidate.getCandidatesByOffice);
 export default router;

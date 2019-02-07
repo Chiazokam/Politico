@@ -197,7 +197,7 @@ header a{
 
 .strip-mend p{
     margin: 0;
-    color: #DCE9BE;;
+    color: #DCE9BE;
     text-align: center;
     padding: 0;
     font-size: 28px;
@@ -551,6 +551,16 @@ form{
 }
 
 /*---------------------------VOTE---------------------------------*/
+.select-candidate{
+    width: 80%;
+    margin-top: 10%;
+    height: 40px;
+    border-radius: 3px;
+    border: 1px solid #2E2633;
+    padding-left: 10px;
+    font-size: 16px;
+}
+
 #vote-office{
     text-align: center;
     height: 100vh;
@@ -652,7 +662,7 @@ form{
 }
 
 .submit-vote button{
-    margin-top: 10px;
+    /* margin-top: 10px; */
 }
 
 .submit-vote{
@@ -968,6 +978,13 @@ form#edit-form{
         margin: 80px 0;
     }
     /*-------------------VOTE---------------------*/
+
+    .select-candidate {
+        width: 80%;
+        font-size: 14px;
+        margin-bottom: 15px;
+    }
+
     .office-vote button{
         padding: 0 10px;
         margin-top: 35px;
@@ -979,6 +996,7 @@ form#edit-form{
     
     .candidate{
         padding: 0 10px;
+        padding-left: 20px;
     }
 
     .title-header{

@@ -16,9 +16,13 @@ document.getElementById('create-party').addEventListener('submit', createParty);
 
   function createParty(e) {
     e.preventDefault();
-    const name = document.getElementById('name').value;
-    const logoUrl = document.getElementById('logo').value;
-    const hqAddress = document.getElementById('address').value;
+    const nameInput = document.getElementById('name');
+    const logoInput = document.getElementById('logo');
+    const hqAddressInput = document.getElementById('address');
+
+    const name = nameInput.value;
+    const logoUrl = logoInput.value;
+    const hqAddress = hqAddressInput.value;
     
 
     fetch(`${urlInUse}/parties`, {
@@ -42,15 +46,22 @@ document.getElementById('create-party').addEventListener('submit', createParty);
         const { error, data } = response;
         if (error) {
             if (error.name) {
+                clearErrorDiv(nameError);
+                clearErrorOnFocus(nameInput, nameError);
                 addDynamicDiv(error.name, nameError, 'divError');
             }
             if (error.logoUrl) {
+                clearErrorDiv(logoError);
+                clearErrorOnFocus(logoInput, logoError);
                 addDynamicDiv(error.logoUrl, logoError, 'divError');
             }
             if (error.hqAddress) {
+                clearErrorDiv(addressError);
+                clearErrorOnFocus(hqAddressInput, addressError);
                 addDynamicDiv(error.hqAddress, addressError, 'divError');
             }
             if (error.message) {
+                clearErrorDiv(otherErrors);
                 addDynamicDiv(error.message, otherErrors, 'divError');
             }
         } else {

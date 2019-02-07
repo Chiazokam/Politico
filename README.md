@@ -11,6 +11,26 @@ These instructions will get you a copy of the project up and running on your loc
 ### Prerequisites
 * Have a text editor (vs-code, atom or sublime text) and
 * Have Postman running on your local
+* Set up postgres on your local with db name as
+
+```
+politico
+
+```
+* Assign the following to created db in the environment file
+
+```
+PASSWORD
+
+USER
+
+DB_PORT
+
+DATABASE
+
+HOST=localhost
+
+```
 
 ### Installing
 
@@ -58,12 +78,12 @@ $ npm start
 ## UI/UX Template
 
 * [Template]
-* https://chiazokam.github.io/Politico/UI/
-* https://chiazokam.github.io/Politico/UI/Admin/adminProfile.html
+* https://chiazokam.github.io/Politico
+* https://chiazokam.github.io/Politico/Admin/adminProfile.html
 
 
 ## API Documentation
-* [Politico](https://politico-voting-app.herokuapp.com/docs)
+* [Politico](https://politico4.docs.apiary.io/)
 
 ## Versioning
 Git-Hub 
