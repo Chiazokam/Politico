@@ -33,6 +33,29 @@ class CandidateController {
             });
         })
     }
+
+    getCandidatesByOffice(req, res) {
+        const { office } = req.params;
+        query.getCandidatesQuery(office)
+        .then((response) => {
+            if (response.length < 1) {
+                return res.status(404).send({
+                  status: 404,
+                  error: 'No Candidates Found',
+                });
+              }
+              return res.status(200).send({
+                status: 200,
+                data: response,
+              });
+        })
+        .catch((error) => {
+            return res.status(500).send({
+              status: 500,
+              error: error.message,
+            });
+          });
+    }
 }
 
 export default CandidateController;

@@ -35,6 +35,15 @@ class CandidateQueries {
     doesPartyExistForOfficeQuery(office, party) {
       return db.any('SELECT * FROM candidates WHERE office = $1 AND party = $2', [office, party]);
   }
+
+  getCandidatesQuery(office) {
+    return db.any(`SELECT candidates.office, users.firstname, users.lastname, offices.name AS officeName, parties.name AS partyName
+      FROM users JOIN candidates
+      ON users.id = candidates.userid
+      JOIN offices ON candidates.office = offices.id
+      JOIN parties ON candidates.party = parties.id
+      WHERE office = $1`, [office]);
+    }
 }
 
 export default CandidateQueries;

@@ -137,4 +137,8 @@ router.post('/api/v1/petitions', verifyToken,
                                  validatePetition.isPetitionOfficeValid,
                                  validatePetition.doesOfficeExist,
                                  petition.createPetition);
+
+router.get('/api/v1/candidates/:office', validateResult.isParamsInteger,
+                                         verifyToken,
+                                         candidate.getCandidatesByOffice);
 export default router;
