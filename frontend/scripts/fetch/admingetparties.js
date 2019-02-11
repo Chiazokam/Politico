@@ -14,8 +14,21 @@
     })
     .then((res) => res.json())
     .then((response) => {
-        const { data } = response;
-        let output = `
+        const { error, data } = response;
+        if (error) {
+            let output = `
+            <div class="card-party title-header">
+                <div class="party-main-admin party-main-parties admin-view-main">${error.message}</div>
+            </div>
+
+            <div class="card-party title-mobile">
+                <div class="party-main admin-view-main">${error.message}</div>
+            </div>
+        `;
+        document.querySelector('.output').innerHTML = output;
+        
+        } else {
+            let output = `
             <div class="card-party title-header">
                 <div class="party-main-admin party-main-parties admin-view-main">Parties</div> 
                 <div class="party-logo">Logo</div> 
@@ -40,6 +53,7 @@
             `
             document.querySelector('.output').innerHTML = output;
         });
+        }
     })
     .catch((error) => console.log(error))
 

@@ -360,7 +360,7 @@ describe ('GET Requests', () => {
         .end((err, res) => {
           expect(res.statusCode).to.equal(404);
           expect(res.body).to.be.an('object');
-          expect(res.body.error).to.equal('Party Not Found');
+          expect(res.body.error.message).to.equal('Party Not Found');
           if (err) { return done(err); }
           done();
         });
