@@ -12,15 +12,30 @@ fetch(`${urlInUse}/offices`, {
 })
 .then((res) => res.json())
 .then((response) => {
-    const { data } = response;
-    let output = `
-     <div class="card-party title-header">
-                        <div class="office-main">Office</div> 
-                        <div class="office-vote office-vote-flex">
-                            <div class="candidate-party">Office Type</div>
-                        </div> 
-                    </div> 
-    `;
+    const { error, data } = response;
+    if (error) {
+        let output = `
+        <div class="card-party title-header">
+            <div class="office-main">${error.message}</div>
+            </div> 
+        </div> 
+        <div class="card-party title-mobile">
+            <div class="party-main admin-view-main">${error.message}</div>
+        </div>
+        `;
+        document.querySelector('.output').innerHTML = output;
+    } else {
+        let output = `
+        <div class="card-party title-header">
+            <div class="office-main">Office</div> 
+            <div class="office-vote office-vote-flex">
+            <div class="candidate-party">Office Type</div>
+            </div> 
+        </div> 
+        <div class="card-party title-mobile">
+            <div class="party-main admin-view-main">Offices</div>
+        </div>
+        `;
 
     data.forEach((office) => {
         output += `
@@ -37,6 +52,7 @@ fetch(`${urlInUse}/offices`, {
         `;
         document.querySelector('.output').innerHTML = output;
     })
+    }
 })
 .catch((error) => console.log(error))
 

@@ -308,7 +308,7 @@ describe('POST Requests', () => {
             console.log(res.error)
             expect(res.statusCode).to.equal(400);
             expect(res.body).to.be.an('object');
-            expect(res.body.error.phone).to.equal('Wrong phone number format');
+            expect(res.body.error.phone).to.equal('Wrong phone number format: should be +xxx-xxxxxxxxxx');
           if (err) { return done(err); }
           done();
           });
@@ -369,7 +369,7 @@ describe('POST Requests', () => {
           .end((err, res) => {
             expect(res.statusCode).to.equal(400);
             expect(res.body).to.be.an('object');
-            expect(res.body.error).to.equal('Email or password is incorrect');
+            expect(res.body.error.message).to.equal('Email or password is incorrect');
           if (err) { return done(err); }
           done();
           });

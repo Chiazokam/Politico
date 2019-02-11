@@ -55,6 +55,7 @@ document.getElementById('createOffice').addEventListener('submit', createOffice)
                 addDynamicDiv(error.message, otherErrors, 'divError');
             }
         } else {
+            clearErrorDiv(otherErrors)
             addDynamicDiv('Office Created Successfully', otherErrors, 'divSuccess');
             input.value = '';
             select.value = 'Select Office Type';

@@ -50,7 +50,7 @@ class OfficeController {
         if (response.length < 1) {
           return res.status(404).send({
             status: 404,
-            error: 'No Offices Found',
+            error: { message: 'No Offices Found' },
           });
         }
         return res.status(200).send({
@@ -73,7 +73,7 @@ class OfficeController {
         if (response.length === 0) {
           return res.status(404).send({
             status: 404,
-            error: 'Office Not Found',
+            error: { message: 'Office Not Found' },
           });
         }
         const data = {

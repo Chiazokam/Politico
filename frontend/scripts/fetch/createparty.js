@@ -65,6 +65,7 @@ document.getElementById('create-party').addEventListener('submit', createParty);
                 addDynamicDiv(error.message, otherErrors, 'divError');
             }
         } else {
+            clearErrorDiv(otherErrors)
             addDynamicDiv('Party Created Successfully', otherErrors, 'divSuccess');
             textarea.value = '';
             input.forEach((field) => {
