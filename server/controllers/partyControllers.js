@@ -54,7 +54,7 @@ class PartyController {
         if (response.length < 1) {
           return res.status(404).send({
             status: 404,
-            error: 'No Parties Found',
+            error: { message: 'No Parties Found' },
           });
         }
         return res.status(200).send({
@@ -77,7 +77,7 @@ class PartyController {
         if (response.length === 0) {
           return res.status(404).send({
             status: 404,
-            error: 'Party Not Found',
+            error: { message: 'Party Not Found' },
           });
         }
         const data = {

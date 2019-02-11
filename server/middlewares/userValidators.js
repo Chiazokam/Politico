@@ -159,7 +159,7 @@ class UserValidators {
         } else {
             return res.status(400).send({
               status: 400,
-              error: { phone: 'Wrong phone number format' },
+              error: { phone: 'Wrong phone number format: should be +xxx-xxxxxxxxxx' },
             });
           }
     }

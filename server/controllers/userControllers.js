@@ -106,7 +106,7 @@ class UserController {
             }
             return res.status(400).send({
                 status: 400,
-                error: 'Email or password is incorrect',
+                error: { message: 'Email or password is incorrect' },
               });
         })
         .catch((error) => {
