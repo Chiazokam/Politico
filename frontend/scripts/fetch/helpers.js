@@ -6,7 +6,7 @@
 const localUrl = 'http://localhost:3000/api/v1';
 const herokuUrl = 'https://politico-voting-app.herokuapp.com/api/v1';
 
-const urlInUse = localUrl;
+const urlInUse = herokuUrl;
 
 document.querySelector('.logout').addEventListener('click', logOut);
 

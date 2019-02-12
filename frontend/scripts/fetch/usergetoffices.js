@@ -55,23 +55,3 @@ fetch(`${urlInUse}/offices`, {
     }
 })
 .catch((error) => console.log(error))
-
-
-function getCandidates(office) {
-    fetch(`${urlInUse}/candidates/${office}`, {
-        headers: {
-            token,
-        },
-    })
-    .then((res) => res.json())
-    .then((response) => {
-        const { data } = response;
-        let selectOutput = ``;
-        data.forEach((eachdata) => {
-            if (eachdata === undefined) {
-                console.log('No candidates for this office')
-            }
-            return eachdata
-        })
-    })
-}
