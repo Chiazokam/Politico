@@ -37,7 +37,7 @@ class CandidateQueries {
   }
 
   getCandidatesQuery(office) {
-    return db.any(`SELECT candidates.office, users.firstname, users.lastname, offices.name AS officeName, parties.name AS partyName
+    return db.any(`SELECT candidates.id, candidates.office, users.firstname, users.lastname, offices.name AS officeName, parties.name AS partyName
       FROM users JOIN candidates
       ON users.id = candidates.userid
       JOIN offices ON candidates.office = offices.id

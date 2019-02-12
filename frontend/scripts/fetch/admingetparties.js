@@ -51,7 +51,7 @@
                 <div class="party-logo"><img src="${party.logourl}"></div> 
             </div> 
             `
-            document.querySelector('.output').innerHTML = output;
+            document.querySelector('.output').innerHTML = output; 
         });
         }
     })
