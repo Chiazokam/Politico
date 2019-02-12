@@ -21,6 +21,7 @@ class CandidateController {
                     status: 201,
                     data: [{
                         office,
+                        party,
                         user: userId,
                     }],
                 });

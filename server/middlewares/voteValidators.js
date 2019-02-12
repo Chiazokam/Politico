@@ -35,7 +35,7 @@ class VoteValidators {
             if (response <= 0) {
                 return res.status(404).send({
                     status: 404,
-                    error: 'User Not Found',
+                    error: { message: 'User Not Found' },
                 });
             }
             next();
@@ -55,7 +55,7 @@ class VoteValidators {
             if (response <= 0) {
                 return res.status(404).send({
                     status: 404,
-                    error: 'Office Not Found',
+                    error: { office: 'Office Not Found' },
                 });
             }
             next();
@@ -75,7 +75,7 @@ class VoteValidators {
             if (response <= 0) {
                 return res.status(404).send({
                     status: 404,
-                    error: 'Candidate Not Found',
+                    error: { candidate: 'Candidate Not Found' },
                 });
             }
             next();
@@ -96,7 +96,7 @@ class VoteValidators {
             if (response.length > 0) {
                 return res.status(409).send({
                     status: 409,
-                    error: 'You cannot vote twice for this office',
+                    error: { message: 'You cannot vote twice for this office' },
                 });
             }
             next();

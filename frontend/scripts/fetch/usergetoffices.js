@@ -41,7 +41,7 @@ fetch(`${urlInUse}/offices`, {
         output += `
         <div class="card-party vote-card-party">
         <div class="office-main">
-            <p><span class="title-span">${office.name}</span></p>
+            <p><span class="title-span">Office of the ${office.name}</span></p>
             
         </div> 
         <div class="office-vote office-vote-flex">

@@ -149,7 +149,7 @@ describe('POST Requests', () => {
             .end((err, res) => {
                 expect(res.statusCode).to.equal(404);
                 expect(res.body).to.be.an('object');
-                expect(res.body.error).to.equal('Office Not Found');
+                expect(res.body.error.office).to.equal('Office Not Found');
             if (err) { return done(err); }
             done();
             });
@@ -244,7 +244,7 @@ describe('POST Requests', () => {
             .end((err, res) => {
                 expect(res.statusCode).to.equal(409);
                 expect(res.body).to.be.an('object');
-                expect(res.body.error).to.equal('You cannot vote twice for this office');
+                expect(res.body.error.message).to.equal('You cannot vote twice for this office');
             if (err) { return done(err); }
             done();
             });
