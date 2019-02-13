@@ -75,9 +75,10 @@ $ npm start
 * [Node Package Manager](https://www.npmjs.com/) - Dependency Management
 * [Mocha](https://mochajs.org/) - Testing framework
 
-## UI/UX Template
+## Heroku
+* https://politico-voting-app.herokuapp.com/
 
-* [Template]
+## UI/UX Template
 * https://chiazokam.github.io/Politico
 * https://chiazokam.github.io/Politico/Admin/adminProfile.html
 
