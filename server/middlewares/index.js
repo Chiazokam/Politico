@@ -13,6 +13,7 @@ import CandidateValidators from './candidateValidators';
 import VoteValidators from './voteValidators';
 import ResultValidators from './resultValidators';
 import PetitionValidators from './petitionValidators';
+import InterestValidators from './interestValidators';
 
 
 export { PartyValidators,
@@ -23,4 +24,5 @@ export { PartyValidators,
          CandidateValidators,
          VoteValidators,
          ResultValidators,
-         PetitionValidators };
+         PetitionValidators,
+         InterestValidators };

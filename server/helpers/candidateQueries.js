@@ -7,19 +7,19 @@
 import db from '../models/db';
 
 class CandidateQueries {
-    doesUserIdExistQuery(id) {
+  doesUserIdExistQuery(id) {
         return db.any('SELECT id FROM users WHERE id = $1', [id]);
       }
 
-    doesOfficeIdExistQuery(office) {
+  doesOfficeIdExistQuery(office) {
         return db.any('SELECT id FROM offices WHERE id = $1', [office]);
       }
 
-    doesPartyIdExistQuery(party) {
+  doesPartyIdExistQuery(party) {
         return db.any('SELECT id FROM parties WHERE id = $1', [party]);
       }
 
-    createCandidateQuery(office, party, userId) {
+  createCandidateQuery(office, party, userId) {
         return db.any(`INSERT INTO candidates(office, party, userId)
           VALUES($1, $2, $3) RETURNING *`, [
             office,
@@ -28,11 +28,15 @@ class CandidateQueries {
           ]);
     }
 
-    doesCandidateExistQuery(id) {
+  doesCandidateExistQuery(id) {
         return db.any('SELECT * FROM candidates WHERE userid = $1', [id]);
     }
+    
+  doesInterestExistQuery(id) {
+      return db.any('SELECT * FROM interests WHERE userid = $1', [id]);
+  }
 
-    doesPartyExistForOfficeQuery(office, party) {
+  doesPartyExistForOfficeQuery(office, party) {
       return db.any('SELECT * FROM candidates WHERE office = $1 AND party = $2', [office, party]);
   }
 
@@ -43,6 +47,21 @@ class CandidateQueries {
       JOIN offices ON candidates.office = offices.id
       JOIN parties ON candidates.party = parties.id
       WHERE office = $1`, [office]);
+    }
+
+  createInterestQuery(office, party, userId) {
+      return db.any(`INSERT INTO interests(office, party, userId)
+        VALUES($1, $2, $3) RETURNING *`, [
+          office,
+          party,
+          userId,
+        ]);
+  }
+
+  getInterestedUsersQuery() {
+    return db.any(`SELECT interests.id, interests.userid, users.firstname, users.lastname, interests.party, interests.office
+    FROM interests JOIN users
+    ON interests.userid = users.id`);
     }
 }
 

@@ -14,6 +14,7 @@ const dropTables = async () => {
         DROP TABLE IF EXISTS users CASCADE;
         DROP TABLE IF EXISTS parties CASCADE;
         DROP TABLE IF EXISTS offices CASCADE;
+        DROP TABLE IF EXISTS interests CASCADE;
         DROP TABLE IF EXISTS candidates CASCADE;
         DROP TABLE IF EXISTS votes;
         DROP TABLE IF EXISTS petitions;

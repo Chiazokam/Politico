@@ -131,7 +131,7 @@ describe('POST Requests', () => {
             .end((err, res) => {
                 expect(res.statusCode).to.equal(404);
                 expect(res.body).to.be.an('object');
-                expect(res.body.error).to.equal('User Not Found');
+                expect(res.body.error.message).to.equal('User Not Found');
             if (err) { return done(err); }
             done();
             });
@@ -150,7 +150,7 @@ describe('POST Requests', () => {
             .end((err, res) => {
                 expect(res.statusCode).to.equal(404);
                 expect(res.body).to.be.an('object');
-                expect(res.body.error).to.equal('Office Not Found');
+                expect(res.body.error.office).to.equal('Office Not Found');
             if (err) { return done(err); }
             done();
             });
@@ -169,7 +169,7 @@ describe('POST Requests', () => {
             .end((err, res) => {
                 expect(res.statusCode).to.equal(404);
                 expect(res.body).to.be.an('object');
-                expect(res.body.error).to.equal('Party Not Found');
+                expect(res.body.error.party).to.equal('Party Not Found');
             if (err) { return done(err); }
             done();
             });
@@ -264,7 +264,7 @@ describe('POST Requests', () => {
             .end((err, res) => {
                 expect(res.statusCode).to.equal(409);
                 expect(res.body).to.be.an('object');
-                expect(res.body.error).to.equal('Candidate Already Exists');
+                expect(res.body.error.message).to.equal('Candidate Already Exists');
             if (err) { return done(err); }
             done();
             });
