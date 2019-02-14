@@ -3,13 +3,10 @@
 /* eslint-disable indent */
 /* eslint-disable class-methods-use-this */
 
-import dotenv from 'dotenv';
-dotenv.config();
+const localUrl = 'http://localhost:3000/api/v1';
+const herokuUrl = 'https://politico-voting-app.herokuapp.com/api/v1';
 
-// const localUrl = 'http://localhost:3000/api/v1';
-// const herokuUrl = 'https://politico-voting-app.herokuapp.com/api/v1';
-
-const urlInUse = process.env.URL;
+const urlInUse = localUrl;
 
 document.querySelector('.logout').addEventListener('click', logOut);
 

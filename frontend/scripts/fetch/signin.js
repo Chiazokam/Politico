@@ -53,8 +53,10 @@ document.getElementById('signin').addEventListener('submit', signIn);
                 addDynamicDiv(error.message, otherErrors, 'divError');
             }
         } else {
-            const { token } = data[0];
+            const { token, user } = data[0];
+            const { id } = user;
             localStorage.setItem('token', token);
+            localStorage.setItem('id', id);
 
             const base64Url = token.split('.')[1];
             const decode = JSON.parse(window.atob(base64Url));
@@ -66,5 +68,5 @@ document.getElementById('signin').addEventListener('submit', signIn);
             }
         }
     })
-    .catch((error) => console.log(error))
+    .catch((error) => console.log(error)) 
 }

@@ -12,7 +12,8 @@ import { UserValidators,
          CandidateValidators,
          VoteValidators,
          ResultValidators,
-         PetitionValidators } from '../middlewares';
+         PetitionValidators,
+         InterestValidators } from '../middlewares';
 
 import { UserController,
          PartyController,
@@ -32,6 +33,7 @@ const validateCandidate = new CandidateValidators();
 const validateVote = new VoteValidators();
 const validateResult = new ResultValidators();
 const validatePetition = new PetitionValidators();
+const validateInterest = new InterestValidators();
 
 const user = new UserController();
 const party = new PartyController();
@@ -101,6 +103,20 @@ router.delete('/api/v1/parties/:id', validateCandidate.isParamsInteger,
                                     verifyToken,
                                     validateUser.isUserAdmin,
                                     party.deleteParty);
+                         
+router.post('/api/v1/interests', verifyToken,
+                                  validateInterest.isInterestFieldEmpty,
+                                  validateInterest.isUserInputInteger,
+                                  validateInterest.isUserInputValid,
+                                  validateInterest.doesUserIdExist,
+                                  validateInterest.doesInterestExist,
+                                  validateCandidate.doesOfficeIdExist,
+                                  validateCandidate.doesPartyIdExist,
+                                  validateCandidate.doesPartyExistForOffice,
+                                  candidate.createInterest);
+
+router.get('/api/v1/interests', verifyToken,
+                                candidate.getInterestedUsers);
 
 router.post('/api/v1/offices/:id/register', validateCandidate.isParamsInteger,
                                             verifyToken,

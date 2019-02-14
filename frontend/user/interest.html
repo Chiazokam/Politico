@@ -20,7 +20,7 @@
                     </div>
                     <nav class="nav-menu">
                         <ul>
-                            <li><a href="adminProfile.html">Back</a></li>
+                            <li><a href="userProfile.html">Back</a></li>
                             <li class="logout"><a>Logout</a></li>
                         </ul>
                     </nav>
@@ -54,28 +54,22 @@
                                         <button type="button" class="btn btn-submit-modal"><a href="candidate.html">Send</a></button>
                                     </div>
                                 </div>
-                                    <p class="form-text">Create a Candidate</p>
-                                    <form id="create-candidate">
+                                    <p class="form-text">Declare Interest</p>
+                                    <form id="interest">
                                             <div id="error"></div>
                                             <div class="form-field">
-                                                <div id="error-interest"></div>
-                                                <select id="interest-output">
-                                                    <!-- Display interested users -->
-                                                </select>
-                                            </div>
-                                            <div class="form-field">
                                                 <div id="error-office"></div>
-                                                <select id="interest-office">
-                                                    <!-- Display user's office -->
+                                                <select id="office-output">    
+                                                    <!-- display offices -->
                                                 </select>
                                             </div>
                                             <div class="form-field">
                                                 <div id="error-party"></div>
-                                                <select id="interest-party">
-                                                    <!-- Display user's party -->
+                                                <select id="party-output">
+                                                    <!-- display all parties -->
                                                 </select>
                                             </div>
-                                            <input type="submit" class="btn btn-colored btn-signin btn-dark"><a></a></input>
+                                            <input type="submit" class="btn btn-colored btn-signin btn-dark"></input>
                                     </form>
                                 </div>
                     </div>
@@ -87,9 +81,8 @@
                 </div>
             </footer>
             <script src="../scripts/main.js"></script>
-            <script src="../scripts/candidate.js"></script>
             <script src="../scripts/fetch/helpers.js"></script>
-            <script src="../scripts/fetch/candidate.js"></script>
+            <script src="../scripts/fetch/interest.js"></script>
         </body>
     </html>
         

@@ -38,6 +38,13 @@ const createTables = async () => {
         createdOn TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     );
 
+    CREATE TABLE IF NOT EXISTS interests( 
+        id SERIAL PRIMARY KEY,
+        office INT REFERENCES offices(id) ON DELETE CASCADE,
+        party INT REFERENCES parties(id) ON DELETE CASCADE,
+        userId INT REFERENCES users(id) ON DELETE CASCADE
+    );
+
     CREATE TABLE IF NOT EXISTS candidates( 
         id SERIAL PRIMARY KEY,
         office INT REFERENCES offices(id) ON DELETE CASCADE,

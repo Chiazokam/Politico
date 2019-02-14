@@ -32,10 +32,10 @@ class CandidateValidators {
         const userId = req.params.id;
         query.doesUserIdExistQuery(userId)
         .then((response) => {
-            if(response <= 0) {
+            if (response <= 0) {
                 return res.status(404).send({
                     status: 404,
-                    error: 'User Not Found',
+                    error: { message: 'User Not Found' },
                 });
             }
             next();
@@ -55,7 +55,7 @@ class CandidateValidators {
             if (response <= 0) {
                 return res.status(404).send({
                     status: 404,
-                    error: 'Office Not Found',
+                    error: { office: 'Office Not Found' },
                 });
             }
             next();
@@ -75,7 +75,7 @@ class CandidateValidators {
             if (response <= 0) {
                 return res.status(404).send({
                     status: 404,
-                    error: 'Party Not Found',
+                    error: { party: 'Party Not Found' },
                 });
             }
             next();
@@ -136,7 +136,7 @@ class CandidateValidators {
             if (response.length > 0) {
                 return res.status(409).send({
                     status: 409,
-                    error: 'Candidate Already Exists',
+                    error: { message: 'Candidate Already Exists' },
                 });
             }
             next();
@@ -156,7 +156,7 @@ class CandidateValidators {
             if (response.length > 0) {
                 return res.status(409).send({
                     status: 409,
-                    error: 'You cannot have two candidates for one office',
+                    error: { message: 'You cannot have two candidates from one party for one office' },
                 });
             }
             next();
