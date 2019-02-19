@@ -15,7 +15,7 @@ setTimeout(() => {
     
   let id;
 
-  displayDeleteModal.forEach((modal) => {
+  displayDeleteModal.forEach((modal) => { 
     modal.addEventListener('click', function(e) {
     id = e.target.attributes.key.value;
     deleteModal.style.display = 'block'

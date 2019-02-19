@@ -12,7 +12,13 @@ class ResultQueries {
       }
 
     getResultQuery(office) {
-        return db.any('SELECT office, candidate, count(candidate) as results FROM votes where office = $1 GROUP BY candidate, office', [office]);
+        return db.any(`SELECT votes.office, users.firstname, users.lastname, parties.name as party, count(candidate) as votes
+        FROM votes, candidates, users, parties
+        WHERE votes.candidate = candidates.id
+        AND candidates.userid = users.id
+        AND candidates.party = parties.id
+        AND votes.office = $1
+        GROUP BY votes.office, votes.candidate, users.firstname, users.lastname, parties.name`, [office]);
       }   
 }
 
