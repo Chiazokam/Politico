@@ -139,6 +139,10 @@ router.post('/api/v1/votes', verifyToken,
                              validateVote.doesOfficeIdExist,
                              validateVote.doesCandidateIdExist,
                              vote.createVote);
+                            
+router.get('/api/v1/office/:id/votes', validateCandidate.isParamsInteger,
+                                       verifyToken,
+                                       vote.getVotes);
 
 router.get('/api/v1/office/:office/result', validateResult.isParamsInteger,
                                               verifyToken,

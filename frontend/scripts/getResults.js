@@ -23,9 +23,20 @@ setTimeout(() => {
         })
         .then((res) => res.json())
         .then((response) => {
-            const { data } = response;
-            let output = ``;
-            data.forEach((result) => {
+            const { error, data } = response;
+            if (error) {
+                let output = '';
+                output += `
+                <div class="result">
+                    <div class="result-candidate">
+                        <p>${error.message}</p>
+                    </div>
+                </div>
+                `;
+                document.querySelector('.result-output').innerHTML = output;
+            } else {
+                let output = '';
+                data.forEach((result) => {
                 output += `
                 <div class="result">
                     <div class="result-candidate">
@@ -37,11 +48,11 @@ setTimeout(() => {
                     <div class="result-votes">
                         <p>${result.votes} Vote(s)</p>
                     </div>
-            </div>
+                </div>
                 `;
                 document.querySelector('.result-output').innerHTML = output;
-            })
-
+                })
+            }
         })
 
       resultModal.style.display = 'block'

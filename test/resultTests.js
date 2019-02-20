@@ -62,7 +62,7 @@ describe ('GET Requests', () => {
         .end((err, res) => {
             expect(res.statusCode).to.equal(404);
             expect(res.body).to.be.an('object');
-            expect(res.body.error).to.equal('No Results for this office Found');
+            expect(res.body.error.message).to.equal('No Results for this office Found');
           if (err) { return done(err); }
           done();
         });
