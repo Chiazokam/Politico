@@ -22,6 +22,9 @@
                         <ul>
                             <li><a href="vote.html">Vote</a></li>
                             <li><a href="interest.html">Run for an office</a></li>
+                            <span class="output"> 
+                                <!-- Display Create Petition link -->
+                            </span>
                             <li class="logout"><a>Logout</a></li>
                         </ul>
                     </nav>
@@ -34,6 +37,32 @@
 
                     <div id="main-profile">
                         <div class="container">
+                                <div class="modal-petition">
+                                        <div class="createPetition-modal">
+                                            <p>Create A Petition</p>
+
+                                            <form id="petition-form">
+                                                <div id="error"></div>
+                                                <div class="form-field createPetition">
+                                                    <div id="error-office"></div>
+                                                    <select class="office-output">
+                                                        <!-- Display offices -->
+                                                    </select>
+                                                </div>
+                                                <div class="form-field createPetition">
+                                                    <div id="error-text"></div>
+                                                    <textarea rows="8" class="petition-textarea"></textarea>
+                                                </div>
+                                                <div class="form-field createPetition">
+                                                    <div id="error-evidence"></div>
+                                                    <input type="text" placeholder="Image Url" class="evidence">
+                                                </div>
+                                                <button type="button" class="btn btn-cancel-modal cancel-petition">Cancel</button>
+                                                <input type="submit" class="btn btn-submit-modal"><a></a></input>
+                                            </form>
+                                            
+                                        </div>
+                                    </div>
                         </div> 
                         <div class="flex-container">
                                 <div class="card">
@@ -57,8 +86,9 @@
                 </div>
             </footer>
         <script src="../scripts/main.js"></script>
-        <script src="../scripts/user.js"></script>
+        <script src="../scripts/candidate.js"></script>
         <script src="../scripts/fetch/helpers.js"></script>
+        <script src="../scripts/fetch/createPetition.js"></script>
         </body>
     </html>
         

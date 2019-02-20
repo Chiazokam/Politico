@@ -103,6 +103,32 @@ class CandidateController {
             });
           });
     }
+
+    confirmUserCandidacy(req, res) {
+        const { id } = req.params;
+        query.confirmUserCandidacyQuery(id)
+        .then((response) => {
+            if (response.length < 1) {
+                return res.status(404).send({
+                  status: 404,
+                  error: { message: 'You have to be a Candidate' },
+                });
+              }
+              return res.status(200).send({
+                status: 200,
+                data: {
+                    id: response[0].id,
+                    candidate: true,
+                },
+              });
+        })
+        .catch((error) => {
+            return res.status(500).send({
+              status: 500,
+              error: error.message,
+            });
+          });
+    }
 }
 
 export default CandidateController;

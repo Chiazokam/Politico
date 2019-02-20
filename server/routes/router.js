@@ -130,6 +130,10 @@ router.post('/api/v1/offices/:id/register', validateCandidate.isParamsInteger,
                                             validateCandidate.doesPartyExistForOffice,
                                             candidate.createCandidate);
 
+router.get('/api/v1/candidates/:id/user', validateCandidate.isParamsInteger,
+                                     verifyToken,
+                                     candidate.confirmUserCandidacy);
+
 router.post('/api/v1/votes', verifyToken,
                              validateVote.isVoteInputInteger,
                              validateVote.isVoteFieldEmpty,

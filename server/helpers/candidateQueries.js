@@ -63,6 +63,10 @@ class CandidateQueries {
     FROM interests JOIN users
     ON interests.userid = users.id`);
     }
+
+  confirmUserCandidacyQuery(id) {
+      return db.any('SELECT * FROM candidates WHERE userid = $1', [id]);
+  }
 }
 
 export default CandidateQueries;

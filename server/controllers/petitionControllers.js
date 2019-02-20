@@ -26,7 +26,7 @@ class PetitionController {
                 id: response[0].id,
                 office: response[0].office,
                 createdBy: response[0].createdBy,
-                text: response[0].createdBy,
+                text: response[0].text,
                 evidence: response[0].evidence,
             };
             return res.status(201).send({
