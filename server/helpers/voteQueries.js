@@ -31,6 +31,16 @@ class VoteQueries {
     doesVoterExistForOfficeQuery(office, voter) {
         return db.any('SELECT * FROM votes WHERE office = $1 AND voter = $2', [office, voter]);
     }
+
+    getVotesQuery(id) {
+      return db.any(`SELECT offices.name as office, users.firstname, users.lastname, parties.name as party
+      FROM votes, offices, candidates, users, parties
+      WHERE votes.office = offices.id
+      AND votes.candidate = candidates.id
+      AND candidates.userid = users.id
+      AND candidates.party = parties.id
+      AND votes.voter = $1`, [id]);
+    }
 }
 
 export default VoteQueries;

@@ -70,9 +70,6 @@ function declareInterest(e) {
 
     const office = officeDisplay.value;
     const party = partyDisplay.value;
-    console.log(office)
-    console.log(party)
-    console.log(id)
 
     fetch(`${urlInUse}/interests`, {
         method: 'POST',
@@ -92,7 +89,6 @@ function declareInterest(e) {
     .then((res) => res.json())
     .then((response) => {
         const { error, data } = response;
-        console.log(response)
         if (error) {
             if (error.office) {
                 clearErrorDiv(officeError);

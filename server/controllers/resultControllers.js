@@ -18,7 +18,7 @@ class ResultController {
             if (response.length < 1) {
                 return res.status(404).send({
                   status: 404,
-                  error: 'No Results for this office Found',
+                  error: { message: 'No Results for this office Found' },
                 });
               }
             return res.status(200).send({

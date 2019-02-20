@@ -34,6 +34,29 @@ class VoteController {
             });
         });
     }
+
+    getVotes(req, res) {
+        const { id } = req.params;
+        query.getVotesQuery(id)
+        .then((response) => {
+            if (response.length < 1) {
+                return res.status(404).send({
+                    status: 404,
+                    error: { message: 'You have no votes yet' },
+                })
+            }
+            return res.status(200).send({
+                status: 200,
+                data: response,
+            })
+        })
+        .catch((error) => {
+            return res.status(500).send({
+                status: 500,
+                error: error.message,
+            });
+        })
+    }
 }
 
 export default VoteController;

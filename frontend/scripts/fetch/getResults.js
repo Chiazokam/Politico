@@ -47,11 +47,3 @@ fetch(`${urlInUse}/offices`, {
     }
 })
 .catch((error) => console.log(error))
-
-function displayResults(id) {
-    fetch(`${urlInUse}/offices`, {
-        headers: {
-            token,
-        },
-    })
-}
