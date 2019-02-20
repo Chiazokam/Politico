@@ -74,7 +74,7 @@ class PetitionValidators {
             if (response <= 0) {
                 return res.status(404).send({
                     status: 404,
-                    error: 'Office Not Found',
+                    error: { message: 'Office Not Found' },
                 });
             }
             next();
@@ -95,7 +95,7 @@ class PetitionValidators {
         } else {
           return res.status(400).send({
             status: 400,
-            error: 'Wrong Image format',
+            error: { evidence: 'Wrong Image format' },
           });
         }
       }
